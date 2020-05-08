@@ -1,53 +1,51 @@
 <template lang="pug">
     section.page
-      vue-scroll-snap(:fullscreen='true')
-        header.hero.item
-          img.hero__logo(src='~@/assets/images/logo-color.svg')
-          a(href='').chevron-down
-            img(src='~@/assets/images/icons/chevron-down.svg')
-        article.info-section.info-section__guacamaya.item
-          .info-section__icon
-            img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
-          .info-section__media
-          .info-section__text
-            .info-section__content
-              p.info-section__animal-sound Moo
-              h3.info-section__title Invierte
-              p.info-section__description
-                | Reducimos tu spread hasta un
-                br
-                | 25% ¡Comieza Ya!
-              button.info-section__button Saber más #[img.info-section__button-icon(src='~@/assets/images/icons/small-arrow.svg')]
-          a(href='').chevron-down
-            img(src='~@/assets/images/icons/chevron-down.svg')
+      //- vue-scroll-snap(:fullscreen='true')
+      header.hero.item
+        img.hero__logo(src='~@/assets/images/logo-color.svg')
+        a(href='').chevron-down
+          img(src='~@/assets/images/icons/chevron-down.svg')
+      article.info-section.info-section__guacamaya.item
+        .info-section__icon
+          img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
+        .info-section__media
+        .info-section__text
+          .info-section__content
+            p.info-section__animal-sound Moo
+            h3.info-section__title Invierte
+            p.info-section__description
+              | Reducimos tu spread hasta un
+              br
+              | 25% ¡Comieza Ya!
+            button.info-section__button Saber más #[img.info-section__button-icon(src='~@/assets/images/icons/small-arrow.svg')]
+        a(href='').chevron-down
+          img(src='~@/assets/images/icons/chevron-down.svg')
 
-        article.info-section.info-section__tortuga.item
-          .info-section__icon
-            img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
+      article.info-section.info-section__tortuga.item
+        .info-section__icon
+          img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
-          .info-section__text.backwards
-            .info-section__content
-              p.info-section__animal-sound Akk
-              h3.info-section__title Aprende
-              p.info-section__description
-                | Comienza tu carrera
-                br
-                | como trader
-              button.info-section__button Saber más #[img.info-section__button-icon(src='~@/assets/images/icons/small-arrow.svg')]
+        .info-section__text.backwards
+          .info-section__content
+            p.info-section__animal-sound Akk
+            h3.info-section__title Aprende
+            p.info-section__description
+              | Comienza tu carrera
+              br
+              | como trader
+            button.info-section__button Saber más #[img.info-section__button-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
-          .info-section__media
-          a(href='').chevron-down
-            img(src='~@/assets/images/icons/chevron-down.svg')
+        .info-section__media
+        a(href='').chevron-down
+          img(src='~@/assets/images/icons/chevron-down.svg')
 
 
 
 </template>
 
 <script>
-import VueScrollSnap from 'vue-scroll-snap'
 
 export default {
-  components: {VueScrollSnap},
   name: 'home'
 }
 </script>
