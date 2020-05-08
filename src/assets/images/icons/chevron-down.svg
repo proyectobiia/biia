@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46.674" height="21.739" viewBox="0 0 46.674 21.739">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#fff}
+        </style>
+    </defs>
+    <g id="prefix__flecha" transform="translate(.337 .369)">
+        <path id="prefix__Línea_1" d="M23 21L0 0" class="prefix__cls-1" data-name="Línea 1"/>
+        <path id="prefix__Línea_2" d="M0 21L23 0" class="prefix__cls-1" data-name="Línea 2" transform="translate(23)"/>
+    </g>
+</svg>

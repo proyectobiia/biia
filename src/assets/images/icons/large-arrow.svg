@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51.384" height="12.64" viewBox="0 0 51.384 12.64">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:none;stroke:#fff}
+        </style>
+    </defs>
+    <g id="prefix__FLECHA" transform="translate(0 .32)">
+        <path id="prefix__Línea_9" d="M0 0L50 0" class="prefix__cls-1" data-name="Línea 9" transform="translate(0 6)"/>
+        <path id="prefix__Línea_10" d="M0 0L5 6" class="prefix__cls-1" data-name="Línea 10" transform="translate(46)"/>
+        <path id="prefix__Línea_11" d="M0 6L5 0" class="prefix__cls-1" data-name="Línea 11" transform="translate(46 6)"/>
+    </g>
+</svg>
