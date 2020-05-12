@@ -1,0 +1,88 @@
+<template lang="pug">
+  .black-card
+    .black-card__top
+      //- img.black-card__img(:src="'../assets/images/graphs/' + image")
+      img.black-card__img(:src="getImagePath(image)")
+
+    .black-card__content
+      h4.black-card__title {{title}}
+      p.black-card__description {{description}}
+
+
+</template>
+
+<script>
+
+  export default {
+    name: 'black-card',
+    props: {
+      image: String,
+      title: String,
+      description: String,
+    },
+    methods: {
+      getImagePath(image) {
+        return image ? require(`../../assets/images/graphs/${image}`) : ''
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  @import '~@/assets/styles/base/_fonts';
+
+  @import '~@/assets/styles/utils/_colors';
+  @import '~@/assets/styles/utils/_mixins';
+
+  @import '~@/assets/styles/components/_button';
+
+  .black-card {
+    width: 280px;
+    & + .black-card {
+      margin-left: 64px;
+    }
+  }
+  .black-card__top {
+    width: 150px;
+    height: 150px;
+    border-radius: 30px;
+    box-shadow: 0 15px 6px 0 rgba(black, 0.16);
+    background: $dark;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .black-card__img {
+    display: block;
+    max-width: 100%;
+    padding: 20px;
+  }
+  .black-card__content {
+    width: 280px;
+    height: 280px;
+    border-radius: 40px;
+    box-shadow: 0 20px 15px 0 rgba(black, 0.3);
+    background-image: linear-gradient(to bottom, $dark, $slate-grey);
+    padding: 35px 15px;
+    padding-top: 97px;
+    margin-top: -50px;
+    color: white;
+    text-align: center;
+  }
+  .black-card__title {
+    font-family: 'Soleil';
+    font-size: 18px;
+    line-height: 1.28;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  .black-card__description {
+    font-family: 'AvenirBook';
+    font-size: 14px;
+    line-height: 1.43;
+    letter-spacing: 1.4px;
+    margin-top: 20px;
+  }
+
+
+</style>

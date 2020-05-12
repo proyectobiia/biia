@@ -1,0 +1,102 @@
+<template lang="pug">
+  footer.footer
+    a.btn-scrolltop(href='#', @click.prevent='scrollToTop') Scroll to top
+    a.btn-whatsapp(href='#')
+      img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')
+    .footer-content
+      .footer-text
+        img.footer-logo(src='~@/assets/images/logo-white.svg')
+        p.footer-terms Aviso de privacidad / Términos y condiciones
+        p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
+</template>
+
+<script>
+
+  export default {
+    name: 'footer',
+    methods: {
+      scrollToTop() {
+        window.scrollTo(0,0);
+      }
+    }
+  }
+</script>
+
+<style lang="scss" scoped>
+  @import '~@/assets/styles/base/_fonts';
+
+  @import '~@/assets/styles/utils/_colors';
+  @import '~@/assets/styles/utils/_mixins';
+
+  @import '~@/assets/styles/components/_button';
+
+  .footer {
+    padding: 34px 36px 50px 35px;
+    background: rgba($dark, 0.8);
+    height: 450px;
+    position: relative;
+  }
+
+  .btn-scrolltop {
+    font-family: 'Soleil';
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    &:hover {
+      &:before {
+        bottom: -16px;
+      }
+    }
+    &:before {
+      content: '';
+      height: 3px;
+      position: absolute;
+      bottom: -19px;
+      background: $turquoise;
+      width: 115px;
+      transition: 0.2s ease-out all;
+    }
+  }
+
+  .btn-whatsapp {
+    position: absolute;
+    right: 70px;
+    top: -50px;
+    transition: 0.2s ease-out all;
+    &:hover {
+      transform: rotate(-5deg);
+    }
+  }
+  .btn-whatsapp__icon  {
+    width: 120px;
+  }
+
+  .footer-content {
+    @include isFlex(flex-end, center);
+    height: 100%;
+  }
+  .footer-text {
+    text-align: center;
+  }
+  .footer-logo {
+    width: 120px;
+  }
+  .footer-terms {
+    font-family: 'Soleil';
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    color: white;
+    margin-top: 80px;
+  }
+  .footer-rights {
+    font-family: 'Soleil';
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+
+</style>
