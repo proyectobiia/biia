@@ -1,11 +1,11 @@
 <template lang="pug">
   footer.footer
-    a.btn-scrolltop(href='#', @click.prevent='scrollToTop') Scroll to top
+    a.btn-scrolltop(href='#hero', v-smooth-scroll) Scroll to top
     a.btn-whatsapp(href='#')
       img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')
     .footer-content
       .footer-text
-        img.footer-logo(src='~@/assets/images/logo-white.svg')
+        img.footer-logo(src='~@/assets/images/logo-reducido.svg')
         p.footer-terms Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
 </template>
@@ -13,7 +13,7 @@
 <script>
 
   export default {
-    name: 'footer',
+    name: 'custom-footer',
     methods: {
       scrollToTop() {
         window.scrollTo(0,0);

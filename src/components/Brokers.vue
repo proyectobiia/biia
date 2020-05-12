@@ -1,60 +1,61 @@
 <template lang="pug">
-    section.page
-      navbar
+  section.page
+    //- Navbar
+    navbar
 
-      //- Guacamaya
-      article.info-section.info-section__guacamaya.item
-        .info-section__icon
-          img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
-        .info-section__media
-        .info-section__info
-          .info-section__content
-            p.info-section__animal-sound Moo
-            h3.info-section__content-title Invierte
-            p.info-section__content-description Es relacionado con el tiempo y las alteraciones de la actividad alrededor del día . En BIIA las alteraciones del mercado las puedes aprovechar en conjunto con los de los mejores brokers a nivel mundial.
+    //- Hero
+    hero(
+      animal='guacamaya.png',
+      bg-color='rgba(0,191,181, 1.0)',
+      bg-image='brokers.jpg',
+      animal-sound='Moo',
+      title='Invierte',
+      description='Es relacionado con el tiempo y las alteraciones de la actividad alrededor del día . En BIIA las alteraciones del mercado las puedes aprovechar en conjunto con los de los mejores brokers a nivel mundial.',
+    )
 
-
-      //- Features
-      article.info-section.features.black-cards
-        .features-list.black-cards__list
-          black-card(
-            image='graph1.svg',
-            title='Acciones',
-            description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión'
-          )
-          black-card(
-            image='graph2.svg',
-            title='Opciones',
-            description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitaleS.'
-          )
-          black-card(
-            image='graph3.svg',
-            title="ETF'S",
-            description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.'
-          )
-          black-card(
-            image='graph4.svg',
-            title='Forex',
-            description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.'
-            )
-
-
+    //- Features
+    article.info-section.features.black-cards
+      .features-list.black-cards__list
+        black-card(
+          image='brokers/multibank.svg',
+          title='Multibank',
+          description='Conecta a Latinoamérica con los mercados globales.'
+        )
+        black-card(
+          image='brokers/pepperstone.svg',
+          title='Pepperstone',
+          description='Opere con un bróker galardonado de Forex y CFDs.'
+        )
+        black-card(
+          image='brokers/questrade.svg',
+          title="Questrade",
+          description='There’s a new world of investing where the fees are low and you come first.'
+        )
+        black-card(
+          image='brokers/roboforex.svg',
+          title='Roboforex',
+          description='Trade EURUSD, GBPUSD, USDJPY on competitive conditions.'
+        )
 </template>
 
 <script>
-  import Navbar from '@/components/Nav'
+  import Navbar from '@/components/common/Nav'
+  import Hero from '@/components/common/Hero'
   import BlackCard from '@/components/common/BlackCard'
 
   export default {
     name: 'home',
     components: {
       Navbar,
+      Hero,
       BlackCard,
     },
   }
 </script>
 
 <style lang="scss" scoped>
+
+  // Imports
   @import '~@/assets/styles/base/_fonts';
 
   @import '~@/assets/styles/utils/_colors';

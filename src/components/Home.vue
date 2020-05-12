@@ -1,13 +1,23 @@
 <template lang="pug">
     section.page
       //- vue-scroll-snap(:fullscreen='true')
-      header.hero.item
+      header.hero.item#hero
         img.hero__logo(src='~@/assets/images/logo-color.svg')
-        a(href='').chevron-down
+        a(href='#brokers' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Guacamaya
-      article.info-section.info-section__guacamaya.item
+      article.info-section.info-section__guacamaya.item#brokers
+        //- Internal Nav
+        nav.internal-nav
+          ul.internal-nav__ul
+            li.internal-nav__li.internal-nav__li-logo
+              a.internal-nav__a(href='#') ¿Quiénes somos?
+            li.internal-nav__li
+              a.internal-nav__a(href='#') Brokers
+            li.internal-nav__li
+              a.internal-nav__a(href='#') Aprende
+
         .info-section__icon
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
         .info-section__media
@@ -19,7 +29,7 @@
               | Reducimos tu spread hasta un
               br
               | 25% ¡Comieza Ya!
-            button.info-section__content-button.btn-whiteopacity Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
         a(href='').chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
@@ -36,7 +46,7 @@
               | Comienza tu carrera
               br
               | como trader
-            button.info-section__content-button.btn-whiteopacity Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
         .info-section__media
         a(href='').chevron-down
@@ -49,29 +59,28 @@
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
           .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
           .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
-        button.info-section__textonly-btn.btn-turquoise.btn-large Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
-
+        router-link.info-section__textonly-btn.btn-turquoise.btn-large(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
 
       //- Features
       article.info-section.features.black-cards
         .features-list.black-cards__list
           black-card(
-            image='graph1.svg',
+            image='graphs/graph1.svg',
             title='Acciones',
-            description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión'
+            description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión.'
           )
           black-card(
-            image='graph2.svg',
+            image='graphs/graph2.svg',
             title='Opciones',
-            description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitaleS.'
+            description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitales.'
           )
           black-card(
-            image='graph3.svg',
+            image='graphs/graph3.svg',
             title="ETF'S",
             description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.'
           )
           black-card(
-            image='graph4.svg',
+            image='graphs/graph4.svg',
             title='Forex',
             description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.'
             )
@@ -119,6 +128,37 @@
     right: 0;
     margin: 0 auto;
     text-align: center;
+  }
+
+  // Internal nav
+  .internal-nav {
+    position: absolute;
+    top: 30px;
+    padding: 0 50px;
+    z-index: 2;
+    width: 100%;
+  }
+  .internal-nav__ul {
+    @include isFlex(center, space-between);
+  }
+  .internal-nav__li {
+    & + .internal-nav__li {
+      margin-left: 50px;
+    }
+  }
+  .internal-nav__li-logo {
+    margin-right: auto;
+  }
+  .internal-nav__a {
+    font-family: 'Soleil';
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    padding: 0 10px 5px 10px;
+    border-bottom: 1px solid transparent;
+    &:hover {
+      border-color: white;
+    }
   }
 
   // Section
@@ -245,6 +285,7 @@
 
   // Info section text only
   .info-section__title {
+    font-family: 'Soleil';
     font-size: 20px;
     text-transform: uppercase;
     line-height: 1.25;

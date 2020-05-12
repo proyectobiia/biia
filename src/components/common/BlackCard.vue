@@ -1,5 +1,5 @@
 <template lang="pug">
-  .black-card
+  button.black-card(@click.prevent='openLink(link)', :class='{"no-link": link === undefined}')
     .black-card__top
       //- img.black-card__img(:src="'../assets/images/graphs/' + image")
       img.black-card__img(:src="getImagePath(image)")
@@ -19,10 +19,16 @@
       image: String,
       title: String,
       description: String,
+      link: String,
     },
     methods: {
-      getImagePath(image) {
-        return image ? require(`../../assets/images/graphs/${image}`) : ''
+      openLink(l) {
+        if (l === undefined) return false
+        window.open(l, '_blank')
+      },
+
+      getImagePath(i) {
+        return i ? require(`../../assets/images/${i}`) : ''
       }
     }
   }
@@ -37,9 +43,18 @@
   @import '~@/assets/styles/components/_button';
 
   .black-card {
+    display: block;
     width: 280px;
+    transition: 0.2s ease-out all;
+    cursor: pointer;
     & + .black-card {
       margin-left: 64px;
+    }
+    &:hover {
+      transform: translateY(4px);
+    }
+    &.no-link {
+      cursor: default;
     }
   }
   .black-card__top {
