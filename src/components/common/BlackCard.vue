@@ -47,6 +47,10 @@
     width: 280px;
     transition: 0.2s ease-out all;
     cursor: pointer;
+
+    // Carousel
+    padding: 40px 0;
+    margin: 0 auto;
     & + .black-card {
       margin-left: 64px;
     }

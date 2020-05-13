@@ -15,33 +15,48 @@
 
     //- Features
     article.info-section.features.black-cards
-      .features-list.black-cards__list
-        black-card(
-          image='brokers/multibank.svg',
-          title='Multibank',
-          description='Conecta a Latinoamérica con los mercados globales.'
+      carousel.features-list.black-cards__list(
+          :perPageCustom='[[0, 1], [640, 2], [900, 3], [1150, 4]]',
+          :autoplay='true',
+          :paginationSize='30'
         )
-        black-card(
-          image='brokers/pepperstone.svg',
-          title='Pepperstone',
-          description='Opere con un bróker galardonado de Forex y CFDs.'
-        )
-        black-card(
-          image='brokers/questrade.svg',
-          title="Questrade",
-          description='There’s a new world of investing where the fees are low and you come first.'
-        )
-        black-card(
-          image='brokers/roboforex.svg',
-          title='Roboforex',
-          description='Trade EURUSD, GBPUSD, USDJPY on competitive conditions.'
-        )
+        slide
+          black-card(
+            image='brokers/multibank.svg',
+            title='Multibank',
+            description='Conecta a Latinoamérica con los mercados globales.',
+            link='http://multibanklatam.com/account/live-account?ibName=333117650&company_id=6'
+          )
+        slide
+          black-card(
+            image='brokers/pepperstone.svg',
+            title='Pepperstone',
+            description='Opere con un bróker galardonado de Forex y CFDs.',
+            link='http://trk.pepperstonepartners.com/aff_c?offer_id=345&aff_id=8440&_ga=2.72861079.566400822.1588012184-824571381.1587143961'
+          )
+        slide
+          black-card(
+            image='brokers/questrade.svg',
+            title="Questrade",
+            description='There’s a new world of investing where the fees are low and you come first.',
+            link='http://www.questrade.com/?refid=5e7ff4d9511fb'
+          )
+        slide
+          black-card(
+            image='brokers/roboforex.svg',
+            title='Roboforex',
+            description='Trade EURUSD, GBPUSD, USDJPY on competitive conditions.',
+            link='https://my.roboforex.com/en/?a=ztaa'
+          )
 </template>
 
 <script>
+
+  // Components
   import Navbar from '@/components/common/Nav'
   import Hero from '@/components/common/Hero'
   import BlackCard from '@/components/common/BlackCard'
+  import { Carousel, Slide } from 'vue-carousel'
 
   export default {
     name: 'home',
@@ -49,6 +64,8 @@
       Navbar,
       Hero,
       BlackCard,
+      Carousel,
+      Slide,
     },
   }
 </script>
@@ -236,6 +253,16 @@
 
   // Features
   .features-list {
-    @include isFlex(center, space-between, row, nowrap);
+    width: 1366px;
+    margin: 0 auto;
+  }
+
+  /*
+    Responsive
+  */
+  @media screen and(max-width: 1300px) {
+    .features-list {
+      width: 100vw;
+    }
   }
 </style>

@@ -68,38 +68,52 @@
 
       //- Features
       article.info-section.features.black-cards
-        .features-list.black-cards__list
-          black-card(
-            image='graphs/graph1.svg',
-            title='Acciones',
-            description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión.'
-          )
-          black-card(
-            image='graphs/graph2.svg',
-            title='Opciones',
-            description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitales.'
-          )
-          black-card(
-            image='graphs/graph3.svg',
-            title="ETF'S",
-            description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.'
-          )
-          black-card(
-            image='graphs/graph4.svg',
-            title='Forex',
-            description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.'
+        carousel.features-list.black-cards__list(
+          :perPageCustom='[[0, 1], [640, 2], [900, 3], [1150, 4]]',
+          :autoplay='true',
+          :paginationSize='30'
+        )
+          slide
+            black-card(
+              image='graphs/graph1.svg',
+              title='Acciones',
+              description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión.'
+            )
+          slide
+            black-card(
+              image='graphs/graph2.svg',
+              title='Opciones',
+              description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitales.'
+            )
+          slide
+            black-card(
+              image='graphs/graph3.svg',
+              title="ETF'S",
+              description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.'
+            )
+          slide
+            black-card(
+              image='graphs/graph4.svg',
+              title='Forex',
+              description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.'
             )
 
 
 </template>
 
 <script>
+
+  // Components
   import BlackCard from '@/components/common/BlackCard'
+  import { Carousel, Slide } from 'vue-carousel'
+
 
   export default {
     name: 'home',
     components: {
       BlackCard,
+      Carousel,
+      Slide,
     },
   }
 </script>
@@ -338,12 +352,19 @@
 
   // Features
   .features-list {
-    @include isFlex(center, space-between, row, nowrap);
+    width: 1366px;
+    margin: 0 auto;
+    // @include isFlex(center, space-between, row, nowrap);
   }
 
   /*
     Responsive
   */
+  @media screen and(max-width: 1300px) {
+    .features-list {
+      width: 100vw;
+    }
+  }
   @media screen and (max-width: 800px) {
     .info-section {
       flex-direction: column;
@@ -402,6 +423,12 @@
     }
     .info-section__text {
       font-size: 12px;
+    }
+  }
+
+  @media screen and(max-width: 768px) {
+    .internal-nav {
+      display: none;
     }
   }
 </style>
