@@ -7,10 +7,11 @@
     hero(
       animal='guacamaya.png',
       bg-color='rgba(0,191,181, 1.0)',
-      bg-image='brokers.jpg',
+      bg-image='brokers-simple.jpg',
       animal-sound='Moo',
       title='Invierte',
       description='Es relacionado con el tiempo y las alteraciones de la actividad alrededor del día . En BIIA las alteraciones del mercado las puedes aprovechar en conjunto con los de los mejores brokers a nivel mundial.',
+      video='gana.mp4',
     )
 
     //- Features
@@ -84,8 +85,8 @@
   .hero {
     @include isFlex();
     min-height: 100vh;
-    background: url('~@/assets/images/hero/home.jpg') no-repeat center;
-    background-size: cover;
+    // background: url('~@/assets/images/hero/home.jpg') no-repeat center;
+    // background-size: cover;
     position: relative;
   }
   .hero__logo {

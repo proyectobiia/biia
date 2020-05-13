@@ -1,6 +1,8 @@
 <template lang="pug">
   header.hero.item#hero(:style="{backgroundImage: `url(${getBgPath(bgImage)})`}")
     .hero-overlay(:style="{backgroundColor: bgColor}")
+    video.hero__video(v-bind:poster="getBgPath(bgImage)", autoplay, muted, loop)
+      source(:src="getVideoPath(video)", type='video/mp4')
     .hero-animal
       img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
       .hero-content
@@ -20,6 +22,7 @@
       animalSound: String,
       title: String,
       description: String,
+      video: String,
     },
     data() {
       return {
@@ -36,6 +39,10 @@
       }
     },
     methods: {
+      getVideoPath(i) {
+        return i ? require(`../../assets/videos/${i}`) : ''
+      },
+
       getBgPath(i) {
         return i ? require(`../../assets/images/hero/${i}`) : ''
       },
@@ -63,6 +70,12 @@
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
+    overflow: hidden;
+  }
+  .hero__video {
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
   }
   .hero-overlay {
     position: absolute;
