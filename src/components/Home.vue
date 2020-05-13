@@ -23,8 +23,6 @@
 
         //- Internal nav mobile
         .internal-nav__mobile
-          //- input.mobile-nav__checkbox(type='checkbox' id='show-menu')
-          //- label.mobile-nav__label#menu-trigger(for='show-menu')
           .menu__bars(@click='openMobileMenu()')
             span.menu__bar
             span.menu__bar
@@ -238,22 +236,13 @@
     height: 3px;
     background: white;
   }
-  .mobile-nav__label {
-
-  }
   .internal-nav__mobile {
     position: absolute;
     top: 0;
-    padding: 0 50px;
+    padding: 0 15px;
     width: 100%;
     display: none;
     min-height: 100%;
-  }
-  .mobile-nav__checkbox {
-    display: none;
-    // &:checked ~ .mobile-nav {
-    //   right: 0;
-    // }
   }
   .mobile-nav {
     z-index: 3;
