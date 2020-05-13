@@ -21,6 +21,23 @@
             li.internal-nav__li
               a.internal-nav__a(href='#aprende' v-smooth-scroll) Aprende
 
+        //- Internal nav mobile
+        .internal-nav__mobile
+          //- input.mobile-nav__checkbox(type='checkbox' id='show-menu')
+          //- label.mobile-nav__label#menu-trigger(for='show-menu')
+          .menu__bars(@click='openMobileMenu()')
+            span.menu__bar
+            span.menu__bar
+            span.menu__bar
+          transition(name='slide')
+            .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
+              slot
+              ul.mobile-nav__ul
+                li.mobile-nav__li
+                  router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers
+                li.mobile-nav__li
+                  router-link(to='/aprende').mobile-nav__a(@click.stop='') Aprende
+
         .info-section__icon
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
         .info-section__media
@@ -115,6 +132,20 @@
       Carousel,
       Slide,
     },
+    data() {
+      return {
+        mobileMenuOpen: false,
+      }
+    },
+    methods: {
+      openMobileMenu() {
+        this.mobileMenuOpen = true
+      },
+
+      closeMobileMenu() {
+        this.mobileMenuOpen = false
+      },
+    }
   }
 </script>
 
@@ -189,6 +220,79 @@
     &:hover {
       border-color: white;
     }
+  }
+
+  // Mobile nav
+  .menu__bars {
+    @include isFlex(center, space-between, column);
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+    right: 15px;
+    z-index: 3;
+    position: absolute;
+    top: 30px;
+  }
+  .menu__bar {
+    width: 100%;
+    height: 3px;
+    background: white;
+  }
+  .mobile-nav__label {
+
+  }
+  .internal-nav__mobile {
+    position: absolute;
+    top: 0;
+    padding: 0 50px;
+    width: 100%;
+    display: none;
+    min-height: 100%;
+  }
+  .mobile-nav__checkbox {
+    display: none;
+    // &:checked ~ .mobile-nav {
+    //   right: 0;
+    // }
+  }
+  .mobile-nav {
+    z-index: 3;
+    width: 90%;
+    background: $dark;
+    padding: 40px;
+    box-shadow: -15px 3px 25px 0 rgba(0, 0, 0, 0.16);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    transition: 0.2s ease-out all;
+  }
+
+  .mobile-nav__ul {
+    text-align: left;
+  }
+  .mobile-nav__li {
+    & + .mobile-nav__li {
+      margin-top: 30px;
+    }
+  }
+  .mobile-nav__a {
+    font-family: 'AvenirRoman';
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    text-transform: uppercase;
+  }
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: transform 0.2s ease;
+  }
+
+  .slide-enter,
+  .slide-leave-to {
+    transform: translateX(100%);
+    transition: all 0.3 ease-in 0s
   }
 
   // Section
@@ -429,6 +533,9 @@
   @media screen and(max-width: 768px) {
     .internal-nav {
       display: none;
+    }
+    .internal-nav__mobile {
+      display: block;
     }
   }
 </style>
