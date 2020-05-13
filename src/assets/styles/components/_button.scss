@@ -44,5 +44,22 @@ button {
 .btn-icon {
   transition: 0.2s ease-out all;
   margin-left: 22px;
+  vertical-align: middle;
 }
 
+/*
+  Responsive
+*/
+@media screen and (max-width: 800px) {
+  .custom-btn {
+    font-size: 12px;
+    padding: 8px 9px;
+  }
+  .btn-large {
+    width: 100%;
+    font-size: 18px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+  }
+}

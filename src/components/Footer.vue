@@ -75,7 +75,11 @@
 
   .footer-content {
     @include isFlex(flex-end, center);
-    height: 100%;
+    // height: 100%;
+    font-family: 'Soleil';
+    font-size: 18px;
+    letter-spacing: 1.8px;
+    color: white;
   }
   .footer-text {
     text-align: center;
@@ -84,19 +88,34 @@
     width: 120px;
   }
   .footer-terms {
-    font-family: 'Soleil';
-    font-size: 18px;
-    letter-spacing: 1.8px;
-    color: white;
     margin-top: 80px;
   }
   .footer-rights {
-    font-family: 'Soleil';
-    font-size: 18px;
-    letter-spacing: 1.8px;
-    color: white;
     text-transform: uppercase;
     margin-top: 12px;
+  }
+
+  /*
+    Responsive
+  */
+  @media screen and (max-width: 800px) {
+    .footer {
+      padding: 11px 15px;
+      padding-top: 30px;
+    }
+    .btn-scrolltop {
+      font-size: 16px;
+    }
+    .btn-whatsapp {
+      top: -30px;
+      right: 15px;
+    }
+    .btn-whatsapp__icon  {
+      width: 90px;
+    }
+    .footer-content {
+      font-size: 12px;
+    }
   }
 
 </style>

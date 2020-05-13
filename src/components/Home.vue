@@ -2,6 +2,9 @@
     section.page
       //- vue-scroll-snap(:fullscreen='true')
       header.hero.item#hero
+        video.hero__video(poster='~@/assets/images/hero/home.jpg', autoplay, muted, loop)
+          source(src='~@/assets/videos/home.mp4', type='video/mp4')
+
         img.hero__logo(src='~@/assets/images/logo-color.svg')
         a(href='#brokers' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
@@ -12,36 +15,38 @@
         nav.internal-nav
           ul.internal-nav__ul
             li.internal-nav__li.internal-nav__li-logo
-              a.internal-nav__a(href='#') ¿Quiénes somos?
+              a.internal-nav__a(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
             li.internal-nav__li
-              a.internal-nav__a(href='#') Brokers
+              a.internal-nav__a(href='#brokers' v-smooth-scroll) Brokers
             li.internal-nav__li
-              a.internal-nav__a(href='#') Aprende
+              a.internal-nav__a(href='#aprende' v-smooth-scroll) Aprende
 
         .info-section__icon
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
         .info-section__media
         .info-section__info
           .info-section__content
-            p.info-section__animal-sound Moo
-            h3.info-section__content-title Invierte
+            .info-section__content-top
+              p.info-section__animal-sound Moo
+              h3.info-section__content-title Invierte
             p.info-section__content-description
               | Reducimos tu spread hasta un
               br
               | 25% ¡Comieza Ya!
             router-link.info-section__content-button.btn-whiteopacity(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
-        a(href='').chevron-down
+        a(href='#aprende' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Tortuga
-      article.info-section.info-section__tortuga.item
+      article.info-section.info-section__tortuga.item#aprende
         .info-section__icon
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
         .info-section__info.backwards
           .info-section__content
-            p.info-section__animal-sound Akk
-            h3.info-section__content-title Aprende
+            .info-section__content-top
+              p.info-section__animal-sound Akk
+              h3.info-section__content-title Aprende
             p.info-section__content-description
               | Comienza tu carrera
               br
@@ -49,11 +54,11 @@
             router-link.info-section__content-button.btn-whiteopacity(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
         .info-section__media
-        a(href='').chevron-down
+        a(href='#quienes-somos' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- ¿Quienes somos?
-      article.info-section.info-section__textonly
+      article.info-section.info-section__textonly#quienes-somos
         .info-section__title ¿Quiénes somos?
         .info-section__text
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
@@ -111,14 +116,19 @@
   .hero {
     @include isFlex();
     min-height: 100vh;
-    background: url('~@/assets/images/hero/home.jpg') no-repeat center;
-    background-size: cover;
+    //background: url('~@/assets/images/hero/home.jpg') no-repeat center;
+    //background-size: cover;
     position: relative;
+  }
+  .hero__video {
+    position: absolute;
+    // width: 100%;
+    height: 100%;
   }
   .hero__logo {
     display: block;
     z-index: 1;
-    width: 120px;
+    width: 105px;
   }
   .chevron-down {
     position: absolute;
@@ -128,6 +138,12 @@
     right: 0;
     margin: 0 auto;
     text-align: center;
+    transition: 0.2s ease-out all;
+    display: inline-block;
+    width: 46px;
+    &:hover {
+      transform: translateY(3px);
+    }
   }
 
   // Internal nav
@@ -164,6 +180,7 @@
   // Section
   .info-section {
     @include isFlex();
+    flex-wrap: nowrap;
     min-height: 100vh;
     position: relative;
   }
@@ -230,10 +247,17 @@
     align-self: stretch;
   }
   .info-section__info {
+    @include isFlex(center, flex-start);
     flex: 1;
     align-self: stretch;
-    @include isFlex();
+    position: relative;
     &.backwards {
+     justify-content: flex-end;
+      .info-section__content {
+        padding-right: 195px;
+        padding-left: auto;
+      }
+
       text-align: right;
     }
   }
@@ -249,18 +273,20 @@
     right: 0;
     margin: 0 auto;
     z-index: 2;
+    pointer-events: none;
   }
   .info-section__icon-img {
     display: block;
     max-width: 300px;
   }
   .info-section__content {
-    max-width: 365px;
+    min-width: 365px;
     font-weight: 400;
     font-family: 'Soleil';
     text-transform: uppercase;
-    position: relative;
+    position: absolute;
     z-index: 2;
+    padding-left: 195px;
   }
   .info-section__animal-sound {
     font-size: 18px;
@@ -313,5 +339,69 @@
   // Features
   .features-list {
     @include isFlex(center, space-between, row, nowrap);
+  }
+
+  /*
+    Responsive
+  */
+  @media screen and (max-width: 800px) {
+    .info-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    .info-section__guacamaya {
+      .info-section__icon-img {
+        margin-top: -30px;
+        margin-right: -100px;
+      }
+    }
+    .info-section__info {
+      justify-content: center;
+      &.backwards {
+        order: 2;
+        text-align: center;
+        justify-content: center;
+        .info-section__content {
+          padding: 0;
+        }
+      }
+    }
+    .info-section__content {
+      padding: 0;
+    }
+    .info-section__content-top {
+      position: absolute;
+      top: -380px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    .info-section__icon {
+      width: 200px;
+      height: 200px;
+    }
+    .info-section__icon-img {
+      max-width: 230px;
+    }
+    .info-section__animal-sound {
+      font-size: 16px;
+    }
+    .info-section__content-title {
+      font-size: 32px;
+    }
+    .info-section__content-description {
+      font-size: 12px;
+    }
+
+    // Quienes somos
+    .info-section__textonly {
+      padding: 0 30px;
+    }
+    .info-section__title {
+      font-size: 18px;
+    }
+    .info-section__text {
+      font-size: 12px;
+    }
   }
 </style>
