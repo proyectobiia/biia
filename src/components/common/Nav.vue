@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.navbar
+  nav.navbar(:style='{backgroundColor: bgColor, position: position}')
     ul.navbar-ul
       li.navbar-li.navbar-li__logo
         router-link.navbar-a.navbar-a__logo(to='/') Logo
@@ -31,6 +31,7 @@
     name: 'navbar',
     props: {
       bgColor: String,
+      position: String,
     },
     data() {
       return {
@@ -61,7 +62,6 @@
 
   .navbar {
     box-shadow: 0 15px 25px 0 rgba(black, 0.16);
-    background-color: $turquoise;
     height: 160px;
     position: absolute;
     top: 0;

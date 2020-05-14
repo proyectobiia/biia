@@ -2,8 +2,8 @@
     section.page
       //- vue-scroll-snap(:fullscreen='true')
       header.hero.item#hero
-        video.hero__video(poster='~@/assets/images/hero/home.jpg', autoplay, muted, loop)
-          source(src='~@/assets/videos/home.mp4', type='video/mp4')
+        video.hero__video(autoplay, muted, loop)
+          source(src='~@/assets/videos/home.mp4#t=0.1', type='video/mp4')
 
         img.hero__logo(src='~@/assets/images/logo-color.svg')
         a(href='#brokers' v-smooth-scroll).chevron-down
