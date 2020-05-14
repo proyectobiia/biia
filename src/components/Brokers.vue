@@ -1,7 +1,7 @@
 <template lang="pug">
   section.page
     //- Navbar
-    navbar
+    navbar(bgColor='#00bfb5', position='absolute')
 
     //- Hero
     hero(

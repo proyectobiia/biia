@@ -1,8 +1,8 @@
 <template lang="pug">
   header.hero.item#hero(:style="{backgroundImage: `url(${getBgPath(bgImage)})`}")
     .hero-overlay(:style="{backgroundColor: bgColor}")
-    video.hero__video(v-bind:poster="getBgPath(bgImage)", autoplay, muted, loop)
-      source(:src="getVideoPath(video)", type='video/mp4')
+    video.hero__video(autoplay, muted, loop)
+      source(:src="getVideoPath(video)+'#t=0.1'", type='video/mp4')
     .hero-animal
       img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
       .hero-content

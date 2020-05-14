@@ -6,7 +6,8 @@
     .footer-content
       .footer-text
         img.footer-logo(src='~@/assets/images/logo-reducido.svg')
-        p.footer-terms Aviso de privacidad / Términos y condiciones
+        p.footer-terms
+          router-link(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
 </template>
 
@@ -89,6 +90,9 @@
   }
   .footer-terms {
     margin-top: 80px;
+    a {
+      color: white;
+    }
   }
   .footer-rights {
     text-transform: uppercase;
