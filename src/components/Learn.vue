@@ -12,6 +12,7 @@
       title='Aprende',
       description='Es la representación de la experiencia y el conocimiento, En BIIA te brindamos el conocimiento y experiencia de las mejores academias de trading online.',
       video='aprende.mp4',
+      direction='backwards'
     )
 
     //- Features

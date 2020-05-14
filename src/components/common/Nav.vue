@@ -94,9 +94,7 @@
     }
   }
 
-  .router-link-active {
-    border-color: white;
-  }
+
 
   // Mobile
   .menu__bars {
@@ -151,7 +149,13 @@
     letter-spacing: 2px;
     color: white;
     text-transform: uppercase;
+    border-bottom: 1px solid transparent;
   }
+
+  .router-link-active {
+    border-color: white;
+  }
+
   .slide-enter-active,
   .slide-leave-active {
     transition: transform 0.2s ease;

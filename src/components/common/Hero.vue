@@ -2,10 +2,11 @@
   header.hero.item#hero(:style="{backgroundImage: `url(${getBgPath(bgImage)})`}")
     .hero-overlay(:style="{backgroundColor: bgColor}")
     video.hero__video(autoplay, muted, loop)
-      source(:src="getVideoPath(video)+'#t=0.1'", type='video/mp4')
-    .hero-animal
-      img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
-      .hero-content
+      source(:src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
+    .hero-content(:class='"hero-content--"+direction')
+      .hero-animal(:class='"hero-animal--"+direction')
+        img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
+      .hero-info(:class='"hero-info--"+direction')
         p.hero-animalsound {{animalSound}}
         h2.hero-title {{title}}
         p.hero-description {{description}}
@@ -23,6 +24,7 @@
       title: String,
       description: String,
       video: String,
+      direction: String,
     },
     data() {
       return {
@@ -65,6 +67,7 @@
   @import '~@/assets/styles/components/_button';
 
   .hero {
+    @include isFlex();
     min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -86,6 +89,11 @@
     opacity: 0.4;
     z-index: 1;
   }
+  .hero-content {
+    @include isFlex();
+    position: relative;
+    z-index: 2;
+  }
   .hero-animal {
     @include isFlex();
     width: 250px;
@@ -93,24 +101,30 @@
     border-radius: 30px;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.16);
     background: white;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    z-index: 2;
+  }
+  .hero-animal--backwards {
+    order: 2;
   }
   .hero-animal__img {
     display: block;
     max-width: 300px;
   }
-  .hero-content {
+  .hero-info {
     font-family: 'Soleil';
     color: white;
-    width: 350px;
+    max-width: 350px;
+    flex: 1;
+    z-index: 2;
 
     // Variable
-    position: absolute;
-    left: 330px;
+    margin-left: 70px;
+    //position: absolute;
+    //left: 330px;
+  }
+  .hero-info--backwards {
+    text-align: right;
+    margin-left: 0;
+    margin-right: 70px;
   }
   .hero-animalsound {
     font-size: 18px;
@@ -130,5 +144,43 @@
     letter-spacing: 1.8px;
     margin-top: 45px;
     line-height: 1.44;
+  }
+
+  // Responsive
+  @media screen and (max-width: 768px){
+    .hero-content {
+      display: block;
+      text-align: center;
+    }
+    .hero-animal {
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+    .hero-animal__img {
+      max-width: 230px;
+
+    }
+    .hero-info {
+      margin-left: 0;
+      margin-top: 50px;
+      padding: 0 15px;
+    }
+    .hero-info--backwards {
+      text-align: center;
+      margin-right: 0;
+    }
+    .hero-animalsound {
+      font-size: 16px;
+    }
+    .hero-title {
+      font-size: 32px;
+    }
+    .hero-description {
+      font-size: 14px;
+      line-height: 1.43;
+      letter-spacing: 1.4px;
+      margin-top: 22px;
+    }
   }
 </style>

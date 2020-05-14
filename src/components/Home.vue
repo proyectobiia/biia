@@ -324,6 +324,9 @@
     color: white;
     text-transform: uppercase;
   }
+  .router-link-active {
+    border-color: white;
+  }
   .slide-enter-active,
   .slide-leave-active {
     transition: transform 0.2s ease;
