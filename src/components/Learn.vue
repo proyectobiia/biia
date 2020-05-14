@@ -17,6 +17,7 @@
 
     //- Features
     article.info-section.features.black-cards
+      .section-subtitle Aprende de los mejores
       carousel.features-list.black-cards__list.learn-cards(
           :perPageCustom='[[0, 1], [720, 2]]',
           :autoplay='true',
@@ -89,9 +90,20 @@
     text-align: center;
   }
 
+  .section-subtitle {
+    font-family: 'Soleil';
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2.8px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.2s ease-out all;
+  }
+
   // Section
   .info-section {
     @include isFlex();
+    flex-direction: column;
     min-height: 100vh;
     position: relative;
   }
@@ -241,11 +253,21 @@
   .features-list {
     width: 720px;
     margin: 0 auto;
+    margin-top: 110px;
   }
 
   /*
     Responsive
   */
+  @media screen and(max-width: 768px) {
+    .section-subtitle {
+      font-size: 18px;
+    }
+    .features-list {
+      margin-top: 70px;
+    }
+  }
+
   @media screen and(max-width: 720px) {
     .learn-cards {
       width: 100vw;

@@ -16,6 +16,7 @@
 
     //- Features
     article.info-section.features.black-cards
+      .section-subtitle Elige al broker con el que más te adaptes
       carousel.features-list.black-cards__list(
           :perPageCustom='[[0, 1], [640, 2], [900, 3], [1150, 4]]',
           :autoplay='true',
@@ -104,9 +105,20 @@
     text-align: center;
   }
 
+  .section-subtitle {
+    font-family: 'Soleil';
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2.8px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.2s ease-out all;
+  }
+
   // Section
   .info-section {
     @include isFlex();
+    flex-direction: column;
     min-height: 100vh;
     position: relative;
   }
@@ -256,6 +268,7 @@
   .features-list {
     width: 1366px;
     margin: 0 auto;
+    margin-top: 110px;
   }
 
   /*
@@ -264,6 +277,14 @@
   @media screen and(max-width: 1300px) {
     .features-list {
       width: 100vw;
+    }
+  }
+  @media screen and(max-width: 768px) {
+    .section-subtitle {
+      font-size: 18px;
+    }
+    .features-list {
+      margin-top: 70px;
     }
   }
 </style>
