@@ -94,6 +94,10 @@
     }
   }
 
+  .router-link-active {
+    border-color: white;
+  }
+
   // Mobile
   .menu__bars {
     @include isFlex(center, space-between, column);

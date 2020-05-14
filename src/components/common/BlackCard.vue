@@ -69,7 +69,7 @@
     background: $dark;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
   .black-card__img {
     display: block;
@@ -87,6 +87,8 @@
     margin-top: -50px;
     color: white;
     text-align: center;
+    z-index: 1;
+    position: relative;
   }
   .black-card__title {
     font-family: 'Soleil';
