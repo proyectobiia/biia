@@ -12,21 +12,25 @@
       //- Guacamaya
       article.info-section.info-section__guacamaya.item#brokers
         //- Internal Nav
-        nav.internal-nav
+        nav.internal-nav(:class='{ fixed: isMenuFixed }')#internal-nav
           ul.internal-nav__ul
             li.internal-nav__li.internal-nav__li-logo
               a.internal-nav__a(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
             li.internal-nav__li
-              a.internal-nav__a(href='#brokers' v-smooth-scroll) Brokers
+              router-link.internal-nav__a(to='/brokers') Brokers
             li.internal-nav__li
-              a.internal-nav__a(href='#aprende' v-smooth-scroll) Aprende
+              router-link.internal-nav__a(to='/aprende') Aprende
 
         //- Internal nav mobile
-        .internal-nav__mobile
-          .menu__bars(@click='openMobileMenu()')
-            span.menu__bar
-            span.menu__bar
-            span.menu__bar
+        .internal-nav__mobile(:class='{ fixed: isMenuFixed }')
+          .navbar-mobile__ul
+            li.internal-nav__li.internal-nav__li-logo
+              router-link.internal-nav__a(to='/') Logo
+            li.menu__bars(@click='openMobileMenu()')
+              span.menu__bar
+              span.menu__bar
+              span.menu__bar
+
           transition(name='slide')
             .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
               slot
@@ -133,9 +137,29 @@
     data() {
       return {
         mobileMenuOpen: false,
+        isMenuFixed: false,
       }
     },
+    created() {
+      window.addEventListener('scroll', this.checkScrollPosition)
+      window.addEventListener('resize', this.checkScrollPosition)
+    },
+    destroyed: function () {
+      window.removeEventListener('scroll', this.checkScrollPosition)
+      window.addEventListener('resize', this.checkScrollPosition)
+    },
     methods: {
+      checkScrollPosition() {
+        // const menu = this.$el.querySelector('.internal-nav')
+        // console.log(menu)
+        // console.log(window.scrollY)
+
+        if (window.scrollY > window.innerHeight) {
+          this.isMenuFixed = true
+        } else {
+          this.isMenuFixed = false
+        }
+      },
       openMobileMenu() {
         this.mobileMenuOpen = true
       },
@@ -192,10 +216,20 @@
   // Internal nav
   .internal-nav {
     position: absolute;
-    top: 30px;
+    top: 0;
     padding: 0 50px;
     z-index: 2;
     width: 100%;
+    transition: 0.2s ease-out all;
+    height: 80px;
+    line-height: 80px;
+    &.fixed {
+      position: fixed;
+      top: 0;
+      background: $turquoise;
+      z-index: 3;
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+    }
   }
   .internal-nav__ul {
     @include isFlex(center, space-between);
@@ -227,9 +261,7 @@
     height: 40px;
     cursor: pointer;
     right: 15px;
-    z-index: 3;
-    position: absolute;
-    top: 30px;
+    top: 0;
   }
   .menu__bar {
     width: 100%;
@@ -242,7 +274,24 @@
     padding: 0 15px;
     width: 100%;
     display: none;
-    min-height: 100%;
+    height: 80px;
+    right: 0;
+    line-height: 80px;
+    // min-height: 100%;
+    &.fixed {
+      position: fixed;
+      top: 0;
+      background: $turquoise;
+      z-index: 3;
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+    }
+  }
+  .navbar-mobile__ul {
+    @include isFlex(center, space-between);
+    z-index: 3;
+    position: relative;
+    width: 100%;
+
   }
   .mobile-nav {
     z-index: 3;
@@ -252,9 +301,10 @@
     box-shadow: -15px 3px 25px 0 rgba(0, 0, 0, 0.16);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    height: 100%;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     right: 0;
+    top: 0;
     transition: 0.2s ease-out all;
   }
 
@@ -262,6 +312,7 @@
     text-align: left;
   }
   .mobile-nav__li {
+    line-height: 1;
     & + .mobile-nav__li {
       margin-top: 30px;
     }
