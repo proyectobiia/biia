@@ -105,5 +105,27 @@
     margin-top: 20px;
   }
 
+  // Responsive
+  @media screen and (max-width: 768px) {
+    .black-card {
+      width: 210px;
+    }
+    .black-card__top {
+      width: 100px;
+      height: 100px;
+    }
+    .black-card__content {
+      width: 210px;
+      height: 210px;
+    }
+    .black-card__title {
+      font-size: 14px;
+    }
+    .black-card__description {
+      font-size: 12px;
+      line-height: 1.33;
+    }
+  }
+
 
 </style>
