@@ -233,7 +233,7 @@
     &.fixed {
       position: fixed;
       top: 0;
-      background: $turquoise;
+      background: $dark;
       z-index: 3;
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
 
