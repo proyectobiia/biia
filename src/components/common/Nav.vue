@@ -2,7 +2,8 @@
   nav.navbar(:style='{backgroundColor: bgColor, position: position}')
     ul.navbar-ul
       li.navbar-li.navbar-li__logo
-        router-link.navbar-a.navbar-a__logo(to='/') Logo
+        router-link.navbar-a.navbar-a__logo(to='/')
+          img.navbar-a__img(src='~@/assets/images/logo-white.png')
       li.navbar-li
         router-link.navbar-a(to='/brokers') Brokers
       li.navbar-li
@@ -82,6 +83,12 @@
   .navbar-li__logo {
     margin-right: auto;
   }
+  .navbar-a__logo {
+    display: block;
+  }
+  .navbar-a__img {
+    width: 50px;
+  }
   .navbar-a {
     font-family: 'Soleil';
     font-size: 18px;
@@ -152,7 +159,7 @@
     border-bottom: 1px solid transparent;
   }
 
-  .router-link-active {
+  .router-link-active:not(.navbar-a__logo) {
     border-color: white;
   }
 

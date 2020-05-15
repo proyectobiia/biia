@@ -1,8 +1,7 @@
 <template lang="pug">
   button.black-card(@click.prevent='openLink(link)', :class='{"no-link": link === undefined}')
     .black-card__top
-      //- img.black-card__img(:src="'../assets/images/graphs/' + image")
-      img.black-card__img(:src="getImagePath(image)")
+      img.black-card__img(:src="getImagePath(image)", :class='"black-card__img--"+page')
 
     .black-card__content
       h4.black-card__title {{title}}
@@ -20,6 +19,7 @@
       title: String,
       description: String,
       link: String,
+      page: String,
     },
     methods: {
       openLink(l) {
@@ -75,7 +75,9 @@
   .black-card__img {
     display: block;
     max-width: 100%;
-    padding: 20px;
+  }
+  .black-card__img--home {
+    max-width: 60px;
   }
   .black-card__content {
     width: 280px;

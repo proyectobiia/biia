@@ -5,7 +5,7 @@
       img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')
     .footer-content
       .footer-text
-        img.footer-logo(src='~@/assets/images/logo-reducido.svg')
+        img.footer-logo(src='~@/assets/images/logo-white.png')
         p.footer-terms
           router-link(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
@@ -32,6 +32,7 @@
   @import '~@/assets/styles/components/_button';
 
   .footer {
+    @include isFlex(flex-end, center);
     padding: 34px 36px 50px 35px;
     background: rgba($dark, 0.8);
     height: 450px;
@@ -43,7 +44,9 @@
     font-size: 18px;
     letter-spacing: 1.8px;
     color: white;
-    position: relative;
+    position: absolute;
+    top: 34px;
+    left: 35px;
     text-transform: uppercase;
     &:hover {
       &:before {
@@ -86,7 +89,7 @@
     text-align: center;
   }
   .footer-logo {
-    width: 120px;
+    width: 100px;
   }
   .footer-terms {
     margin-top: 80px;
@@ -106,6 +109,7 @@
     .footer {
       padding: 11px 15px;
       padding-top: 30px;
+      height: 350px;
     }
     .btn-scrolltop {
       font-size: 16px;
@@ -119,6 +123,9 @@
     }
     .footer-content {
       font-size: 12px;
+    }
+    .footer-logo {
+      width: 80px;
     }
   }
 

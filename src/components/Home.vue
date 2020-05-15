@@ -15,7 +15,9 @@
         nav.internal-nav(:class='{ fixed: isMenuFixed }')#internal-nav
           ul.internal-nav__ul
             li.internal-nav__li.internal-nav__li-logo
-              a.internal-nav__a(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
+              router-link(to='/')
+                img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
+              a.internal-nav__a.internal-nav__a-whoarewe(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
             li.internal-nav__li
               router-link.internal-nav__a(to='/brokers') Brokers
             li.internal-nav__li
@@ -25,7 +27,8 @@
         .internal-nav__mobile(:class='{ fixed: isMenuFixed }')
           .navbar-mobile__ul
             li.internal-nav__li.internal-nav__li-logo
-              router-link.internal-nav__a(to='/') Logo
+              router-link.internal-nav__a.internal-nav__a-logo(to='/')
+                img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
             li.menu__bars(@click='openMobileMenu()')
               span.menu__bar
               span.menu__bar
@@ -94,27 +97,31 @@
         )
           slide
             black-card(
-              image='graphs/graph1.svg',
+              image='graphs/graph1.png',
               title='Acciones',
-              description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión.'
+              description='Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la informacion para tu portafolio de inversión.',
+              page='home',
             )
           slide
             black-card(
-              image='graphs/graph2.svg',
+              image='graphs/graph2.png',
               title='Opciones',
-              description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitales.'
+              description='Las opciones proveen de una alternativa estrategica para tu capital en donde podras invertir en el mercado de capitales.',
+              page='home',
             )
           slide
             black-card(
-              image='graphs/graph3.svg',
+              image='graphs/graph3.png',
               title="ETF'S",
-              description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.'
+              description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.',
+              page='home',
             )
           slide
             black-card(
-              image='graphs/graph4.svg',
+              image='graphs/graph4.png',
               title='Forex',
-              description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.'
+              description='Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.',
+              page='home',
             )
 
 
@@ -229,10 +236,21 @@
       background: $turquoise;
       z-index: 3;
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+
+      .internal-nav__li-img {
+        width: 40px;
+      }
+      .internal-nav__a {
+        font-size: 16px;
+      }
+      .internal-nav__ul {
+        padding-top: 0;
+      }
     }
   }
   .internal-nav__ul {
     @include isFlex(center, space-between);
+    padding-top: 30px;
   }
   .internal-nav__li {
     & + .internal-nav__li {
@@ -242,6 +260,12 @@
   .internal-nav__li-logo {
     margin-right: auto;
   }
+  .internal-nav__li-img {
+    width: 53px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: 0.2s ease-out all;
+  }
   .internal-nav__a {
     font-family: 'Soleil';
     font-size: 18px;
@@ -249,9 +273,12 @@
     color: white;
     padding: 0 10px 5px 10px;
     border-bottom: 1px solid transparent;
-    &:hover {
+    &:hover:not(.internal-nav__a-logo)  {
       border-color: white;
     }
+  }
+  .internal-nav__a-whoarewe {
+    margin-left: 35px;
   }
 
   // Mobile nav
@@ -324,7 +351,7 @@
     color: white;
     text-transform: uppercase;
   }
-  .router-link-active {
+  .router-link-active:not(.internal-nav__a-logo) {
     border-color: white;
   }
   .slide-enter-active,
