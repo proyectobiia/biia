@@ -37,6 +37,7 @@
           transition(name='slide')
             .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
               slot
+              img.mobile-nav__img(src='~@/assets/images/logo-white.png')
               ul.mobile-nav__ul
                 li.mobile-nav__li
                   router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers
@@ -257,11 +258,12 @@
       margin-left: 50px;
     }
   }
+
   .internal-nav__li-logo {
     margin-right: auto;
   }
   .internal-nav__li-img {
-    width: 53px;
+    width: 35px;
     display: inline-block;
     vertical-align: middle;
     transition: 0.2s ease-out all;
@@ -275,6 +277,9 @@
     border-bottom: 1px solid transparent;
     &:hover:not(.internal-nav__a-logo)  {
       border-color: white;
+    }
+    &.internal-nav__a-logo {
+      padding: 0;
     }
   }
   .internal-nav__a-whoarewe {
@@ -308,7 +313,7 @@
     &.fixed {
       position: fixed;
       top: 0;
-      background: $turquoise;
+      background: $dark;
       z-index: 3;
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
     }
@@ -333,10 +338,14 @@
     right: 0;
     top: 0;
     transition: 0.2s ease-out all;
+    line-height: normal;
   }
-
+  .mobile-nav__img {
+    width: 50px;
+  }
   .mobile-nav__ul {
     text-align: left;
+    margin-top: 45px;
   }
   .mobile-nav__li {
     line-height: 1;
@@ -606,6 +615,16 @@
     }
     .internal-nav__mobile {
       display: block;
+    }
+  }
+
+  @media screen and(max-width: 480px) {
+    .internal-nav__li-img {
+      width: 35px;
+    }
+    .menu__bars {
+      height: 30px;
+      width: 40px;
     }
   }
 </style>

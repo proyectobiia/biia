@@ -2,7 +2,7 @@
   nav.navbar(:style='{backgroundColor: bgColor, position: position}')
     ul.navbar-ul
       li.navbar-li.navbar-li__logo
-        router-link.navbar-a.navbar-a__logo(to='/')
+        router-link.navbar-a__logo.navbar-a(to='/')
           img.navbar-a__img(src='~@/assets/images/logo-white.png')
       li.navbar-li
         router-link.navbar-a(to='/brokers') Brokers
@@ -11,7 +11,8 @@
     .navbar-mobile
       .navbar-mobile__ul
         li.navbar-mobile__li
-          router-link.navbar-a.navbar-a__logo(to='/') Logo
+          router-link.navbar-a.navbar-a__logo(to='/')
+            img.navbar-a__img(src='~@/assets/images/logo-white.png')
         li.menu__bars(@click='openMobileMenu()')
           span.menu__bar
           span.menu__bar
@@ -19,6 +20,7 @@
       transition(name='slide')
         .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
           slot
+          img.mobile-nav__img(src='~@/assets/images/logo-white.png')
           ul.mobile-nav__ul
             li.mobile-nav__li
               router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers
@@ -83,11 +85,11 @@
   .navbar-li__logo {
     margin-right: auto;
   }
-  .navbar-a__logo {
-    display: block;
-  }
+
   .navbar-a__img {
     width: 50px;
+    vertical-align: middle;
+    display: inline-block;
   }
   .navbar-a {
     font-family: 'Soleil';
@@ -98,6 +100,9 @@
     border-bottom: 1px solid transparent;
     &:hover:not(.navbar-a__logo) {
       border-color: white;
+    }
+    &.navbar-a__logo {
+      padding: 0;
     }
   }
 
@@ -119,13 +124,13 @@
   .navbar-mobile {
     // position: absolute;
     // top: 0;
-    padding: 0 15px;
     width: 100%;
     display: none;
-    min-height: 100%;
+    height: 100%;
   }
   .navbar-mobile__ul {
     @include isFlex(center, space-between);
+    height: 100%;
   }
   .mobile-nav {
     z-index: 3;
@@ -142,8 +147,14 @@
     transition: 0.2s ease-out all;
   }
 
+  .mobile-nav__img {
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+  }
   .mobile-nav__ul {
     text-align: left;
+    margin-top: 45px;
   }
   .mobile-nav__li {
     & + .mobile-nav__li {
@@ -176,14 +187,22 @@
 
   @media screen and(max-width: 768px) {
     .navbar {
-      height: 100px;
-      padding: 30px 15px;
+      height: 80px;
+      padding: 0 15px;
     }
     .navbar-ul {
       display: none;
     }
     .navbar-mobile {
       display: block;
+    }
+
+    .navbar-a__img {
+      width: 35px;
+    }
+    .menu__bars {
+      height: 30px;
+      width: 40px;
     }
   }
 </style>
