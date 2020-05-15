@@ -24,28 +24,28 @@
         )
         slide
           black-card(
-            image='brokers/multibank.svg',
+            image='brokers/multibank.png',
             title='Multibank',
             description='Conecta a Latinoamérica con los mercados globales.',
             link='http://multibanklatam.com/account/live-account?ibName=333117650&company_id=6'
           )
         slide
           black-card(
-            image='brokers/pepperstone.svg',
+            image='brokers/pepperstone.png',
             title='Pepperstone',
             description='Opere con un bróker galardonado de Forex y CFDs.',
             link='http://trk.pepperstonepartners.com/aff_c?offer_id=345&aff_id=8440&_ga=2.72861079.566400822.1588012184-824571381.1587143961'
           )
         slide
           black-card(
-            image='brokers/questrade.svg',
+            image='brokers/questrade.png',
             title="Questrade",
             description='There’s a new world of investing where the fees are low and you come first.',
             link='http://www.questrade.com/?refid=5e7ff4d9511fb'
           )
         slide
           black-card(
-            image='brokers/roboforex.svg',
+            image='brokers/roboforex.png',
             title='Roboforex',
             description='Trade EURUSD, GBPUSD, USDJPY on competitive conditions.',
             link='https://my.roboforex.com/en/?a=ztaa'

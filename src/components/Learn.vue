@@ -25,14 +25,14 @@
         )
         slide
           black-card(
-            image='academies/Octopus.svg',
+            image='academies/Octopus.png',
             title='Octopus',
             description='Enfocada al trading en Forex, fundada en 2016.',
             link='https://www.ofxincorporation.com'
           )
         slide
           black-card(
-            image='academies/4xAcademy.svg',
+            image='academies/4xAcademy.png',
             title='4xAcademy',
             description='Desarrolla tus habilidades con el apoyo de profesionales',
             link='https://www.4xacademy.lat'

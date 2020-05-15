@@ -62,6 +62,7 @@
     }
   }
   .black-card__top {
+    @include isFlex();
     width: 150px;
     height: 150px;
     border-radius: 30px;
