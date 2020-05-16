@@ -289,7 +289,7 @@
       margin-top: 70px;
     }
     .info-section {
-      padding: 20px 15px;
+      padding: 30px 15px;
     }
   }
 </style>
