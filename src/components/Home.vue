@@ -10,7 +10,7 @@
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Guacamaya
-      article.info-section.info-section__guacamaya.item#brokers
+      article.info-section.info-section__guacamaya.item.no-padding#brokers
         //- Internal Nav
         nav.internal-nav(:class='{ fixed: isMenuFixed }')#internal-nav
           ul.internal-nav__ul
@@ -61,7 +61,7 @@
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Tortuga
-      article.info-section.info-section__tortuga.item#aprende
+      article.info-section.info-section__tortuga.item.no-padding#aprende
         .info-section__icon
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
@@ -380,6 +380,11 @@
     flex-wrap: nowrap;
     min-height: 100vh;
     position: relative;
+    padding: 30px;
+    min-height: 700px;
+    &.no-padding {
+      padding: 0;
+    }
   }
 
   .info-section__textonly {
@@ -543,6 +548,16 @@
   /*
     Responsive
   */
+
+
+  // Height
+  @media screen and (max-height: 700px) {
+    .hero-content {
+      margin-top: 80px;
+    }
+  }
+
+  // Width
   @media screen and(max-width: 1300px) {
     .features-list {
       width: 100vw;
@@ -615,6 +630,9 @@
     }
     .internal-nav__mobile {
       display: block;
+    }
+    .info-section {
+      padding: 20px 15px;
     }
   }
 

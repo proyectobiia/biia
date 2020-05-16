@@ -93,6 +93,7 @@
     @include isFlex();
     position: relative;
     z-index: 2;
+    transition: 0.2s ease-out all;
   }
   .hero-animal {
     @include isFlex();
@@ -147,7 +148,7 @@
   }
 
   // Responsive
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     .hero-content {
       display: block;
       text-align: center;
@@ -181,6 +182,13 @@
       line-height: 1.43;
       letter-spacing: 1.4px;
       margin-top: 22px;
+    }
+  }
+
+  // Responsive
+  @media screen and (max-height: 700px) {
+    .hero-content {
+      margin-top: 80px;
     }
   }
 </style>
