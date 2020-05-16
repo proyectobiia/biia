@@ -4,15 +4,18 @@
     video.hero__video(autoplay, muted, loop)
       source(:src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
     .hero-content(:class='"hero-content--"+direction')
-      .hero-animal(:class='"hero-animal--"+direction')
+      .hero-animal(:class='"hero-animal--"+direction', data-aos="fade-right")
         img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
-      .hero-info(:class='"hero-info--"+direction')
+      .hero-info(:class='"hero-info--"+direction', data-aos="fade-down")
         p.hero-animalsound {{animalSound}}
         h2.hero-title {{title}}
         p.hero-description {{description}}
 </template>
 
 <script>
+
+  import AOS from 'aos'
+  import 'aos/dist/aos.css'
 
   export default {
     name: 'hero',
@@ -35,6 +38,10 @@
       }
     },
     created() {
+      AOS.init({
+        once: true,
+      })
+
       if (this.animal === 'guacamaya.png') {
         this.animalStyle.marginTop = '-65px'
         this.animalStyle.marginRight = '-125px'
