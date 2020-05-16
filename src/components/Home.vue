@@ -194,6 +194,7 @@
     //background: url('~@/assets/images/hero/home.jpg') no-repeat center;
     //background-size: cover;
     position: relative;
+    background: #03030d;
   }
   .hero__video {
     position: absolute;
