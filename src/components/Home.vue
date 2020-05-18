@@ -382,7 +382,6 @@
     min-height: 100vh;
     position: relative;
     padding: 30px;
-    min-height: 700px;
     &.no-padding {
       padding: 0;
     }
@@ -555,6 +554,7 @@
   @media screen and (max-height: 700px) {
     .hero-content {
       margin-top: 80px;
+      height: 700px;
     }
   }
 

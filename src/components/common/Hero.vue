@@ -4,9 +4,9 @@
     video.hero__video(autoplay, muted, loop)
       source(:src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
     .hero-content(:class='"hero-content--"+direction')
-      .hero-animal(:class='"hero-animal--"+direction', data-aos="fade-right")
+      .hero-animal(:class='"hero-animal--"+direction', data-aos="fade-right" data-aos-delay="500")
         img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
-      .hero-info(:class='"hero-info--"+direction', data-aos="fade-down")
+      .hero-info(:class='"hero-info--"+direction', data-aos="fade-down" data-aos-delay="500")
         p.hero-animalsound {{animalSound}}
         h2.hero-title {{title}}
         p.hero-description {{description}}

@@ -122,7 +122,6 @@
     min-height: 100vh;
     position: relative;
     padding: 30px;
-    min-height: 700px;
   }
 
   .info-section__textonly {
@@ -276,6 +275,12 @@
   /*
     Responsive
   */
+  @media screen and (max-height: 700px) {
+    .features-list {
+      margin-top: 50px;
+    }
+  }
+
   @media screen and(max-width: 1300px) {
     .features-list {
       width: 100vw;

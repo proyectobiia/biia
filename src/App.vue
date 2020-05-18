@@ -24,4 +24,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  // Responsive
+  @media screen and (max-height: 700px) {
+    .info-section {
+      height: 700px;
+    }
+  }
 </style>
