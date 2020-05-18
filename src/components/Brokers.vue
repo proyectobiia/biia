@@ -283,7 +283,7 @@
 
   @media screen and(max-width: 1300px) {
     .features-list {
-      width: 100vw;
+      width: 100%;
     }
   }
   @media screen and(max-width: 768px) {

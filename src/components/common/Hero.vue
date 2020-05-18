@@ -101,6 +101,7 @@
     position: relative;
     z-index: 2;
     transition: 0.2s ease-out all;
+    margin-top: 100px;
   }
   .hero-animal {
     @include isFlex();
@@ -123,11 +124,7 @@
     max-width: 350px;
     flex: 1;
     z-index: 2;
-
-    // Variable
     margin-left: 70px;
-    //position: absolute;
-    //left: 330px;
   }
   .hero-info--backwards {
     text-align: right;
@@ -194,8 +191,11 @@
 
   // Responsive
   @media screen and (max-height: 700px) {
-    .hero-content {
+    .hero {
       height: 700px;
+    }
+    .hero-content {
+      margin-top: 80px;
     }
   }
 </style>

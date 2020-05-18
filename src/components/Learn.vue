@@ -279,7 +279,7 @@
 
   @media screen and(max-width: 720px) {
     .learn-cards {
-      width: 100vw;
+      width: 100%;
     }
   }
 </style>
