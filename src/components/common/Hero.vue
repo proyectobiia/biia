@@ -2,7 +2,7 @@
   header.hero.item#hero(:style="{backgroundImage: `url(${getBgPath(bgImage)})`}")
     .hero-overlay(:style="{backgroundColor: bgColor}")
     video.hero__video(autoplay, muted, loop)
-      source(playsinline='true', webkit-playsinline='true', :src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
+      source(playsinline, webkit-playsinline, :src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
     .hero-content(:class='"hero-content--"+direction')
       .hero-animal(:class='"hero-animal--"+direction', data-aos="fade-right" data-aos-delay="500")
         img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
