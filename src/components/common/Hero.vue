@@ -101,7 +101,6 @@
     position: relative;
     z-index: 2;
     transition: 0.2s ease-out all;
-    min-height: 700px;
   }
   .hero-animal {
     @include isFlex();
@@ -196,7 +195,7 @@
   // Responsive
   @media screen and (max-height: 700px) {
     .hero-content {
-      margin-top: 80px;
+      height: 700px;
     }
   }
 </style>
