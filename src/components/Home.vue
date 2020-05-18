@@ -2,8 +2,8 @@
     section.page
       //- vue-scroll-snap(:fullscreen='true')
       header.hero.item#hero
-        video.hero__video(autoplay, muted, loop)
-          source(src='~@/assets/videos/home.mp4#t=0.1', type='video/mp4')
+        video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded')
+          source(:src='heroVideo', type='video/mp4')
 
         img.hero__logo(src='~@/assets/images/logo-color.svg')
         a(href='#brokers' v-smooth-scroll).chevron-down
@@ -44,11 +44,11 @@
                 li.mobile-nav__li
                   router-link(to='/aprende').mobile-nav__a(@click.stop='') Aprende
 
-        .info-section__icon
+        .info-section__icon(data-aos="fade-right" data-aos-delay="300")
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
         .info-section__media
         .info-section__info
-          .info-section__content
+          .info-section__content(data-aos="fade-down" data-aos-delay="300")
             .info-section__content-top
               p.info-section__animal-sound Moo
               h3.info-section__content-title Invierte
@@ -62,11 +62,11 @@
 
       //- Tortuga
       article.info-section.info-section__tortuga.item.no-padding#aprende
-        .info-section__icon
+        .info-section__icon(data-aos="fade-right" data-aos-delay="300")
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
         .info-section__info.backwards
-          .info-section__content
+          .info-section__content(data-aos="fade-down" data-aos-delay="300")
             .info-section__content-top
               p.info-section__animal-sound Akk
               h3.info-section__content-title Aprende
@@ -131,8 +131,12 @@
 <script>
 
   // Components
+  import AOS from 'aos'
+  import 'aos/dist/aos.css'
   import BlackCard from '@/components/common/BlackCard'
   import { Carousel, Slide } from 'vue-carousel'
+
+  import video from '@/assets/videos/home.mp4'
 
 
   export default {
@@ -146,9 +150,27 @@
       return {
         mobileMenuOpen: false,
         isMenuFixed: false,
+        videoIsLoaded: false,
+        heroVideo: null,
       }
     },
+    mounted() {
+      const _this = this
+
+      this.videoIsLoaded = true
+
+      setTimeout(() => {
+        _this.heroVideo = video
+      }, 1000)
+    },
     created() {
+
+
+
+      AOS.init({
+        once: true,
+      })
+
       window.addEventListener('scroll', this.checkScrollPosition)
       window.addEventListener('resize', this.checkScrollPosition)
     },
@@ -191,10 +213,10 @@
   .hero {
     @include isFlex();
     min-height: 100vh;
-    //background: url('~@/assets/images/hero/home.jpg') no-repeat center;
-    //background-size: cover;
     position: relative;
     background: #03030d;
+    background: url('~@/assets/images/hero/home.jpg') no-repeat center;
+    background-size: cover;
   }
   .hero__video {
     position: absolute;
