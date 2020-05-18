@@ -72,6 +72,7 @@
     z-index: 3;
     width: 100%;
     padding: 50px;
+    transition: 0.2s ease-out all;
   }
   .navbar-ul {
      @include isFlex(center, space-between);
@@ -98,6 +99,7 @@
     color: white;
     padding: 0 10px 5px 10px;
     border-bottom: 1px solid transparent;
+    transition: 0.2s ease-out all;
     &:hover:not(.navbar-a__logo) {
       border-color: white;
     }
@@ -183,6 +185,17 @@
   .slide-leave-to {
     transform: translateX(100%);
     transition: all 0.3 ease-in 0s
+  }
+
+  // Responsive
+   @media screen and(max-width: 1024px) {
+    .navbar {
+      height: 100px;
+      padding: 0 25px;
+    }
+    .navbar-a {
+      font-size: 14px;
+    }
   }
 
   @media screen and(max-width: 768px) {
