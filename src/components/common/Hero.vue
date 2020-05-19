@@ -1,8 +1,8 @@
 <template lang="pug">
   header.hero.item#hero(:style="{backgroundImage: `url(${getBgPath(bgImage)})`}")
     .hero-overlay(:style="{backgroundColor: bgColor}")
-    video.hero__video(autoplay, muted, loop)
-      source(playsinline, webkit-playsinline, :src='getVideoPath(video)+"#t=0.1"', type='video/mp4')
+    video.hero__video(v-if='!isMobile', autoplay, muted, loop)
+      source(playsinline, webkit-playsinline, :src='getVideoPath(video)', type='video/mp4')
     .hero-content(:class='"hero-content--"+direction')
       .hero-animal(:class='"hero-animal--"+direction', data-aos="fade-right" data-aos-delay="500")
         img.hero-animal__img(:src="getImagePath(animal)", :style='animalStyle')
@@ -33,11 +33,15 @@
       return {
         animalStyle: {
           marginTop: '',
-          marginRight: ''
-        }
+          marginRight: '',
+        },
+        firstVideoFrame: '#t=0.1',
+        isMobile: false,
       }
     },
     created() {
+      this.detectIsMobile()
+
       AOS.init({
         once: true,
       })
@@ -46,10 +50,19 @@
         this.animalStyle.marginTop = '-65px'
         this.animalStyle.marginRight = '-125px'
       }
+
+      window.addEventListener('resize', this.detectIsMobile)
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.detectIsMobile)
     },
     methods: {
+      detectIsMobile() {
+        this.isMobile = window.innerWidth < 768 ? true : false
+      },
+
       getVideoPath(i) {
-        return i ? require(`../../assets/videos/${i}`) : ''
+        return i ? require(`../../assets/videos/${i}`) + this.firstVideoFrame : ''
       },
 
       getBgPath(i) {

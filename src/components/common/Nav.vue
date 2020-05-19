@@ -65,13 +65,13 @@
 
   .navbar {
     box-shadow: 0 15px 25px 0 rgba(black, 0.16);
-    height: 160px;
+    height: 140px;
     position: absolute;
     top: 0;
     right: 0;
     z-index: 3;
     width: 100%;
-    padding: 50px;
+    padding: 0 50px;
     transition: 0.2s ease-out all;
   }
   .navbar-ul {

@@ -49,7 +49,7 @@
     },
     destroyed() {
       window.removeEventListener('scroll', this.checkScrollPosition)
-      window.addEventListener('resize', this.checkScrollPosition)
+      window.removeEventListener('resize', this.checkScrollPosition)
     },
     methods: {
       checkScrollPosition() {

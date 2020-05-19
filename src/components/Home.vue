@@ -212,7 +212,7 @@
   // Guacamaya
   .info-section__guacamaya {
     .info-section__media {
-      background: url('~@/assets/images/video-invierte.jpg') no-repeat center;
+      background: url('~@/assets/images/video-frames/video-invierte.jpg') no-repeat center;
       background-size: cover;
       position: relative;
       &:before {
@@ -240,7 +240,7 @@
   // Tortuga
   .info-section__tortuga {
     .info-section__media {
-      background: url('~@/assets/images/video-aprende.jpg') no-repeat center;
+      background: url('~@/assets/images/video-frames/video-aprende.jpg') no-repeat center;
       background-size: cover;
       position: relative;
       &:before {
