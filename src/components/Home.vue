@@ -235,7 +235,7 @@
         this.inMove = true
         this.activeSection--
 
-        if (this.activeSection < 0) this.activeSection = this.offsets.length - 1
+        // if (this.activeSection < 0) this.activeSection = this.offsets.length - 1
 
         this.scrollToSection(this.activeSection, true)
       },
@@ -244,7 +244,7 @@
         this.inMove = true
         this.activeSection++
 
-        if (this.activeSection > this.offsets.length - 1) this.activeSection = 0
+        // if (this.activeSection > this.offsets.length - 1) this.activeSection = 0
 
         this.scrollToSection(this.activeSection, true)
       },
@@ -252,18 +252,27 @@
       scrollToSection(id, force = false) {
         if (this.inMove && !force) return false
 
-        this.activeSection = id
-        this.inMove = true
-        const sectionId = document.querySelectorAll('.fullpage')[id].id
+        if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
-        this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
-        this.showChevron = sectionId !== 'footer' ? true : false
+          this.activeSection = id
+          this.inMove = true
+          const sectionId = document.querySelectorAll('.fullpage')[id].id
 
-        document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
+          this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
+          this.showChevron = sectionId !== 'footer' ? true : false
 
-        setTimeout(() => {
-          this.inMove = false
-        }, 1000)
+          document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
+
+          setTimeout(() => {
+            this.inMove = false
+          }, 1000)
+        } else {
+          setTimeout(() => {
+            this.inMove = false
+          }, 400)
+        }
+
+
       },
 
       touchStart(e) {
