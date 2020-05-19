@@ -11,38 +11,8 @@
 
       //- Guacamaya
       article.info-section.info-section__guacamaya.item.no-padding#brokers
-        //- Internal Nav
-        nav.internal-nav(:class='{ fixed: isMenuFixed }')#internal-nav
-          ul.internal-nav__ul
-            li.internal-nav__li.internal-nav__li-logo
-              router-link(to='/')
-                img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-              a.internal-nav__a.internal-nav__a-whoarewe(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
-            li.internal-nav__li
-              router-link.internal-nav__a(to='/brokers') Brokers
-            li.internal-nav__li
-              router-link.internal-nav__a(to='/aprende') Aprende
-
-        //- Internal nav mobile
-        .internal-nav__mobile(:class='{ fixed: isMenuFixed }')
-          .navbar-mobile__ul
-            li.internal-nav__li.internal-nav__li-logo
-              router-link.internal-nav__a.internal-nav__a-logo(to='/')
-                img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-            li.menu__bars(@click='openMobileMenu()')
-              span.menu__bar
-              span.menu__bar
-              span.menu__bar
-
-          transition(name='slide')
-            .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
-              slot
-              img.mobile-nav__img(src='~@/assets/images/logo-white.png')
-              ul.mobile-nav__ul
-                li.mobile-nav__li
-                  router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers
-                li.mobile-nav__li
-                  router-link(to='/aprende').mobile-nav__a(@click.stop='') Aprende
+        //- Internal nav
+        internal-nav
 
         .info-section__icon(data-aos="fade-right" data-aos-delay="300")
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
@@ -92,7 +62,7 @@
       //- Features
       article.info-section.features.black-cards
         carousel.features-list.black-cards__list(
-          :perPageCustom='[[0, 1], [640, 2], [900, 3], [1150, 4]]',
+          :perPageCustom='[[0, 1], [640, 2], [900, 3], [1250, 4]]',
           :autoplay='true',
           :paginationSize='30'
         )
@@ -130,12 +100,16 @@
 
 <script>
 
-  // Components
+  // Dependencies
   import AOS from 'aos'
   import 'aos/dist/aos.css'
-  import BlackCard from '@/components/common/BlackCard'
   import { Carousel, Slide } from 'vue-carousel'
 
+  // Components
+  import InternalNav from '@/components/common/InternalNav'
+  import BlackCard from '@/components/common/BlackCard'
+
+  // Assets
   import video from '@/assets/videos/home.mp4'
 
 
@@ -143,6 +117,7 @@
     name: 'home',
     components: {
       BlackCard,
+      InternalNav,
       Carousel,
       Slide,
     },
@@ -154,6 +129,11 @@
         heroVideo: null,
       }
     },
+    created() {
+      AOS.init({
+        once: true,
+      })
+    },
     mounted() {
       const _this = this
 
@@ -163,40 +143,9 @@
         _this.heroVideo = video
       }, 1000)
     },
-    created() {
 
-
-
-      AOS.init({
-        once: true,
-      })
-
-      window.addEventListener('scroll', this.checkScrollPosition)
-      window.addEventListener('resize', this.checkScrollPosition)
-    },
-    destroyed: function () {
-      window.removeEventListener('scroll', this.checkScrollPosition)
-      window.addEventListener('resize', this.checkScrollPosition)
-    },
     methods: {
-      checkScrollPosition() {
-        // const menu = this.$el.querySelector('.internal-nav')
-        // console.log(menu)
-        // console.log(window.scrollY)
 
-        if (window.scrollY > window.innerHeight) {
-          this.isMenuFixed = true
-        } else {
-          this.isMenuFixed = false
-        }
-      },
-      openMobileMenu() {
-        this.mobileMenuOpen = true
-      },
-
-      closeMobileMenu() {
-        this.mobileMenuOpen = false
-      },
     }
   }
 </script>
@@ -242,159 +191,6 @@
     &:hover {
       transform: translateY(3px);
     }
-  }
-
-  // Internal nav
-  .internal-nav {
-    position: absolute;
-    top: 0;
-    padding: 0 50px;
-    z-index: 2;
-    width: 100%;
-    transition: 0.2s ease-out all;
-    height: 80px;
-    line-height: 80px;
-    &.fixed {
-      position: fixed;
-      top: 0;
-      background: $dark;
-      z-index: 3;
-      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
-
-      .internal-nav__li-img {
-        width: 40px;
-      }
-      .internal-nav__a {
-        font-size: 16px;
-      }
-      .internal-nav__ul {
-        padding-top: 0;
-      }
-    }
-  }
-  .internal-nav__ul {
-    @include isFlex(center, space-between);
-    padding-top: 30px;
-  }
-  .internal-nav__li {
-    & + .internal-nav__li {
-      margin-left: 50px;
-    }
-  }
-
-  .internal-nav__li-logo {
-    margin-right: auto;
-  }
-  .internal-nav__li-img {
-    width: 35px;
-    display: inline-block;
-    vertical-align: middle;
-    transition: 0.2s ease-out all;
-  }
-  .internal-nav__a {
-    font-family: 'Soleil';
-    font-size: 18px;
-    text-transform: uppercase;
-    color: white;
-    padding: 0 10px 5px 10px;
-    border-bottom: 1px solid transparent;
-    &:hover:not(.internal-nav__a-logo)  {
-      border-color: white;
-    }
-    &.internal-nav__a-logo {
-      padding: 0;
-    }
-  }
-  .internal-nav__a-whoarewe {
-    margin-left: 35px;
-  }
-
-  // Mobile nav
-  .menu__bars {
-    @include isFlex(center, space-between, column);
-    width: 50px;
-    height: 40px;
-    cursor: pointer;
-    right: 15px;
-    top: 0;
-  }
-  .menu__bar {
-    width: 100%;
-    height: 3px;
-    background: white;
-  }
-  .internal-nav__mobile {
-    position: absolute;
-    top: 0;
-    padding: 0 15px;
-    width: 100%;
-    display: none;
-    height: 80px;
-    right: 0;
-    line-height: 80px;
-    // min-height: 100%;
-    &.fixed {
-      position: fixed;
-      top: 0;
-      background: $dark;
-      z-index: 3;
-      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
-    }
-  }
-  .navbar-mobile__ul {
-    @include isFlex(center, space-between);
-    z-index: 3;
-    position: relative;
-    width: 100%;
-
-  }
-  .mobile-nav {
-    z-index: 3;
-    width: 90%;
-    background: $dark;
-    padding: 40px;
-    box-shadow: -15px 3px 25px 0 rgba(0, 0, 0, 0.16);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    top: 0;
-    transition: 0.2s ease-out all;
-    line-height: normal;
-  }
-  .mobile-nav__img {
-    width: 50px;
-  }
-  .mobile-nav__ul {
-    text-align: left;
-    margin-top: 45px;
-  }
-  .mobile-nav__li {
-    line-height: 1;
-    & + .mobile-nav__li {
-      margin-top: 30px;
-    }
-  }
-  .mobile-nav__a {
-    font-family: 'AvenirRoman';
-    font-size: 20px;
-    letter-spacing: 2px;
-    color: white;
-    text-transform: uppercase;
-  }
-  .router-link-active:not(.internal-nav__a-logo) {
-    border-color: white;
-  }
-  .slide-enter-active,
-  .slide-leave-active {
-    transition: transform 0.2s ease;
-  }
-
-  .slide-enter,
-  .slide-leave-to {
-    transform: translateX(100%);
-    transition: all 0.3 ease-in 0s
   }
 
   // Section
@@ -561,10 +357,12 @@
   }
 
   // Features
+  .features {
+    padding: 30px 0;
+  }
   .features-list {
     width: 1366px;
     margin: 0 auto;
-    // @include isFlex(center, space-between, row, nowrap);
   }
 
   /*
@@ -648,24 +446,11 @@
   }
 
   @media screen and(max-width: 768px) {
-    .internal-nav {
-      display: none;
-    }
-    .internal-nav__mobile {
-      display: block;
-    }
     .info-section {
       padding: 30px 15px;
     }
-  }
-
-  @media screen and(max-width: 480px) {
-    .internal-nav__li-img {
-      width: 35px;
-    }
-    .menu__bars {
-      height: 30px;
-      width: 40px;
+    .features {
+      padding: 30px 0;
     }
   }
 </style>

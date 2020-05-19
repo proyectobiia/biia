@@ -1,9 +1,9 @@
 <template lang="pug">
-  button.black-card(@click.prevent='openLink(link)', :class='{"no-link": link === undefined}')
-    .black-card__top
+  button.black-card(@click.prevent='openLink(link)', :class='{"no-link": link === undefined, "black-card--home": page === "home"}')
+    .black-card__top(:class='{"black-card__top--home": page === "home"}')
       img.black-card__img(:src="getImagePath(image)", :class='"black-card__img--"+page')
 
-    .black-card__content
+    .black-card__content(:class='{"black-card__content--home": page === "home"}')
       h4.black-card__title {{title}}
       p.black-card__description {{description}}
 
@@ -71,10 +71,12 @@
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    transition: 0.2s ease-out all;
   }
   .black-card__img {
     display: block;
     max-width: 100%;
+    transition: 0.2s ease-out all;
   }
   .black-card__img--home {
     max-width: 60px;
@@ -109,17 +111,35 @@
   }
 
   // Responsive
-  /* @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     .black-card {
-      width: 210px;
+      width: 200px;
+      &.black-card--home {
+        width: 250px;
+      }
     }
     .black-card__top {
       width: 100px;
       height: 100px;
+      &.black-card__top--home {
+        width: 130px;
+        height: 130px;
+      }
     }
     .black-card__content {
-      width: 210px;
-      height: 210px;
+      width: 200px;
+      height: 200px;
+      padding-top: 70px;
+      &.black-card__content--home {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    .black-card__img {
+      max-width: 80%;
+    }
+    .black-card__img--home {
+      max-width: 45px;
     }
     .black-card__title {
       font-size: 14px;
@@ -128,7 +148,11 @@
       font-size: 12px;
       line-height: 1.33;
     }
-  } */
+    .VueCarousel-dot {
+      width: 20px !important;
+      height: 20px !important;
+    }
+  }
 
 
 </style>
