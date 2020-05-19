@@ -69,7 +69,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 3;
+    z-index: 10;
     width: 100%;
     padding: 0 50px;
     transition: 0.2s ease-out all;
@@ -116,7 +116,7 @@
     width: 50px;
     height: 40px;
     cursor: pointer;
-    z-index: 3;
+    z-index: 10;
   }
   .menu__bar {
     width: 100%;
@@ -135,7 +135,7 @@
     height: 100%;
   }
   .mobile-nav {
-    z-index: 3;
+    z-index: 10;
     width: 90%;
     background: $dark;
     padding: 40px;

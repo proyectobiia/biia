@@ -8630,11 +8630,6 @@ vue-router@^3.1.6:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.1.6.tgz#45f5a3a3843e31702c061dd829393554e4328f89"
   integrity sha512-GYhn2ynaZlysZMkFE5oCHRUTqE8BWs/a9YbKpNLi0i7xD6KG1EzDqpHQmv1F5gXjr8kL5iIVS8EOtRaVUEXTqA==
 
-vue-scroll-snap@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/vue-scroll-snap/-/vue-scroll-snap-0.1.7.tgz#4cbb68ed71fda8bb729d9ecec4b495d4652372b0"
-  integrity sha512-jopquzIaZun71K0iAXJ0BYGa6NB8C/7oQpD3eTEJ/VFtNPIt8LaQDyvZpN4l2oZ+O0kVfr69oXYRZj3YraMSCA==
-
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

@@ -1,11 +1,12 @@
 <template lang="pug">
     section.page
-      //- vue-scroll-snap(:fullscreen='true')
       header.hero.item#hero
-        video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded')
+        .hero__image(v-if='isMobile')
+        video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded && !isMobile')
           source(:src='heroVideo', type='video/mp4')
 
-        img.hero__logo(src='~@/assets/images/logo-color.svg')
+        router-link.hero__logo-link(to='/')
+          img.hero__logo(src='~@/assets/images/logo-color.svg')
         a(href='#brokers' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
@@ -127,25 +128,49 @@
         isMenuFixed: false,
         videoIsLoaded: false,
         heroVideo: null,
+        firstVideoFrame: '#t=0.1',
+        isMobile: false,
       }
     },
     created() {
+      // Mobile detection
+      this.detectIsMobile()
+      window.addEventListener('resize', this.detectIsMobile)
+
+      // Animations
       AOS.init({
         once: true,
       })
+
+      // Load video
+      this.loadVideo()
     },
     mounted() {
-      const _this = this
-
-      this.videoIsLoaded = true
+      /* this.videoIsLoaded = true
 
       setTimeout(() => {
-        _this.heroVideo = video
-      }, 1000)
+        this.heroVideo = video + this.firstVideoFrame
+      }, 1000) */
     },
 
     methods: {
+      // Function: Mobile detection
+      detectIsMobile() {
+        this.isMobile = window.innerWidth < 768 ? true : false
+      },
 
+      // Function: Load video
+      loadVideo() {
+        this.$nextTick(() => {
+          this.heroVideo = video + this.firstVideoFrame
+          this.videoIsLoaded = true
+        })
+      },
+
+      // Function Mobile detection
+      videoLoaded() {
+        console.log('video is loaded')
+      }
     }
   }
 </script>
@@ -158,23 +183,39 @@
 
   @import '~@/assets/styles/components/_button';
 
-
+  .none {
+    display: none !important;
+  }
   .hero {
     @include isFlex();
     min-height: 100vh;
     position: relative;
     background: #03030d;
+    overflow: hidden;
+  }
+  .hero__image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     background: url('~@/assets/images/hero/home.jpg') no-repeat center;
     background-size: cover;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
   .hero__video {
     position: absolute;
-    min-height: 100vh;
-    min-width: 100vw;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .hero__logo-link {
+    z-index: 1;
   }
   .hero__logo {
     display: block;
-    z-index: 1;
     width: 105px;
   }
   .chevron-down {
@@ -200,6 +241,7 @@
     min-height: 100vh;
     position: relative;
     padding: 30px;
+    overflow: hidden;
     &.no-padding {
       padding: 0;
     }

@@ -1,6 +1,5 @@
 <template lang="pug">
   //- Internal Nav
-  //- div.internal-nav__wrapper
   nav.internal-nav
     ul.internal-nav__ul(:class='{ fixed: isMenuFixed }')
       li.internal-nav__li.internal-nav__li-logo
@@ -18,13 +17,13 @@
         li.internal-nav__li.internal-nav__li-logo
           router-link.internal-nav__a.internal-nav__a-logo(to='/')
             img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-        li.menu__bars(@click='openMobileMenu()')
+        li.menu__bars(@click='handleMobileMenu()')
           span.menu__bar
           span.menu__bar
           span.menu__bar
 
       transition(name='slide')
-        .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
+        .mobile-nav(v-if='mobileMenuOpen', @click='handleMobileMenu()')
           slot
           img.mobile-nav__img(src='~@/assets/images/logo-white.png')
           ul.mobile-nav__ul
@@ -52,19 +51,14 @@
       window.removeEventListener('resize', this.checkScrollPosition)
     },
     methods: {
+      // Fn: Get scroll position
       checkScrollPosition() {
-        if (window.scrollY > window.innerHeight) {
-          this.isMenuFixed = true
-        } else {
-          this.isMenuFixed = false
-        }
-      },
-      openMobileMenu() {
-        this.mobileMenuOpen = true
+        this.isMenuFixed = window.scrollY > window.innerHeight ? true : false
       },
 
-      closeMobileMenu() {
-        this.mobileMenuOpen = false
+      // Fn: Handle mobile menu
+      handleMobileMenu() {
+        this.mobileMenuOpen = !this.mobileMenuOpen
       },
     }
   }
