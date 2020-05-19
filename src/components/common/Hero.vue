@@ -50,10 +50,7 @@
       })
 
       // Update style of guacamaya
-      if (this.animal === 'guacamaya.png') {
-        this.animalStyle.marginTop = '-65px'
-        this.animalStyle.marginRight = '-125px'
-      }
+      this.setGuacamayaStyle()
     },
     destroyed() {
       window.removeEventListener('resize', this.detectIsMobile)
@@ -61,7 +58,16 @@
     methods: {
       // Fn: Mobile detection
       detectIsMobile() {
+        this.setGuacamayaStyle()
         this.isMobile = window.innerWidth < 768 ? true : false
+      },
+
+      // Fn: Set Guacamaya specific style
+      setGuacamayaStyle() {
+        if (this.animal === 'guacamaya.png') {
+          this.animalStyle.marginTop = this.isMobile ? '-30px' : '-65px'
+          this.animalStyle.marginRight = this.isMobile ? '-90px' : '-125px'
+        }
       },
 
       // Fn: Get path of the video
