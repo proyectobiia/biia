@@ -1,17 +1,24 @@
 <template lang="pug">
     section.page
-      header.hero.item#hero
+
+      transition(name='slidedown')
+        button(@click='moveUp', v-if='!inMove && showChevron').btn__scrollto
+          svg.btn__scrollto-icon(width='48' height='23' viewBox='0 0 48 23' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(d='M24 22L1 1' :stroke='chevronStyle')
+            path(d='M24 22L47 1' :stroke='chevronStyle')
+
+      header.hero.fullpage#hero
         .hero__image(v-if='isMobile')
         video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded && !isMobile')
           source(:src='heroVideo', type='video/mp4')
 
         router-link.hero__logo-link(to='/')
           img.hero__logo(src='~@/assets/images/logo-color.svg')
-        a(href='#brokers' v-smooth-scroll).chevron-down
+        //- a(href='#brokers' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Guacamaya
-      article.info-section.info-section__guacamaya.item.no-padding#brokers
+      article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
         //- Internal nav
         internal-nav
 
@@ -28,11 +35,11 @@
               br
               | 25% ¡Comieza Ya!
             router-link.info-section__content-button.btn-whiteopacity(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
-        a(href='#aprende' v-smooth-scroll).chevron-down
+        //- a(href='#aprende' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Tortuga
-      article.info-section.info-section__tortuga.item.no-padding#aprende
+      article.info-section.info-section__tortuga.no-padding.fullpage#aprende
         .info-section__icon(data-aos="fade-right" data-aos-delay="300")
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
@@ -48,11 +55,11 @@
             router-link.info-section__content-button.btn-whiteopacity(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
         .info-section__media
-        a(href='#quienes-somos' v-smooth-scroll).chevron-down
+        //- a(href='#quienes-somos' v-smooth-scroll).chevron-down
           img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- ¿Quienes somos?
-      article.info-section.info-section__textonly#quienes-somos
+      article.info-section.info-section__textonly.fullpage#quienes-somos
         .info-section__title ¿Quiénes somos?
         .info-section__text
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
@@ -61,7 +68,7 @@
         router-link.info-section__textonly-btn.btn-turquoise.btn-large(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
 
       //- Features
-      article.info-section.features.black-cards
+      article.info-section.features.black-cards.fullpage#features
         carousel.features-list.black-cards__list(
           :perPageCustom='[[0, 1], [640, 2], [900, 3], [1250, 4]]',
           :autoplay='true',
@@ -130,9 +137,26 @@
         heroVideo: null,
         firstVideoFrame: '#t=0.1',
         isMobile: false,
+        inMove: false,
+        chevronStyle: 'white',
+        showChevron: true,
+        activeSection: 0,
+        offsets: [],
+        touchStartY: 0,
       }
     },
-    created() {
+    mounted() {
+
+      this.calculateSectionOffsets();
+
+      window.addEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
+      window.addEventListener("mousewheel", this.handleMouseWheel, {
+        passive: false
+      }) // Other browsers
+
+      window.addEventListener("touchstart", this.touchStart, { passive: false }) // mobile devices
+      window.addEventListener("touchmove", this.touchMove, { passive: false }) // mobile devices
+
       // Mobile detection
       this.detectIsMobile()
       window.addEventListener('resize', this.detectIsMobile)
@@ -145,12 +169,15 @@
       // Load video
       this.loadVideo()
     },
-    mounted() {
-      /* this.videoIsLoaded = true
+    destroyed() {
+      window.removeEventListener("mousewheel", this.handleMouseWheel, {
+        passive: false
+      }) // Other browsers
+      window.removeEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
 
-      setTimeout(() => {
-        this.heroVideo = video + this.firstVideoFrame
-      }, 1000) */
+      window.removeEventListener("touchstart", this.touchStart) // mobile devices
+      window.removeEventListener("touchmove", this.touchMove) // mobile devices
+      window.removeEventListener('resize', this.detectIsMobile)
     },
 
     methods: {
@@ -170,7 +197,97 @@
       // Function Mobile detection
       videoLoaded() {
         console.log('video is loaded')
+      },
+
+      calculateSectionOffsets() {
+        let sections = document.querySelectorAll('.fullpage')
+        let length = sections.length
+
+        for (let i = 0; i < length; i++) {
+          let sectionOffset = sections[i].offsetTop
+          this.offsets.push(sectionOffset)
+        }
+
+      },
+
+      handleMouseWheel(e) {
+        if (e.wheelDelta < 30 && !this.inMove) {
+          this.moveUp()
+        } else if (e.wheelDelta > 30 && !this.inMove) {
+          this.moveDown()
+        }
+
+        e.preventDefault()
+        return false
+      },
+
+      handleMouseWheelDOM(e) {
+        if (e.detail > 0 && !this.inMove) {
+          this.moveUp()
+        } else if (e.detail < 0 && !this.inMove) {
+          this.moveDown()
+        }
+
+        return false
+      },
+
+      moveDown() {
+        this.inMove = true
+        this.activeSection--
+
+        if (this.activeSection < 0) this.activeSection = this.offsets.length - 1
+
+        this.scrollToSection(this.activeSection, true)
+      },
+
+      moveUp() {
+        this.inMove = true
+        this.activeSection++
+
+        if (this.activeSection > this.offsets.length - 1) this.activeSection = 0
+
+        this.scrollToSection(this.activeSection, true)
+      },
+
+      scrollToSection(id, force = false) {
+        if (this.inMove && !force) return false
+
+        this.activeSection = id
+        this.inMove = true
+        const sectionId = document.querySelectorAll('.fullpage')[id].id
+
+        this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
+        this.showChevron = sectionId !== 'footer' ? true : false
+
+        document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
+
+        setTimeout(() => {
+          this.inMove = false
+        }, 1000)
+      },
+
+      touchStart(e) {
+        e.preventDefault()
+
+        this.touchStartY = e.touches[0].clientY
+      },
+
+      touchMove(e) {
+        if (this.inMove) return false
+        e.preventDefault()
+
+        const currentY = e.touches[0].clientY
+
+        if (this.touchStartY < currentY) {
+          this.moveDown()
+        } else {
+          this.moveUp()
+        }
+
+        this.touchStartY = 0
+        return false
       }
+
     }
   }
 </script>
@@ -233,12 +350,49 @@
       transform: translateY(3px);
     }
   }
+  .btn__scrollto {
+    position: fixed;
+    z-index: 2;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    transition: 0.2s ease-out all;
+    display: block;
+    width: 60px;
+    cursor: pointer;
+    &:hover {
+      transform: translateY(3px);
+    }
+  }
+
+  // Slide animation
+  .slidedown-enter-active,
+  .slidedown-leave-active {
+    transition: transform 0.2s ease-out;
+  }
+
+  .slidedown-enter,
+  .slidedown-leave-to {
+    transform: translateY(-100%);
+    transition: all 0.2 ease-out 0s
+  }
+
+  /* .btn__scrollto-icon {
+    &.white {
+      stroke: white;
+    }
+    &.dark {
+      stroke: black;
+    }
+  } */
 
   // Section
   .info-section {
     @include isFlex();
     flex-wrap: nowrap;
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
     padding: 30px;
     overflow: hidden;
@@ -482,9 +636,7 @@
     .info-section__title {
       font-size: 18px;
     }
-    .info-section__text {
-      font-size: 12px;
-    }
+
   }
 
   @media screen and(max-width: 768px) {
@@ -493,6 +645,18 @@
     }
     .features {
       padding: 30px 0;
+    }
+    .info-section__text {
+      margin-top: 40px;
+    }
+    .info-section__p {
+      font-size: 12px;
+    }
+    .info-section__textonly-btn {
+      margin-top: 50px;
+    }
+    .btn__scrollto-icon {
+      width: 30px;
     }
   }
 </style>

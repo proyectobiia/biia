@@ -1,5 +1,5 @@
 <template lang="pug">
-  footer.footer
+  footer.footer.fullpage#footer
     a.btn-scrolltop(href='#hero', v-smooth-scroll) Scroll to top
     a.btn-whatsapp(href='#')
       img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')

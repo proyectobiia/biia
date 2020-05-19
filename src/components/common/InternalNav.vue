@@ -213,6 +213,8 @@
   .router-link-active:not(.internal-nav__a-logo) {
     border-color: white;
   }
+
+  // Slide animation
   .slide-enter-active,
   .slide-leave-active {
     transition: transform 0.2s ease;
