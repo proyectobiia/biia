@@ -146,7 +146,6 @@
       }
     },
     mounted() {
-
       this.calculateSectionOffsets();
 
       window.addEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
@@ -208,12 +207,14 @@
           this.offsets.push(sectionOffset)
         }
 
+        this.getIndexOfSectionOnLoad()
+
       },
 
       handleMouseWheel(e) {
-        if (e.wheelDelta < 30 && !this.inMove) {
+        if (e.wheelDelta < 50 && !this.inMove) {
           this.moveUp()
-        } else if (e.wheelDelta > 30 && !this.inMove) {
+        } else if (e.wheelDelta > 50 && !this.inMove) {
           this.moveDown()
         }
 
@@ -235,22 +236,48 @@
         this.inMove = true
         this.activeSection--
 
-        // if (this.activeSection < 0) this.activeSection = this.offsets.length - 1
 
-        this.scrollToSection(this.activeSection, true)
+        // if (this.activeSection < 0) this.activeSection = this.offsets.length - 1  --- loop
+
+        this.scrollToSection(this.activeSection, true, 'down')
       },
 
       moveUp() {
         this.inMove = true
         this.activeSection++
 
-        // if (this.activeSection > this.offsets.length - 1) this.activeSection = 0
+        // if (this.activeSection > this.offsets.length - 1) this.activeSection = 0 --- loop
 
-        this.scrollToSection(this.activeSection, true)
+        this.scrollToSection(this.activeSection, true, 'up')
       },
 
-      scrollToSection(id, force = false) {
+      getIndexOfSectionOnLoad() {
+        const wScrollY = window.scrollY
+        let f = this.offsets.findIndex(o => {
+          return o == wScrollY
+        })
+
+        if (f === undefined || f < 0) {
+          const lastOffset = this.offsets[this.offsets.length - 1]
+          const prevLastOffset = this.offsets[this.offsets.length - 2]
+
+          console.log(lastOffset)
+          console.log(prevLastOffset)
+
+          if (wScrollY > prevLastOffset && wScrollY < lastOffset) {
+            f = this.offsets.indexOf(this.offsets[this.offsets.length - 1])
+          }
+        }
+
+        this.activeSection = f
+      },
+
+      scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
+
+        console.log(id)
+        console.log(document.querySelectorAll('.fullpage')[id])
+
 
         if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
@@ -267,6 +294,12 @@
             this.inMove = false
           }, 1000)
         } else {
+          if (type === 'down') {
+            this.activeSection++
+          } else {
+            this.activeSection--
+          }
+
           setTimeout(() => {
             this.inMove = false
           }, 400)
