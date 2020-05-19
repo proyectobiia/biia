@@ -34,9 +34,10 @@
   .footer {
     @include isFlex(flex-end, center);
     padding: 34px 36px 50px 35px;
-    background: rgba($dark, 0.8);
+    background: #414a4f;
     height: 450px;
     position: relative;
+    z-index: 3;
   }
 
   .btn-scrolltop {

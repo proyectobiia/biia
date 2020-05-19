@@ -7,6 +7,10 @@
             path(d='M24 22L1 1' :stroke='chevronStyle')
             path(d='M24 22L47 1' :stroke='chevronStyle')
 
+      .info-section__icon.fixed(data-aos="fade-right" data-aos-delay="300", v-if='!isMobile')
+        transition(name='fade')
+          img.info-section__icon-img(:class='"info-section__icon-"+activeAnimalName', :src='activeAnimal', v-show='animalLoaded')
+
       header.hero.fullpage#hero
         .hero__image(v-if='isMobile')
         video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded && !isMobile')
@@ -22,7 +26,7 @@
         //- Internal nav
         internal-nav
 
-        .info-section__icon(data-aos="fade-right" data-aos-delay="300")
+        .info-section__icon(data-aos="fade-right" data-aos-delay="300", v-if='isMobile')
           img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
         .info-section__media
         .info-section__info
@@ -40,7 +44,7 @@
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
-        .info-section__icon(data-aos="fade-right" data-aos-delay="300")
+        .info-section__icon(data-aos="fade-right" data-aos-delay="300", v-if='isMobile')
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
         .info-section__info.backwards
@@ -120,6 +124,10 @@
   // Assets
   import video from '@/assets/videos/home.mp4'
 
+  // Animals
+  import guacamaya from '@/assets/images/animals/guacamaya.png'
+  import tortuga from '@/assets/images/animals/tortuga.png'
+
 
   export default {
     name: 'home',
@@ -143,6 +151,9 @@
         activeSection: 0,
         offsets: [],
         touchStartY: 0,
+        activeAnimal: guacamaya,
+        activeAnimalName: 'guacamaya',
+        animalLoaded: true,
       }
     },
     mounted() {
@@ -212,17 +223,22 @@
       },
 
       handleMouseWheel(e) {
-        if (e.wheelDelta < 50 && !this.inMove) {
+        console.log('handleMouseWheel', e)
+
+        if (e.wheelDelta < 0 && !this.inMove) {
           this.moveUp()
-        } else if (e.wheelDelta > 50 && !this.inMove) {
+        } else if (e.wheelDelta > 0 && !this.inMove) {
           this.moveDown()
         }
 
+        e.stopPropagation()
         e.preventDefault()
+
         return false
       },
 
       handleMouseWheelDOM(e) {
+        console.log('handleMouseWheelDOM', e)
         if (e.detail > 0 && !this.inMove) {
           this.moveUp()
         } else if (e.detail < 0 && !this.inMove) {
@@ -233,6 +249,7 @@
       },
 
       moveDown() {
+        console.log('Move down')
         this.inMove = true
         this.activeSection--
 
@@ -243,6 +260,7 @@
       },
 
       moveUp() {
+        console.log('Move up')
         this.inMove = true
         this.activeSection++
 
@@ -288,7 +306,29 @@
           this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
           this.showChevron = sectionId !== 'footer' ? true : false
 
+
+
           document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
+
+            this.animalLoaded = false
+
+          setTimeout(() => {
+
+
+
+            if (sectionId === 'brokers') {
+              this.activeAnimal = guacamaya
+              this.activeAnimalName = 'guacamaya'
+            } else if (sectionId === 'aprende') {
+              this.activeAnimal = tortuga
+              this.activeAnimalName = 'tortuga'
+            } else {
+              this.activeAnimal = ''
+              this.activeAnimalName = ''
+            }
+
+            this.animalLoaded = true
+          }, 200)
 
           setTimeout(() => {
             this.inMove = false
@@ -351,6 +391,7 @@
     position: relative;
     background: #03030d;
     overflow: hidden;
+    z-index: 3;
   }
   .hero__image {
     background-size: cover;
@@ -421,6 +462,13 @@
     transition: all 0.2 ease-out 0s
   }
 
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .2s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
   /* .btn__scrollto-icon {
     &.white {
       stroke: white;
@@ -444,7 +492,9 @@
   }
 
   .info-section__textonly {
+    background: white;
     flex-direction: column;
+    z-index: 3;
   }
 
   // Guacamaya
@@ -473,6 +523,11 @@
       margin-top: -65px;
       margin-right: -125px;
     }
+  }
+
+  .info-section__icon-guacamaya {
+    margin-top: -65px;
+    margin-right: -125px;
   }
 
   // Tortuga
@@ -532,6 +587,10 @@
     margin: 0 auto;
     z-index: 2;
     pointer-events: none;
+    &.fixed {
+      position: fixed;
+      top: calc(100vh/2 - 125px)
+    }
   }
   .info-section__icon-img {
     display: block;
@@ -596,7 +655,9 @@
 
   // Features
   .features {
+    background: white;
     padding: 30px 0;
+    z-index: 3;
   }
   .features-list {
     width: 1366px;
