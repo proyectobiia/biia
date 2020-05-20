@@ -37,7 +37,6 @@
     background: #414a4f;
     height: 450px;
     position: relative;
-    z-index: 3;
   }
 
   .btn-scrolltop {

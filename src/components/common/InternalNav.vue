@@ -1,11 +1,11 @@
 <template lang="pug">
   //- Internal Nav
-  nav.internal-nav
-    ul.internal-nav__ul(:class='{ fixed: isMenuFixed }')
+  nav.internal-nav(:class='{ fixed: isMenuFixed }')
+    ul.internal-nav__ul
       li.internal-nav__li.internal-nav__li-logo
         router-link(to='/')
           img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-        a.internal-nav__a.internal-nav__a-whoarewe(href='#quienes-somos' v-smooth-scroll) ¿Quiénes somos?
+        a.internal-nav__a.internal-nav__a-whoarewe(href='#', @click.prevent='scrollToQuienes()') ¿Quiénes somos?
       li.internal-nav__li
         router-link.internal-nav__a(to='/brokers') Brokers
       li.internal-nav__li
@@ -60,6 +60,10 @@
       handleMobileMenu() {
         this.mobileMenuOpen = !this.mobileMenuOpen
       },
+
+      scrollToQuienes() {
+        this.$emit('scrollToQuienesSomos')
+      },
     }
   }
 </script>
@@ -102,7 +106,7 @@
   }
   .internal-nav__ul {
     @include isFlex(center, space-between);
-    padding-top: 30px;
+    // padding-top: 30px;
   }
   .internal-nav__li {
     & + .internal-nav__li {

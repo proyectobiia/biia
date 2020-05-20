@@ -7,10 +7,6 @@
             path(d='M24 22L1 1' :stroke='chevronStyle')
             path(d='M24 22L47 1' :stroke='chevronStyle')
 
-      .info-section__icon.fixed(data-aos="fade-right" data-aos-delay="300", v-if='!isMobile')
-        transition(name='fade')
-          img.info-section__icon-img(:class='"info-section__icon-"+activeAnimalName', :src='activeAnimal', v-show='animalLoaded')
-
       header.hero.fullpage#hero
         .hero__image(v-if='isMobile')
         video.hero__video(autoplay, muted, loop, v-if='videoIsLoaded && !isMobile')
@@ -24,10 +20,9 @@
       //- Guacamaya
       article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
         //- Internal nav
-        internal-nav
+        internal-nav(@scrollToQuienesSomos='scrollToQuienesSomos')
 
-        .info-section__icon(data-aos="fade-right" data-aos-delay="300", v-if='isMobile')
-          img.info-section__icon-img(src='~@/assets/images/animals/guacamaya.png')
+        .info-section__icon.info-section__icon-guacamaya
         .info-section__media
         .info-section__info
           .info-section__content(data-aos="fade-down" data-aos-delay="300")
@@ -44,7 +39,8 @@
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
-        .info-section__icon(data-aos="fade-right" data-aos-delay="300", v-if='isMobile')
+        .info-section__icon.info-section__icon-tortuga
+        //-.info-section__icon(data-aos="fade-right" data-aos-delay="300")
           img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
         .info-section__info.backwards
@@ -145,6 +141,7 @@
         heroVideo: null,
         firstVideoFrame: '#t=0.1',
         isMobile: false,
+        sections: [],
         inMove: false,
         chevronStyle: 'white',
         showChevron: true,
@@ -212,6 +209,7 @@
       calculateSectionOffsets() {
         let sections = document.querySelectorAll('.fullpage')
         let length = sections.length
+        this.sections = sections
 
         for (let i = 0; i < length; i++) {
           let sectionOffset = sections[i].offsetTop
@@ -219,7 +217,6 @@
         }
 
         this.getIndexOfSectionOnLoad()
-
       },
 
       handleMouseWheel(e) {
@@ -290,12 +287,25 @@
         this.activeSection = f
       },
 
+      scrollToQuienesSomos() {
+        let f = Object.keys(this.sections).findIndex(s => {
+          return this.sections[s].id == 'quienes-somos'
+        })
+
+        console.log('this.activeSection ', this.activeSection)
+
+        this.scrollToSection(f, true, this.activeSection > f ? 'down' : 'up')
+      },
+
+      scrollToSectionFromTemplate() {
+
+      },
+
       scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
 
         console.log(id)
         console.log(document.querySelectorAll('.fullpage')[id])
-
 
         if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
@@ -306,16 +316,11 @@
           this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
           this.showChevron = sectionId !== 'footer' ? true : false
 
-
-
           document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
 
-            this.animalLoaded = false
+          this.animalLoaded = false
 
           setTimeout(() => {
-
-
-
             if (sectionId === 'brokers') {
               this.activeAnimal = guacamaya
               this.activeAnimalName = 'guacamaya'
@@ -348,11 +353,11 @@
 
       },
 
-      touchStart(e) {
+      /* touchStart(e) {
         e.preventDefault()
 
         this.touchStartY = e.touches[0].clientY
-      },
+      }, */
 
       touchMove(e) {
         if (this.inMove) return false
@@ -391,7 +396,6 @@
     position: relative;
     background: #03030d;
     overflow: hidden;
-    z-index: 3;
   }
   .hero__image {
     background-size: cover;
@@ -435,7 +439,7 @@
   }
   .btn__scrollto {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     bottom: 30px;
     left: 0;
     right: 0;
@@ -494,7 +498,6 @@
   .info-section__textonly {
     background: white;
     flex-direction: column;
-    z-index: 3;
   }
 
   // Guacamaya
@@ -502,7 +505,6 @@
     .info-section__media {
       background: url('~@/assets/images/video-frames/video-invierte.jpg') no-repeat center;
       background-size: cover;
-      position: relative;
       &:before {
         content: '';
         position: absolute;
@@ -519,23 +521,22 @@
       background: $turquoise;
       color: white;
     }
-    .info-section__icon-img {
+    /* .info-section__icon-img {
       margin-top: -65px;
       margin-right: -125px;
-    }
+    } */
   }
 
-  .info-section__icon-guacamaya {
+  /* .info-section__icon-guacamaya {
     margin-top: -65px;
     margin-right: -125px;
-  }
+  } */
 
   // Tortuga
   .info-section__tortuga {
     .info-section__media {
       background: url('~@/assets/images/video-frames/video-aprende.jpg') no-repeat center;
       background-size: cover;
-      position: relative;
       &:before {
         content: '';
         position: absolute;
@@ -563,39 +564,57 @@
     @include isFlex(center, flex-start);
     flex: 1;
     align-self: stretch;
-    position: relative;
     &.backwards {
      justify-content: flex-end;
       .info-section__content {
         padding-right: 195px;
         padding-left: auto;
       }
-
       text-align: right;
     }
   }
   .info-section__icon {
     @include isFlex();
-    width: 250px;
-    height: 250px;
-    border-radius: 30px;
-    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.16);
-    background: white;
+    width: 100%;
+    height: 100%;
     position: absolute;
     left: 0;
-    right: 0;
-    margin: 0 auto;
+    top: 0;
     z-index: 2;
-    pointer-events: none;
-    &.fixed {
+    // pointer-events: none;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 300px auto;
+    background-attachment: fixed;
+    transition: 0.2s ease-out all;
+    /* &:before {
+      content: '';
+      width: 250px;
+      height: 250px;
+      border-radius: 30px;
+      box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.16);
+      background: white;
+      display: block;
+      z-index: 2;
+      position: relative;
+    } */
+    /* &.fixed {
       position: fixed;
       top: calc(100vh/2 - 125px)
-    }
+    } */
   }
   .info-section__icon-img {
     display: block;
     max-width: 300px;
   }
+  .info-section__icon-guacamaya {
+    background-image: url('~@/assets/images/animals/guacamaya-square.png');
+
+  }
+  .info-section__icon-tortuga {
+    background-image: url('~@/assets/images/animals/tortuga-square.png');
+  }
+
   .info-section__content {
     min-width: 365px;
     font-weight: 400;
@@ -657,7 +676,6 @@
   .features {
     background: white;
     padding: 30px 0;
-    z-index: 3;
   }
   .features-list {
     width: 1366px;
@@ -688,12 +706,12 @@
       flex-direction: column;
       text-align: center;
     }
-    .info-section__guacamaya {
+    /* .info-section__guacamaya {
       .info-section__icon-img {
         margin-top: -30px;
         margin-right: -100px;
       }
-    }
+    } */
     .info-section__info {
       justify-content: center;
       &.backwards {
@@ -716,12 +734,14 @@
       margin: auto;
     }
     .info-section__icon {
-      width: 200px;
-      height: 200px;
+     /*  width: 200px;
+      height: 200px; */
+      background-size: 240px auto;
+      background-attachment: unset;
     }
-    .info-section__icon-img {
+    /* .info-section__icon-img {
       max-width: 230px;
-    }
+    } */
     .info-section__animal-sound {
       font-size: 16px;
     }
