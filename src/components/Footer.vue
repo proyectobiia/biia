@@ -128,4 +128,16 @@
     }
   }
 
+  @media screen and (max-width: 480px) {
+    .footer-logo {
+      width: 60px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .footer-logo {
+      width: 50px;
+    }
+  }
+
 </style>

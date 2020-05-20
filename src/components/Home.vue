@@ -491,16 +491,7 @@
       background: $turquoise;
       color: white;
     }
-    /* .info-section__icon-img {
-      margin-top: -65px;
-      margin-right: -125px;
-    } */
   }
-
-  /* .info-section__icon-guacamaya {
-    margin-top: -65px;
-    margin-right: -125px;
-  } */
 
   // Tortuga
   .info-section__tortuga {
@@ -551,27 +542,11 @@
     left: 0;
     top: 0;
     z-index: 2;
-    // pointer-events: none;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: 300px auto;
     background-attachment: fixed;
     transition: 0.2s ease-out all;
-    /* &:before {
-      content: '';
-      width: 250px;
-      height: 250px;
-      border-radius: 30px;
-      box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.16);
-      background: white;
-      display: block;
-      z-index: 2;
-      position: relative;
-    } */
-    /* &.fixed {
-      position: fixed;
-      top: calc(100vh/2 - 125px)
-    } */
   }
   .info-section__icon-img {
     display: block;
@@ -593,6 +568,9 @@
     position: absolute;
     z-index: 2;
     padding-left: 195px;
+  }
+  .info-section__content-top {
+    transition: 0.2s ease-out all;
   }
   .info-section__animal-sound {
     font-size: 18px;
@@ -750,6 +728,25 @@
     }
     .btn__scrollto-icon {
       width: 30px;
+    }
+  }
+
+  @media screen and(max-width: 480px) and (max-height: 700px) {
+    .info-section__content-top {
+      top: -320px;
+    }
+
+  }
+  @media screen and(max-width: 480px) {
+    .btn__scrollto {
+      bottom: 10px;
+    }
+  }
+  @media screen and(max-width: 320px) {
+    .info-section__p {
+      & + .info-section__p {
+        margin-top: 20px;
+      }
     }
   }
 </style>

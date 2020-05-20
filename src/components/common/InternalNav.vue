@@ -153,11 +153,13 @@
     cursor: pointer;
     right: 15px;
     top: 0;
+    transition: 0.2s ease-out all;
   }
   .menu__bar {
     width: 100%;
     height: 3px;
     background: white;
+    transition: 0.2s ease-out all;
   }
   .internal-nav__mobile {
     position: absolute;
@@ -246,12 +248,26 @@
   }
 
   @media screen and(max-width: 480px) {
-    .internal-nav__li-img {
-      width: 35px;
+    .internal-nav {
+      height: 45px;
+    }
+    .internal-nav__mobile {
+      height: 45px;
+      line-height: 45px;
+    }
+    .internal-nav__mobile {
+      &.fixed {
+        .internal-nav__li-img {
+          width: 25px;
+        }
+      }
     }
     .menu__bars {
-      height: 30px;
-      width: 40px;
+      height: 25px;
+      width: 30px;
+    }
+    .internal-nav__li-img {
+      width: 25px;
     }
   }
 </style>
