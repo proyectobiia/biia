@@ -79,7 +79,6 @@
 
   .footer-content {
     @include isFlex(flex-end, center);
-    // height: 100%;
     font-family: 'Soleil';
     font-size: 18px;
     letter-spacing: 1.8px;

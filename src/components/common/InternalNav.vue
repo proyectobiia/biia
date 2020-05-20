@@ -42,6 +42,10 @@
         isMenuFixed: false,
       }
     },
+    mounted() {
+      window.addEventListener('scroll', this.checkScrollPosition)
+      window.addEventListener('resize', this.checkScrollPosition)
+    },
     created() {
       window.addEventListener('scroll', this.checkScrollPosition)
       window.addEventListener('resize', this.checkScrollPosition)

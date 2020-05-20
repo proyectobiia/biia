@@ -14,8 +14,6 @@
 
         router-link.hero__logo-link(to='/')
           img.hero__logo(src='~@/assets/images/logo-color.svg')
-        //- a(href='#brokers' v-smooth-scroll).chevron-down
-          img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Guacamaya
       article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
@@ -34,14 +32,10 @@
               br
               | 25% ¡Comieza Ya!
             router-link.info-section__content-button.btn-whiteopacity(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
-        //- a(href='#aprende' v-smooth-scroll).chevron-down
-          img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
         .info-section__icon.info-section__icon-tortuga
-        //-.info-section__icon(data-aos="fade-right" data-aos-delay="300")
-          img.info-section__icon-img(src='~@/assets/images/animals/tortuga.png')
 
         .info-section__info.backwards
           .info-section__content(data-aos="fade-down" data-aos-delay="300")
@@ -55,8 +49,6 @@
             router-link.info-section__content-button.btn-whiteopacity(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
         .info-section__media
-        //- a(href='#quienes-somos' v-smooth-scroll).chevron-down
-          img(src='~@/assets/images/icons/chevron-down.svg')
 
       //- ¿Quienes somos?
       article.info-section.info-section__textonly.fullpage#quienes-somos
@@ -201,11 +193,6 @@
         })
       },
 
-      // Function Mobile detection
-      videoLoaded() {
-        console.log('video is loaded')
-      },
-
       calculateSectionOffsets() {
         let sections = document.querySelectorAll('.fullpage')
         let length = sections.length
@@ -220,8 +207,6 @@
       },
 
       handleMouseWheel(e) {
-        console.log('handleMouseWheel', e)
-
         if (e.wheelDelta < 0 && !this.inMove) {
           this.moveUp()
         } else if (e.wheelDelta > 0 && !this.inMove) {
@@ -235,7 +220,6 @@
       },
 
       handleMouseWheelDOM(e) {
-        console.log('handleMouseWheelDOM', e)
         if (e.detail > 0 && !this.inMove) {
           this.moveUp()
         } else if (e.detail < 0 && !this.inMove) {
@@ -246,7 +230,6 @@
       },
 
       moveDown() {
-        console.log('Move down')
         this.inMove = true
         this.activeSection--
 
@@ -257,7 +240,6 @@
       },
 
       moveUp() {
-        console.log('Move up')
         this.inMove = true
         this.activeSection++
 
@@ -276,9 +258,6 @@
           const lastOffset = this.offsets[this.offsets.length - 1]
           const prevLastOffset = this.offsets[this.offsets.length - 2]
 
-          console.log(lastOffset)
-          console.log(prevLastOffset)
-
           if (wScrollY > prevLastOffset && wScrollY < lastOffset) {
             f = this.offsets.indexOf(this.offsets[this.offsets.length - 1])
           }
@@ -292,20 +271,11 @@
           return this.sections[s].id == 'quienes-somos'
         })
 
-        console.log('this.activeSection ', this.activeSection)
-
         this.scrollToSection(f, true, this.activeSection > f ? 'down' : 'up')
-      },
-
-      scrollToSectionFromTemplate() {
-
       },
 
       scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
-
-        console.log(id)
-        console.log(document.querySelectorAll('.fullpage')[id])
 
         if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
