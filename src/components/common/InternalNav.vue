@@ -3,9 +3,9 @@
   nav.internal-nav(:class='{ fixed: isMenuFixed }')
     ul.internal-nav__ul
       li.internal-nav__li.internal-nav__li-logo
-        router-link(to='/')
+        a(href='#', @click.prevent='scrollTo("hero")')
           img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-        a.internal-nav__a.internal-nav__a-whoarewe.clickable(href='#', @click.prevent='scrollToQuienes()') ¿Quiénes somos?
+        a.internal-nav__a.internal-nav__a-whoarewe.clickable(href='#', @click.prevent='scrollTo("quienes-somos")') ¿Quiénes somos?
       li.internal-nav__li
         router-link.internal-nav__a.clickable(to='/brokers') Brokers
       li.internal-nav__li
@@ -65,8 +65,8 @@
         this.mobileMenuOpen = !this.mobileMenuOpen
       },
 
-      scrollToQuienes() {
-        this.$emit('scrollToQuienesSomos')
+      scrollTo(sectionId) {
+        this.$emit('scrollToFromNav', sectionId)
       },
     }
   }

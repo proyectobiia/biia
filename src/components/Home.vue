@@ -18,7 +18,7 @@
       //- Guacamaya
       article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
         //- Internal nav
-        internal-nav(@scrollToQuienesSomos='scrollToQuienesSomos')
+        internal-nav(@scrollToFromNav='scrollToFromNav')
 
         .info-section__icon.info-section__icon-guacamaya
         .info-section__media
@@ -288,14 +288,17 @@
 
       },
 
-      scrollToQuienesSomos() {
+      // Fn: Scroll to section from internal nav
+      scrollToFromNav(sectionId) {
+
         let f = Object.keys(this.sections).findIndex(s => {
-          return this.sections[s].id == 'quienes-somos'
+          return this.sections[s].id == sectionId
         })
 
         this.scrollToSection(f, true, this.activeSection > f ? 'down' : 'up')
       },
 
+      // Fn: Scroll to some section
       scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
 
