@@ -2,7 +2,7 @@
     section.page
 
       transition(name='slidedown')
-        button(@click='moveUp', v-if='!inMove && showChevron').btn__scrollto.clickable
+        button(@click='moveUp', v-if='!inMove && showChevron', aria-label='Button scroll to section').btn__scrollto.clickable
           svg.clickable.btn__scrollto-icon(width='48' height='23' viewBox='0 0 48 23' fill='none' xmlns='http://www.w3.org/2000/svg')
             path(d='M24 22L1 1' :stroke='chevronStyle')
             path(d='M24 22L47 1' :stroke='chevronStyle')
