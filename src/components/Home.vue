@@ -136,7 +136,7 @@
         sections: [],
         inMove: false,
         chevronStyle: 'white',
-        showChevron: true,
+        showChevron: false,
         activeSection: 0,
         offsets: [],
         touchStartY: 0,
@@ -261,22 +261,31 @@
       },
 
       getIndexOfSectionOnLoad() {
-        const wScrollY = window.scrollY
-        let f = this.offsets.findIndex(o => {
-          return o == wScrollY
-        })
+        setTimeout(() => {
+          const wScrollY = window.scrollY
 
-        if (f === undefined || f < 0) {
-          const lastOffset = this.offsets[this.offsets.length - 1]
-          const prevLastOffset = this.offsets[this.offsets.length - 2]
+          let f = this.offsets.findIndex(o => {
+            return o == wScrollY
+          })
 
-          if (wScrollY > prevLastOffset && wScrollY < lastOffset) {
-            f = this.offsets.indexOf(this.offsets[this.offsets.length - 1])
+          if (f === undefined || f < 0) {
+            const lastOffset = this.offsets[this.offsets.length - 1]
+            const prevLastOffset = this.offsets[this.offsets.length - 2]
+
+            if (wScrollY > prevLastOffset && wScrollY < lastOffset) {
+              f = this.offsets.indexOf(this.offsets[this.offsets.length - 1])
+            }
           }
-        }
 
-  console.log(f)
-        this.activeSection = f
+          const isFooter = Object.keys(this.sections).findIndex(s => {
+            return this.sections[s].id == 'footer'
+          })
+
+          this.showChevron = isFooter === f ? false : true
+
+          this.activeSection = f
+        }, 100);
+
       },
 
       scrollToQuienesSomos() {
