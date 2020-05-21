@@ -218,4 +218,17 @@
       width: 40px;
     }
   }
+
+  @media screen and(max-width: 480px) {
+    .navbar {
+      height: 45px;
+    }
+    .navbar-a__img {
+      width: 20px;
+    }
+    .menu__bars {
+      height: 25px;
+      width: 30px;
+    }
+  }
 </style>

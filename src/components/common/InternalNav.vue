@@ -5,11 +5,11 @@
       li.internal-nav__li.internal-nav__li-logo
         router-link(to='/')
           img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-        a.internal-nav__a.internal-nav__a-whoarewe(href='#', @click.prevent='scrollToQuienes()') ¿Quiénes somos?
+        a.internal-nav__a.internal-nav__a-whoarewe.clickable(href='#', @click.prevent='scrollToQuienes()') ¿Quiénes somos?
       li.internal-nav__li
-        router-link.internal-nav__a(to='/brokers') Brokers
+        router-link.internal-nav__a.clickable(to='/brokers') Brokers
       li.internal-nav__li
-        router-link.internal-nav__a(to='/aprende') Aprende
+        router-link.internal-nav__a.clickable(to='/aprende') Aprende
 
     //- Internal nav mobile
     .internal-nav__mobile(:class='{ fixed: isMenuFixed }')
@@ -17,20 +17,20 @@
         li.internal-nav__li.internal-nav__li-logo
           router-link.internal-nav__a.internal-nav__a-logo(to='/')
             img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
-        li.menu__bars(@click='handleMobileMenu()')
-          span.menu__bar
-          span.menu__bar
-          span.menu__bar
+        li.menu__bars.clickable(@click='handleMobileMenu()')
+          span.menu__bar.clickable
+          span.menu__bar.clickable
+          span.menu__bar.clickable
 
       transition(name='slide')
-        .mobile-nav(v-if='mobileMenuOpen', @click='handleMobileMenu()')
+        .mobile-nav.clickable(v-if='mobileMenuOpen', @click='handleMobileMenu()')
           slot
           img.mobile-nav__img(src='~@/assets/images/logo-white.png')
           ul.mobile-nav__ul
             li.mobile-nav__li
-              router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers
+              router-link.clickable(to='/brokers').mobile-nav__a(@click.stop='') Brokers
             li.mobile-nav__li
-              router-link(to='/aprende').mobile-nav__a(@click.stop='') Aprende
+              router-link.clickable(to='/aprende').mobile-nav__a(@click.stop='') Aprende
 </template>
 
 <script>
@@ -258,7 +258,7 @@
     .internal-nav__mobile {
       &.fixed {
         .internal-nav__li-img {
-          width: 25px;
+          width: 20px;
         }
       }
     }

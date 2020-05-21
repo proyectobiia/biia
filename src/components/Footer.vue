@@ -1,13 +1,13 @@
 <template lang="pug">
   footer.footer.fullpage#footer
-    a.btn-scrolltop(href='#hero', v-smooth-scroll) Scroll to top
+    a.btn-scrolltop.clickable(href='#hero', v-smooth-scroll) Scroll to top
     a.btn-whatsapp(href='#')
       img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')
     .footer-content
       .footer-text
         img.footer-logo(src='~@/assets/images/logo-white.png')
         p.footer-terms
-          router-link(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
+          router-link.clickable(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
 </template>
 

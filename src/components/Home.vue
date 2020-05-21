@@ -2,8 +2,8 @@
     section.page
 
       transition(name='slidedown')
-        button(@click='moveUp', v-if='!inMove && showChevron').btn__scrollto
-          svg.btn__scrollto-icon(width='48' height='23' viewBox='0 0 48 23' fill='none' xmlns='http://www.w3.org/2000/svg')
+        button(@click='moveUp', v-if='!inMove && showChevron').btn__scrollto.clickable
+          svg.clickable.btn__scrollto-icon(width='48' height='23' viewBox='0 0 48 23' fill='none' xmlns='http://www.w3.org/2000/svg')
             path(d='M24 22L1 1' :stroke='chevronStyle')
             path(d='M24 22L47 1' :stroke='chevronStyle')
 
@@ -31,7 +31,7 @@
               | Reducimos tu spread hasta un
               br
               | 25% ¡Comieza Ya!
-            router-link.info-section__content-button.btn-whiteopacity(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
@@ -46,7 +46,7 @@
               | Comienza tu carrera
               br
               | como trader
-            router-link.info-section__content-button.btn-whiteopacity(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
 
         .info-section__media
 
@@ -57,7 +57,7 @@
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
           .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
           .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
-        router-link.info-section__textonly-btn.btn-turquoise.btn-large(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
+        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
 
       //- Features
       article.info-section.features.black-cards.fullpage#features
@@ -229,6 +229,18 @@
         return false
       },
 
+      swipeUp() {
+        if (!this.isMobile) return false
+        console.log('swipeUp')
+        this.moveUp()
+      },
+
+      swipeDown() {
+        if (!this.isMobile) return false
+        console.log('swipeDown')
+        this.moveDown()
+      },
+
       moveDown() {
         this.inMove = true
         this.activeSection--
@@ -263,6 +275,7 @@
           }
         }
 
+  console.log(f)
         this.activeSection = f
       },
 
@@ -276,6 +289,9 @@
 
       scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
+
+        console.log(id)
+
 
         if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
@@ -323,11 +339,12 @@
 
       },
 
-      /* touchStart(e) {
-        e.preventDefault()
-
-        this.touchStartY = e.touches[0].clientY
-      }, */
+      touchStart(e) {
+        if (e.target.className.indexOf('clickable') === -1) {
+          this.touchStartY = e.touches[0].clientY
+          e.preventDefault()
+        }
+      },
 
       touchMove(e) {
         if (this.inMove) return false

@@ -1,5 +1,5 @@
 <template lang="pug">
-  button.black-card(@click.prevent='openLink(link)', :class='{"no-link": link === undefined, "black-card--home": page === "home"}')
+  button.black-card.clickable(@click.prevent='openLink(link)', :class='{"no-link": link === undefined, "black-card--home": page === "home"}')
     .black-card__top(:class='{"black-card__top--home": page === "home"}')
       img.black-card__img(:src="getImagePath(image)", :class='"black-card__img--"+page')
 
