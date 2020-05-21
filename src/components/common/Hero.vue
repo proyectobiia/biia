@@ -6,7 +6,7 @@
       source(playsinline, webkit-playsinline, :src='getVideoPath(video)', type='video/mp4')
     .hero__content(:class='"hero__content--"+direction')
       .hero__animal(:class='"hero__animal--"+direction', data-aos="fade-right" data-aos-delay="500")
-        img.hero__animal-img(:src="getImagePath(animal)", :style='animalStyle')
+        img.hero__animal-img(:src="getImagePath(animal)", :style='animalStyle', :alt='animal', :title='animal')
       .hero__info(:class='"hero__info--"+direction', data-aos="fade-down" data-aos-delay="500")
         p.hero__animalsound {{animalSound}}
         h2.hero__title {{title}}

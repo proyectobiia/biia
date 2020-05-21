@@ -2,10 +2,10 @@
   footer.footer.fullpage#footer
     a.btn-scrolltop.clickable(href='#hero', v-smooth-scroll) Scroll to top
     a.btn-whatsapp(href='#')
-      img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg')
+      img.btn-whatsapp__icon(src='~@/assets/images/icons/whatsapp.svg', title='Whatsapp', alt='Whatsapp')
     .footer-content
       .footer-text
-        img.footer-logo(src='~@/assets/images/logo-white.png')
+        img.footer-logo(src='~@/assets/images/logo-white.png', title='BIIA', alt='BIIA')
         p.footer-terms
           router-link.clickable(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}

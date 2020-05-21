@@ -13,7 +13,7 @@
           source(:src='heroVideo', type='video/mp4')
 
         router-link.hero__logo-link(to='/')
-          img.hero__logo(src='~@/assets/images/logo-color.svg')
+          img.hero__logo(src='~@/assets/images/logo-color.svg', title='BIIA', alt='BIIA')
 
       //- Guacamaya
       article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
@@ -31,7 +31,7 @@
               | Reducimos tu spread hasta un
               br
               | 25% ¡Comieza Ya!
-            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')]
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
@@ -46,7 +46,7 @@
               | Comienza tu carrera
               br
               | como trader
-            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')]
 
         .info-section__media
 
@@ -57,7 +57,7 @@
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
           .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
           .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
-        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg')]
+        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg', alt='large-arrow')]
 
       //- Features
       article.info-section.features.black-cards.fullpage#features

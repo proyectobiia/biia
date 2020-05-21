@@ -3,7 +3,7 @@
     ul.navbar-ul
       li.navbar-li.navbar-li__logo
         router-link.navbar-a__logo.navbar-a(to='/')
-          img.navbar-a__img(src='~@/assets/images/logo-white.png')
+          img.navbar-a__img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
       li.navbar-li
         router-link.navbar-a(to='/brokers') Brokers
       li.navbar-li
@@ -12,7 +12,7 @@
       .navbar-mobile__ul
         li.navbar-mobile__li
           router-link.navbar-a.navbar-a__logo(to='/')
-            img.navbar-a__img(src='~@/assets/images/logo-white.png')
+            img.navbar-a__img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
         li.menu__bars(@click='openMobileMenu()')
           span.menu__bar
           span.menu__bar
@@ -20,7 +20,7 @@
       transition(name='slide')
         .mobile-nav(v-if='mobileMenuOpen', @click='closeMobileMenu()')
           slot
-          img.mobile-nav__img(src='~@/assets/images/logo-white.png')
+          img.mobile-nav__img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
           ul.mobile-nav__ul
             li.mobile-nav__li
               router-link(to='/brokers').mobile-nav__a(@click.stop='') Brokers

@@ -4,7 +4,7 @@
     ul.internal-nav__ul
       li.internal-nav__li.internal-nav__li-logo
         a(href='#', @click.prevent='scrollTo("hero")')
-          img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
+          img.internal-nav__li-img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
         a.internal-nav__a.internal-nav__a-whoarewe.clickable(href='#', @click.prevent='scrollTo("quienes-somos")') ¿Quiénes somos?
       li.internal-nav__li
         router-link.internal-nav__a.clickable(to='/brokers') Brokers
@@ -16,7 +16,7 @@
       .navbar-mobile__ul
         li.internal-nav__li.internal-nav__li-logo
           router-link.internal-nav__a.internal-nav__a-logo(to='/')
-            img.internal-nav__li-img(src='~@/assets/images/logo-white.png')
+            img.internal-nav__li-img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
         li.menu__bars.clickable(@click='handleMobileMenu()')
           span.menu__bar.clickable
           span.menu__bar.clickable
@@ -25,7 +25,7 @@
       transition(name='slide')
         .mobile-nav.clickable(v-if='mobileMenuOpen', @click='handleMobileMenu()')
           slot
-          img.mobile-nav__img(src='~@/assets/images/logo-white.png')
+          img.mobile-nav__img(src='~@/assets/images/logo-white.png', alt='BIIA', title='BIIA')
           ul.mobile-nav__ul
             li.mobile-nav__li
               router-link.clickable(to='/brokers').mobile-nav__a(@click.stop='') Brokers
