@@ -174,7 +174,8 @@
 
       // Animations
       AOS.init({
-        once: true,
+        once: false,
+        mirror: true,
       })
 
       // Load video
