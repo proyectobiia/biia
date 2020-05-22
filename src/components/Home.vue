@@ -31,7 +31,9 @@
               | Reducimos tu spread hasta un
               br
               | 25% ¡Comieza Ya!
-            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers')
+              span Saber más
+              img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
 
       //- Tortuga
       article.info-section.info-section__tortuga.no-padding.fullpage#aprende
@@ -46,7 +48,9 @@
               | Comienza tu carrera
               br
               | como trader
-            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/aprende') Saber más #[img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')]
+            router-link.info-section__content-button.btn-whiteopacity.clickable(to='/aprende')
+              span Saber más
+              img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
 
         .info-section__media
 
@@ -57,7 +61,10 @@
           .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
           .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
           .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
-        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers') Brokers #[img.btn-icon(src='~@/assets/images/icons/large-arrow.svg', alt='large-arrow')]
+        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers')
+          span Brokers
+          img.btn-icon(src='~@/assets/images/icons/large-arrow.svg', alt='large-arrow')
+
 
       //- Features
       article.info-section.features.black-cards.fullpage#features
@@ -104,6 +111,8 @@
   import AOS from 'aos'
   import 'aos/dist/aos.css'
   import { Carousel, Slide } from 'vue-carousel'
+  import smoothscroll from 'smoothscroll-polyfill'
+
   //import VueScrollTo from 'vue-scrollto'
 
   // Components
@@ -147,10 +156,12 @@
       }
     },
     mounted() {
-      this.calculateSectionOffsets();
+      smoothscroll.polyfill()
+
+      this.calculateSectionOffsets()
 
       window.addEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
-      window.addEventListener("mousewheel", this.handleMouseWheel, {
+      window.addEventListener("wheel", this.handleMouseWheel, {
         passive: false
       }) // Other browsers
 
@@ -170,7 +181,7 @@
       this.loadVideo()
     },
     destroyed() {
-      window.removeEventListener("mousewheel", this.handleMouseWheel, {
+      window.removeEventListener("wheel", this.handleMouseWheel, {
         passive: false
       }) // Other browsers
       window.removeEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
@@ -208,9 +219,20 @@
       },
 
       handleMouseWheel(e) {
-        if (e.wheelDelta < 0 && !this.inMove) {
+        console.log(e)
+        setTimeout(() => {
+            if (e && !this.inMove) {
+              console.log('still wheeling')
+            }
+        }, 500);
+
+        if (e.deltaY > 0 && !this.inMove) {
+          console.log('MOVE UP')
+          console.log(Math.abs(e.deltaY))
           this.moveUp()
-        } else if (e.wheelDelta > 0 && !this.inMove) {
+        } else if (e.deltaY < 0 && !this.inMove) {
+          console.log('MOVE DOWN')
+          console.log(Math.abs(e.deltaY))
           this.moveDown()
         }
 
@@ -315,7 +337,7 @@
           console.log('#'+sectionId)
           // VueScrollTo.scrollTo('#'+sectionId)
 
-          document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
+          document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: 'smooth' })
 
           this.animalLoaded = false
 
@@ -517,7 +539,7 @@
   // Guacamaya
   .info-section__guacamaya {
     .info-section__media {
-      background: url('~@/assets/images/video-frames/video-invierte.jpg') no-repeat center;
+      background: url('~@/assets/images/video-frames/video-invierte-2.png') no-repeat center;
       background-size: cover;
       &:before {
         content: '';
@@ -540,7 +562,7 @@
   // Tortuga
   .info-section__tortuga {
     .info-section__media {
-      background: url('~@/assets/images/video-frames/video-aprende.jpg') no-repeat center;
+      background: url('~@/assets/images/video-frames/video-aprende-2.png') no-repeat center;
       background-size: cover;
       &:before {
         content: '';
