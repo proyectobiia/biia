@@ -21,7 +21,7 @@
         internal-nav(@scrollToFromNav='scrollToFromNav')
 
         .info-section__icon.info-section__icon-guacamaya
-        .info-section__media(data-aos="fade-right" data-aos-delay="100")
+        .info-section__media(data-aos="fade-right" data-aos-delay="200")
         .info-section__info
           .info-section__content(data-aos="fade-down" data-aos-delay="300")
             .info-section__content-top
@@ -52,7 +52,7 @@
               span Saber más
               img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
 
-        .info-section__media(data-aos="fade-left" data-aos-delay="100")
+        .info-section__media(data-aos="fade-left" data-aos-delay="200")
 
       //- ¿Quienes somos?
       article.info-section.info-section__textonly.fullpage#quienes-somos
@@ -113,8 +113,6 @@
   import { Carousel, Slide } from 'vue-carousel'
   import smoothscroll from 'smoothscroll-polyfill'
 
-  //import VueScrollTo from 'vue-scrollto'
-
   // Components
   import InternalNav from '@/components/common/InternalNav'
   import BlackCard from '@/components/common/BlackCard'
@@ -153,6 +151,8 @@
         activeAnimal: guacamaya,
         activeAnimalName: 'guacamaya',
         animalLoaded: true,
+        scrollTimer: false,
+        isWheeling: false,
       }
     },
     mounted() {
@@ -220,18 +220,23 @@
       },
 
       handleMouseWheel(e) {
-        if (e.deltaY > 0 && !this.inMove) {
-          console.log('MOVE UP')
-          console.log(Math.abs(e.deltaY))
-          this.moveUp()
-        } else if (e.deltaY < 0 && !this.inMove) {
-          console.log('MOVE DOWN')
-          console.log(Math.abs(e.deltaY))
-          this.moveDown()
-        }
-
-        e.stopPropagation()
         e.preventDefault()
+
+        clearInterval(this.scrollTimer)
+
+        this.scrollTimer = setTimeout(() => {
+          this.isWheeling = false
+        }, 100)
+
+        if (!this.isWheeling) {
+          if (e.deltaY > 0 && !this.inMove) {
+            this.moveUp()
+            this.isWheeling = true
+          } else if (e.deltaY < 0 && !this.inMove) {
+            this.moveDown()
+            this.isWheeling = true
+          }
+        }
 
         return false
       },
@@ -248,13 +253,11 @@
 
       swipeUp() {
         if (!this.isMobile) return false
-        console.log('swipeUp')
         this.moveUp()
       },
 
       swipeDown() {
         if (!this.isMobile) return false
-        console.log('swipeDown')
         this.moveDown()
       },
 
