@@ -21,7 +21,7 @@
         internal-nav(@scrollToFromNav='scrollToFromNav')
 
         .info-section__icon.info-section__icon-guacamaya
-        .info-section__media
+        .info-section__media(data-aos="fade-right" data-aos-delay="100")
         .info-section__info
           .info-section__content(data-aos="fade-down" data-aos-delay="300")
             .info-section__content-top
@@ -52,7 +52,7 @@
               span Saber más
               img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
 
-        .info-section__media
+        .info-section__media(data-aos="fade-left" data-aos-delay="100")
 
       //- ¿Quienes somos?
       article.info-section.info-section__textonly.fullpage#quienes-somos
@@ -219,13 +219,6 @@
       },
 
       handleMouseWheel(e) {
-        console.log(e)
-        setTimeout(() => {
-            if (e && !this.inMove) {
-              console.log('still wheeling')
-            }
-        }, 500);
-
         if (e.deltaY > 0 && !this.inMove) {
           console.log('MOVE UP')
           console.log(Math.abs(e.deltaY))
@@ -538,6 +531,7 @@
 
   // Guacamaya
   .info-section__guacamaya {
+    background: $turquoise;
     .info-section__media {
       background: url('~@/assets/images/video-frames/video-invierte-2.png') no-repeat center;
       background-size: cover;
@@ -561,6 +555,7 @@
 
   // Tortuga
   .info-section__tortuga {
+    background: $pumpkin-orange;
     .info-section__media {
       background: url('~@/assets/images/video-frames/video-aprende-2.png') no-repeat center;
       background-size: cover;
