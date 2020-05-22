@@ -96,10 +96,12 @@
       background: $dark;
       z-index: 3;
       box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.16);
+      height: 80px;
+      line-height: 80px;
 
-      .internal-nav__li-img {
+      /* .internal-nav__li-img {
         width: 40px;
-      }
+      } */
       .internal-nav__a {
         font-size: 16px;
       }
@@ -134,6 +136,7 @@
     color: white;
     padding: 0 10px 5px 10px;
     border-bottom: 1px solid transparent;
+    transition: 0.2s ease-out all;
     &:hover:not(.internal-nav__a-logo)  {
       border-color: white;
     }
@@ -250,6 +253,10 @@
   @media screen and(max-width: 480px) {
     .internal-nav {
       height: 45px;
+      &.fixed {
+        height: auto;
+        line-height: normal;
+      }
     }
     .internal-nav__mobile {
       height: 45px;

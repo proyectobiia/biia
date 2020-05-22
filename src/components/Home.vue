@@ -104,6 +104,7 @@
   import AOS from 'aos'
   import 'aos/dist/aos.css'
   import { Carousel, Slide } from 'vue-carousel'
+  //import VueScrollTo from 'vue-scrollto'
 
   // Components
   import InternalNav from '@/components/common/InternalNav'
@@ -302,9 +303,6 @@
       scrollToSection(id, force = false, type = 'down') {
         if (this.inMove && !force) return false
 
-        console.log(id)
-
-
         if (document.querySelectorAll('.fullpage')[id] !== undefined) {
 
           this.activeSection = id
@@ -313,6 +311,9 @@
 
           this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
           this.showChevron = sectionId !== 'footer' ? true : false
+
+          console.log('#'+sectionId)
+          // VueScrollTo.scrollTo('#'+sectionId)
 
           document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: "smooth" })
 
@@ -395,6 +396,17 @@
     position: relative;
     background: #03030d;
     overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $dark;
+      opacity: 0.4;
+      z-index: 1;
+    }
   }
   .hero__image {
     background-size: cover;
@@ -451,6 +463,9 @@
     &:hover {
       transform: translateY(3px);
     }
+  }
+  .btn__scrollto-icon {
+   opacity: 0.5;
   }
 
   // Slide animation
