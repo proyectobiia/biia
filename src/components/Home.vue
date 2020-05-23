@@ -153,13 +153,21 @@
         animalLoaded: true,
         scrollTimer: false,
         isWheeling: false,
+        currentHeight: 0,
       }
     },
     mounted() {
+
+      // Set the height  to the sections
+      this.calculateSectionHeights()
+
+      // Activate the smoothscroll crossbrowsing
       smoothscroll.polyfill()
 
+      // Calculate the section offsets for the scrolling
       this.calculateSectionOffsets()
 
+      // Adding events
       window.addEventListener("DOMMouseScroll", this.handleMouseWheelDOM) // Mozilla Firefox
       window.addEventListener("wheel", this.handleMouseWheel, {
         passive: false
@@ -170,7 +178,7 @@
 
       // Mobile detection
       this.detectIsMobile()
-      window.addEventListener('resize', this.detectIsMobile)
+      window.addEventListener('resize', this.onResize)
 
       // Animations
       AOS.init({
@@ -189,10 +197,32 @@
 
       window.removeEventListener("touchstart", this.touchStart) // mobile devices
       window.removeEventListener("touchmove", this.touchMove) // mobile devices
-      window.removeEventListener('resize', this.detectIsMobile)
+      window.removeEventListener('resize', this.onResize)
     },
 
     methods: {
+      // Function: On Resize
+      onResize() {
+        if (this.currentHeight !== window.innerHeight) {
+          console.log('different height')
+          this.calculateSectionHeights()
+        }
+        this.detectIsMobile()
+      },
+
+      // Function: Calculate section heights
+      calculateSectionHeights() {
+        let sections = document.querySelectorAll('.fullpage')
+        let length = sections.length
+        this.sections = sections
+
+        for (let i = 0; i < length - 1; i++) {
+          sections[i].style.height = window.innerHeight + 'px'
+        }
+
+        this.currentHeight = window.innerHeight
+      },
+
       // Function: Mobile detection
       detectIsMobile() {
         this.isMobile = window.innerWidth < 768 ? true : false
@@ -206,6 +236,7 @@
         })
       },
 
+      // Function: Calculate section offsets
       calculateSectionOffsets() {
         let sections = document.querySelectorAll('.fullpage')
         let length = sections.length
@@ -264,7 +295,6 @@
       moveDown() {
         this.inMove = true
         this.activeSection--
-
 
         // if (this.activeSection < 0) this.activeSection = this.offsets.length - 1  --- loop
 
@@ -331,9 +361,6 @@
           this.chevronStyle = (sectionId === 'quienes-somos' || sectionId === 'features') ? 'black' : 'white'
           this.showChevron = sectionId !== 'footer' ? true : false
 
-          console.log('#'+sectionId)
-          // VueScrollTo.scrollTo('#'+sectionId)
-
           document.querySelectorAll('.fullpage')[id].scrollIntoView({ behavior: 'smooth' })
 
           this.animalLoaded = false
@@ -372,6 +399,7 @@
       },
 
       touchStart(e) {
+        console.log(e)
         if (e.target.className.indexOf('clickable') === -1) {
           this.touchStartY = e.touches[0].clientY
           e.preventDefault()
@@ -411,7 +439,7 @@
   }
   .hero {
     @include isFlex();
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
     background: #03030d;
     overflow: hidden;
