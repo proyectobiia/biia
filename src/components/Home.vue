@@ -41,7 +41,7 @@
             p.info-section__content-description
               | Reducimos tu spread hasta un
               br
-              | 25% ¡Comieza Ya!
+              | 55% ¡Comieza Ya!
             router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers')
               span Saber más
               img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
