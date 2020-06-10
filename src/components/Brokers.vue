@@ -7,6 +7,7 @@
           <form name="brokers-signup" @submit.prevent="onModalSubmit" data-netlify="true" data-netlify-honeypot="bot-field">
             <h1 class="modal__title">Ingresa tu email</h1>
             <input type="text" class="modal__input" name="email" v-model="email" /></br>
+            <input type="hidden" name="broker_title" :value="this.brokerTitle" />
             <input type="hidden" name="form-name" value="brokers-signup" />
             <button type="submit" class="btn-turquoise clickable modal__submit">Enviar</button>
           </form>
@@ -136,15 +137,15 @@ export default {
         this.encode({
           "form-name": "brokers-signup",
           "email": this.email,
-          "brokerTitle": this.brokerTitle
+          "broker_title": this.brokerTitle
         }),
         axiosConfig
       );
-      //setTimeout(() => {
-        //this.isOpen = false;
-        //this.isOpen2 = false;
-        //window.open(this.link, "_blank");
-      //}, 3000);
+      setTimeout(() => {
+        this.isOpen = false;
+        this.isOpen2 = false;
+        window.open(this.link, "_blank");
+      }, 3000);
     }
   }
 };
