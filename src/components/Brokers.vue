@@ -4,10 +4,11 @@
     <div v-if="isOpen">
       <div class="overlay" @click.self="isOpen = false;">
         <div class="modal">
-          <form name="brokers-signup" @submit.prevent="onModalSubmit()" netlify>
+          <form name="brokers-signup" @submit.prevent="onModalSubmit" data-netlify="true" data-netlify-honeypot="bot-field">
             <h1 class="modal__title">Ingresa tu email</h1>
-            <input type="text" class="modal__input" name="email"/></br>
+            <input type="text" class="modal__input" name="email" v-model="email" /></br>
             <input type="hidden" name="broker_title" :value="this.brokerTitle" />
+            <input type="hidden" name="form-name" value="brokers-signup" />
             <button type="submit" class="btn-turquoise clickable modal__submit">Enviar</button>
           </form>
         </div>
@@ -92,6 +93,7 @@ import Navbar from "@/components/common/Nav";
 import Hero from "@/components/common/Hero";
 import BlackCard from "@/components/common/BlackCard";
 import { Carousel, Slide } from "vue-carousel";
+import axios from "axios";
 
 export default {
   name: "home",
@@ -107,7 +109,8 @@ export default {
       isOpen: false,
       isOpen2: false,
       link: "",
-      brokerTitle: ""
+      brokerTitle: "",
+      email: ""
     };
   },
   methods: {
@@ -116,8 +119,28 @@ export default {
       this.link = link;
       this.brokerTitle= title;
     },
-    onModalSubmit() {
+    encode(data){
+      return Object.keys(data)
+        .map(
+          key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join("&");
+    },
+    onModalSubmit(e) {
+      console.log(e.target);
       this.isOpen2 = true;
+      const axiosConfig = {
+        header: { "Content-Type": "application/x-www-form-urlencoded" }
+      };
+      axios.post(
+        "/",
+        this.encode({
+          "form-name": "brokers-signup",
+          "email": this.email,
+          "broker_title": this.brokerTitle
+        }),
+        axiosConfig
+      );
       setTimeout(() => {
         this.isOpen = false;
         this.isOpen2 = false;
