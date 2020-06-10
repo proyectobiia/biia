@@ -15,6 +15,17 @@
         router-link.hero__logo-link(to='/')
           img.hero__logo(src='~@/assets/images/logo-color.svg', title='BIIA', alt='BIIA')
 
+      //- ¿Quienes somos?
+      article.info-section.info-section__textonly.fullpage#quienes-somos
+        .info-section__title ¿Quiénes somos?
+        .info-section__text
+          .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
+          .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
+          .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
+        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers')
+          span Brokers
+          img.btn-icon(src='~@/assets/images/icons/large-arrow.svg', alt='large-arrow')
+
       //- Guacamaya
       article.info-section.info-section__guacamaya.no-padding.fullpage#brokers
         //- Internal nav
@@ -30,7 +41,7 @@
             p.info-section__content-description
               | Reducimos tu spread hasta un
               br
-              | 25% ¡Comieza Ya!
+              | 55% ¡Comieza Ya!
             router-link.info-section__content-button.btn-whiteopacity.clickable(to='/brokers')
               span Saber más
               img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
@@ -53,18 +64,6 @@
               img.info-section__button-icon.btn-icon(src='~@/assets/images/icons/small-arrow.svg', alt='small-arrow')
 
         .info-section__media(data-aos="fade-left" data-aos-delay="200")
-
-      //- ¿Quienes somos?
-      article.info-section.info-section__textonly.fullpage#quienes-somos
-        .info-section__title ¿Quiénes somos?
-        .info-section__text
-          .info-section__p Hemos generado alianzas estratégicas con los mejores brokers a nivel mundial, permitiéndonos reducir tu spread hasta un 55%.
-          .info-section__p En BIIA Fomentamos el buen trading de la mano de las mejores academias que generan traders rentables, consistentes y contamos con brokers que tienen las mejores regulaciones, para que operes tu capital con la mayor confianza posible.
-          .info-section__p ¡No importa si tu operación es ganadora o perdedora en tu broker, con nosotros, siempre ganas!
-        router-link.info-section__textonly-btn.btn-turquoise.btn-large.clickable(to='/brokers')
-          span Brokers
-          img.btn-icon(src='~@/assets/images/icons/large-arrow.svg', alt='large-arrow')
-
 
       //- Features
       article.info-section.features.black-cards.fullpage#features
