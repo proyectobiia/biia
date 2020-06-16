@@ -6,7 +6,7 @@
 
       .black-card__content(:class='{"black-card__content--home": page === "home"}')
         h4.black-card__title {{title}}
-        p.black-card__description {{description}}
+        p.black-card__description.escape_new_lines {{description}}
   </div>
 </template>
 
@@ -156,6 +156,10 @@ export default {
     width: 20px !important;
     height: 20px !important;
   }
+}
+
+.escape_new_lines {
+  white-space: pre-wrap;
 }
 
 </style>

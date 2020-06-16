@@ -90,7 +90,7 @@
             black-card(
               image='graphs/graph3.png',
               title="ETF'S",
-              description='Diversifique sus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.',
+              description='Diversifica tus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.',
               page='home',
             )
           slide

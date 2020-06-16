@@ -29,14 +29,16 @@
               image='academies/Octopus.png',
               title='Octopus',
               description='Enfocada al trading en Forex, fundada en 2016.',
-              link='https://www.ofxincorporation.com'
+              link='https://www.ofxincorporation.com',
+              @onClickModal='openLink'
             )
           slide
             black-card(
-              image='academies/4xAcademy.png',
-              title='4xAcademy',
-              description='Desarrolla tus habilidades con el apoyo de profesionales',
-              link='https://www.4xacademy.lat'
+              image='academies/Bullground.png',
+              title='Bullground',
+              description='La plataforma que está revolucionando la educación financiera y de negocios.',
+              link='https://bullground.mx',
+              @onClickModal='openLink'
           )
 </template>
 
@@ -57,6 +59,11 @@
       Carousel,
       Slide,
     },
+    methods: {
+      openLink(link){
+        window.open(link, "_blank");
+      }
+    }
   }
 </script>
 

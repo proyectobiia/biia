@@ -9,6 +9,12 @@
         p.footer-terms
           router-link.clickable(to='/terminos-condiciones') Aviso de privacidad / Términos y condiciones
         p.footer-rights BIIA. Todos los derechos reservados {{(new Date()).getFullYear()}}
+        p.footer-links
+          a.btn-social(href='https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/', target='_blank')
+            img.btn-social__icon(src='~@/assets/images/icons/facebook.png', title='Facebook', alt='Facebook')
+          a.btn-social(href='https://instagram.com/biia.lat?igshid=kv2tz50zwwln', target='_blank')
+            img.btn-social__icon(src='~@/assets/images/icons/instagram.png', title='Instagram', alt='Instagram')
+
 </template>
 
 <script>
@@ -99,6 +105,16 @@
   .footer-rights {
     text-transform: uppercase;
     margin-top: 12px;
+  }
+
+  .footer-links {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .btn-social__icon {
+    width: 40px;
   }
 
   /*

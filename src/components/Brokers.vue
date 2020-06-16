@@ -6,7 +6,9 @@
         <div class="modal">
           <form name="brokers-signup" @submit.prevent="onModalSubmit" data-netlify="true" data-netlify-honeypot="bot-field">
             <h1 class="modal__title">Ingresa tu email</h1>
-            <input type="text" class="modal__input" name="email" v-model="email" /></br>
+            <p class="modal__p">Para brindarte el mejor servicio posible ingresa tu correo y crea una cuenta para empezar a invertir.</p>
+            <input type="text" class="modal__input" name="email" v-model="email" /></br></br>
+            <label class="modal__label">Al enviar tu email aceptas los <router-link to="/terminos-condiciones" target="_blank">términos y condiciones</router-link></label></br>
             <input type="hidden" name="broker_title" :value="this.brokerTitle" />
             <input type="hidden" name="form-name" value="brokers-signup" />
             <button type="submit" class="btn-turquoise clickable modal__submit">Enviar</button>
@@ -256,6 +258,11 @@ export default {
 }
 
 .modal__submit {
-  margin-top: 5%;
+  margin-top: 1%;
+}
+
+.modal__label {
+  color: rgba($dark, 0.7);
+  font-size: 12px;
 }
 </style>
