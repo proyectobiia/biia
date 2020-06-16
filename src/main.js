@@ -12,7 +12,7 @@ import router from './router'
 
 Vue.use(VueGtag, {
   config: { id: "UA-169628464-1" }
-});
+}, router);
 
 new Vue({
   router,
