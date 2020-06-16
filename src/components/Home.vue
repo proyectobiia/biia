@@ -174,6 +174,7 @@
 
       window.addEventListener("touchstart", this.touchStart, { passive: false }) // mobile devices
       window.addEventListener("touchmove", this.touchMove, { passive: false }) // mobile devices
+      window.addEventListener("touchend", this.touchEnd, { passive: false }) //mobile devices
 
       // Mobile detection
       this.detectIsMobile()
@@ -196,6 +197,7 @@
 
       window.removeEventListener("touchstart", this.touchStart) // mobile devices
       window.removeEventListener("touchmove", this.touchMove) // mobile devices
+      window.removeEventListener("touchend", this.touchEnd) // mobile devices
       window.removeEventListener('resize', this.onResize)
     },
 
@@ -399,8 +401,8 @@
 
       touchStart(e) {
         console.log(e)
+        this.touchStartY = e.touches[0].clientY;
         if (e.target.className.indexOf('clickable') === -1) {
-          this.touchStartY = e.touches[0].clientY
           e.preventDefault()
         }
       },
@@ -419,7 +421,7 @@
 
         this.touchStartY = 0
         return false
-      }
+      },
 
     }
   }
