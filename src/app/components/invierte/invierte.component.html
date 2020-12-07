@@ -13,22 +13,26 @@
         <div class="aprende-hero-text">
             <p class="aprende-hero-animal">AKK</p>
             <p class="aprende-hero-title">APRENDE</p>
-            <p class="aprende-hero-description">Es relacionado con el tiempo y las alteraciones de la actividad alrededor del día. 
-                En BIIA las alteraciones del mercado las puedes aprovechar en conjunto con los de los mejores brókers a nivel mundial.</p>
+            <p class="aprende-hero-description">Es la representación de la experiencia y el conocimiento, En BIIA te brindamos el conocimiento y experiencia de las mejores academias de trading online.</p>
         </div>
     </div>
 </div>
 <div class="aprende-swiper-container">
     <p class="swiper-legend">Aprende de los mejores</p>
-    <swiper [config]="config" class="aprende-swiper">
-        <div class="aprende-academia" *ngFor="let broker of brokerList"><a routerLink="/login">
-            <div class="aprende-img-container">
-                <img [src]="broker.path" class="aprende-img">
+        <swiper [config]="config" class="aprende-swiper">
+            <div class="aprende-slide" *ngFor="let academia of academiaList">
+                <div class="aprende-academia">
+                    <a routerLink="/signup">
+                        <div class="aprende-img-container">
+                            <img [src]="academia.path" class="aprende-img">
+                        </div>
+                        <p class="aprende-academia-title">{{academia.name}}</p>
+                        <p class="aprende-academia-text">{{academia.description}}</p>
+                        </a>
+                </div>
             </div>
-            <p class="aprende-academia-title">{{broker.name}}</p>
-            <p class="aprende-academia-text">{{broker.description}}</p>
-        </a></div>
-    </swiper>
+        </swiper>
+
 </div>
 <div id="footer">
     <div id="footerContainer">

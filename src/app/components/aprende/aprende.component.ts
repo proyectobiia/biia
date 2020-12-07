@@ -7,15 +7,14 @@ import { FirestoreAdminService } from 'src/app/services/firestore-admin.service'
   styleUrls: ['./aprende.component.scss']
 })
 export class AprendeComponent implements OnInit {
-  academiaList
+  brokerList
+  
 
   constructor(private afs : FirestoreAdminService) { }
 
   ngOnInit(): void {
-    this.afs.getAcademias().subscribe(res => {
-      this.academiaList = res
-      console.log(typeof(this.academiaList))
-      console.log(this.academiaList.filter(academia => academia.id == "IulZhN4HnQsiUj9M1DQI"))
+    this.afs.getBrokers().subscribe(res => {
+      this.brokerList = res
     }
   )
   }
