@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "biia-ab56e": {
+      "hosting": {
+        "BIIA": [
+          "biia-ab56e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "biia-ab56e"
+  }
+}

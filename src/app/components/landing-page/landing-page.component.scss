@@ -1,0 +1,527 @@
+a{
+    text-decoration: none;
+}
+
+video{
+    position: absolute;
+    object-fit: fill;
+    opacity: .4;
+}
+
+.landingSection{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+#firstSection{
+    letter-spacing: 3px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 101;
+    background-color: #121D23;
+    overflow: hidden;
+}
+
+#firstSectionP{
+    position: absolute;
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 20px;
+    bottom: 25vh;
+}
+
+.scrollBtn{
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scrollBtn p{
+    font-family: 'Roboto Mono', monospace;
+    margin-bottom: 10px;
+}
+
+.navbar{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding-top: 30px;
+    opacity: 0;
+    transition: 1s;
+}
+
+.appearedNavbar{
+    opacity: 1;
+    position: fixed;
+    z-index: 100;
+}
+
+.loginBtn{
+    background-color: #121D23;
+}
+
+.navbar > i{
+    margin-top: 5px;
+    margin-right: 50px;
+    float: right;
+    font-size: 30px;
+}
+
+.navbar > a{
+    float: right;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', monospace;
+    letter-spacing: 3px;
+    font-size: 16px;
+    margin-right: 30px;
+}
+
+
+#secondSection{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#secondSection > p{
+    margin-top: 50px;
+    width: 70%;
+    line-height: 1.8em;
+}
+
+#investorsBG{
+    position: absolute;
+    top: 20px;
+    z-index: 0;
+}
+
+.loginBtn{
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.linkBtn{
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-family: 'Roboto', monospace;
+    margin-top: 75px;
+    color: white;
+}
+
+#roles{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.role{
+    width: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    z-index: 1;
+}
+
+.roleTitle{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.roleText{
+    padding: 30px;
+    background-color: rgba(18,29,35,1);
+    border-radius: 30px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.65);;
+}
+
+.animalSections{
+    background-image: url('/assets/img/animalSections.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.animalContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.animalImg{
+    width: 40%;
+    padding: 0px 50px;
+    margin-right: 5%;
+}
+
+.animalImg img{
+    width: 100%;
+}
+
+.animalName{
+    font-size: 29px;
+    margin: 16px 0;
+    letter-spacing: 10px;
+}
+
+.animalSubtitle{
+    font-size: 65px;
+    margin: 16px 0;
+    letter-spacing: 5px;
+}
+
+.animalText{
+    font-size: 14px;
+    margin: 16px 0 30px;
+    text-transform: uppercase;
+}
+
+#tortugaContainer{
+    margin-top: -70px;
+}
+
+#tortugaText{
+    position: relative;
+    margin-right: 0px;
+}
+
+#tortugaBtn{
+    position: absolute;
+    margin: 0;
+    right: 0;
+}
+
+#guacamayaImg{
+    background-image: url('/assets/img/guacamayaBG.png');
+    background-repeat: no-repeat;
+    background-position: 80% 56%;
+    background-size: 62%;
+}
+
+#tortugaImg{
+    padding: 0;
+    padding-bottom: 70px;
+    background-image: url('/assets/img/tortugaBG.png');
+    background-repeat: no-repeat;
+    background-position: 76% 8%;
+    background-size: 90%;
+    width: 43%;
+    margin-right: 0;
+    margin-left: 10%;
+}
+
+#jaguarImg{
+    background-image: url('/assets/img/jaguarBG.png');
+    background-repeat: no-repeat;
+    background-position: 60% 63%;
+    background-size: 52%;
+}
+
+#functionBG{
+    position: absolute;
+    width: 550px;
+    height: 100vh;
+    opacity: .3;
+}
+
+#infoTitle{
+    margin-bottom: 20px;
+}
+
+#infoText{
+    width: 45%;
+    line-height: 1.5em;
+}
+
+#explainDiv{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+
+.explainImg{
+    margin-bottom: 30px;
+}
+
+.explainContainer{
+    width: 21%;
+    margin: 0 2%;
+}
+
+#footer{
+    position: relative;
+    left: 0;
+    background-color: rgba(7,11,13,1);
+    padding: 70px 0 30px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#footerContainer{
+    width: 50%;
+    text-align: center;
+}
+
+#footerContainer img{
+    margin-bottom: 20px;
+    width: 40px;
+}
+
+.footer-text{
+    font-size: 14px;
+}
+
+#footerContainer i{
+    margin: 50px 5%;
+    font-size: 18px;
+}
+
+#guacamayaImg, #jaguarImg{
+    position: relative;
+    left: -150%;
+    transition: 1s;
+    width: 450px;
+    height: 350px;
+}
+
+#guacamayaImg img{
+    height: 100%;
+}
+
+.appearedImg{
+    left: 0 !important;
+}
+
+.animal-text-container{
+    position: relative;
+    right: -150%;
+    transition: 1s;
+    width: 500px;
+}
+
+.appearedText{
+    right: 0;
+}
+
+#tortugaText{
+    position: relative;
+    left: -150%;
+    transition: 1s;
+    width: 500px;
+}
+
+.appearedTextLeft{
+    left: 0 !important;
+}
+
+#tortugaImg{
+    position: relative;
+    right: -150%;
+    transition: 1s;
+    width: 450px;
+    height: 350px;
+}
+
+.appearedImgRight{
+    right: 0 !important;
+}
+
+.ver-brokers{
+    border-bottom: 4px solid rgba(248,137,32,1); 
+    padding: 10px 30px; 
+    font-size: 22px;
+    z-index: 10;
+}
+
+.space-bottom{
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .landingSection{
+        height: 800px;
+    }
+
+    .animalContainer{
+        flex-direction: column;
+    }
+    
+    .animal-text-container, .appearedTextLeft, .right{
+        text-align: center;
+    }
+
+    #tortugaBtn{
+        position: relative;
+    }
+
+    #tortugaImg{
+        margin-top: 70px;
+    }
+
+    #jaguarImg{
+        background-position: 60% 75%;
+        background-size: 62%;
+    }
+
+    #jaguar-text{
+        margin-top: 50px;
+    }
+
+    .appearedImg{
+        left: -40px !important;
+    }
+
+    .scrollBtn{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+
+    #firstSectionP{
+        font-size: 14px;
+        text-align: center;
+        width: 70%;
+    }
+
+    #secondSection{
+        height: 1000px;
+        font-size: 14px;
+    }
+
+    #roles{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role{
+        width: 80%;
+    }
+
+    #tortugaText{
+        margin-top: 100px;
+    }
+
+    #explainDiv{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .explainContainer{
+        width: 50%;
+        min-width: 300px;
+        margin: 0;
+        margin-bottom: 30px;
+    }
+
+    #tallSection{
+        height: 1200px;
+    }
+
+    #infoText{
+        font-size: 14px;
+    }
+
+    #footer{
+        height: 300px;
+    }
+
+    .normalText{
+        font-size: 16px;
+    }
+
+    .navbar{
+        top: auto;
+        bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .ver-brokers{
+        width: calc(80% - 60px);
+    }
+
+    
+    .animalName{
+        font-size: 15px;
+    }
+
+    .animalSubtitle{
+        font-size: 40px;
+    }
+
+    .animalText{
+        font-size: 12px;
+    }
+
+    .animalImg{
+        margin-right: 0;
+    }
+
+    #guacamayaImg,#jaguarImg{
+        width: 70%;
+        padding: 0;
+        background-size: 100%;
+    }
+
+    #jaguarImg{
+        background-position: 60% 0;
+        background-size: 80%;
+        height: auto;
+    }
+
+    #tortugaImg{
+        width: 70%;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .appearedImg{
+        left: 0px !important;
+    }
+
+    .animalSections .landingSection{
+        height: 700px;
+    }
+
+    #infoTitle{
+        font-size: 25px;
+    }
+
+    #infoText{
+        width: 80%;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    #jaguarImg,#tortugaImg{
+        width: 60%;
+    }
+
+    #guacamayaImg{
+        width: 50%;
+        height: 300px;
+    }
+
+}

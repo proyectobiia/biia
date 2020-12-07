@@ -1,0 +1,63 @@
+<app-navbar [currentTab]=1></app-navbar>
+<div class="brokers-wrapper" *ngIf="!showAddAccount">
+    <p class="brokers-title bold">BROKERS</p>
+    <div id="brokers-container">
+        <div class="broker" *ngFor="let broker of brokerList">
+            <div class="broker-header">
+                <img [src]="broker.path" class="broker-img">
+                <p class="broker-name"><b>{{broker.name}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{broker.page}}">{{broker.page}}</a></p>
+                <p class="cuenta-add smallText lightGreenText" (click)="changeBroker(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email)">+ Añadir Cuenta</p>
+            </div>
+            <pre class="smallText">{{broker.description}}</pre>
+        </div>
+    </div>
+</div>
+<div class="brokers-wrapper" *ngIf="showAddAccount">
+    <div class="add-account-wrapper">
+        <a (click)="toggleAddAccount()"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Brokers</a>
+    </div>
+    <div class="add-broker-info">
+        <img src={{brokerPath}} class="add-broker-img"> 
+        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
+    </div>
+    <div class="add-broker-body">
+        <div class="step">
+            <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
+            <div class="step-body">
+                <p class="bold step-title">Abrir una cuenta en {{brokerName}}</p>
+                <a class="step-btn" href="{{brokerPage}}" target="_blank">Abrir {{brokerName}}</a>
+                <div style="display: flex; margin-top: 20px;">
+                    <div id="step-1-checkbox" class="step-checkbox" (click)="toggleCheckBox1()"></div><p class="bold">Ya tengo una cuenta en {{brokerName}}.</p>
+                </div>
+            </div>
+        </div>
+        <div class="step disabled" id="step-2">
+            <div class="step-label"><p class="bold smallText">Paso 2:</p></div>
+            <div class="step-body">
+                <p class="bold step-title">Ingresar tu número de cuenta en {{brokerName}}</p>
+                <input type="text" class="step-input" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)" disabled>
+                <div style="display: flex; margin-top: 20px;">
+                    <div id="step-2-checkbox" class="step-checkbox" (click)="toggleCheckBox2()"></div><p style="color:rgba(255, 255, 255, 0.7)">Acepto los <span class="bold" style="color: white;">Términos y condiciones</span>
+                </div>
+            </div>
+        </div>
+        <div class="step-full disabled" id="step-3">
+            <div class="step-label"><p class="bold smallText">Paso 3:</p></div>
+            <div class="step-body">
+                <p class="bold step-title">Enviar un correo a {{brokerName}}</p>
+                <div class="step-3-email-container">
+                    <div class="step-3-email">
+                        <div class="email-header">
+                            <p><span class="bold">Enviar a:</span> {{brokerEmail}}</p>
+                            <p><span class="bold">Título:</span> {{accountSubject}}</p>
+                        </div>
+                        <pre class="smallText">
+                            {{mailBody}}
+                        </pre>
+                    </div>
+                    <button class="step-btn smallText" id="email-btn" (click)="createAccount(userID,userName,accountNumber,brokerName,brokerPath)">Enviar Correo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

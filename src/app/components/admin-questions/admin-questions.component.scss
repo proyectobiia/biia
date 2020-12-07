@@ -1,0 +1,229 @@
+.questions-wrapper{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.questions-searchbar-container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 25px 20px;
+    border-top: .5px solid rgba(255,255,255,.3);
+    border-bottom: .5px solid rgba(255,255,255,.3);
+    background-color: rgba(12,20,24,1);
+}
+
+.add-question{
+    font-family: 'Lato', sans-serif;
+    margin-left: 5%;
+}
+
+.questions-searchbar{
+    background-color: transparent;
+    border-radius: 5px;
+    display: flex;
+    position: absolute;
+    right: 50px;
+    padding: 15px;
+    width: 350px;
+}
+
+.questions-searchbar input{
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: white;
+    text-align: right;
+    width: 90%;
+}
+
+.questions-searchbar input::placeholder{
+    font-size: 14px;
+    color: rgba(255,255,255,0.3);
+}
+
+.questions-searchbar i{
+    position: absolute;
+    right: 15px;
+    font-size: 16px;
+}
+
+.questions-container{
+    width: 90%;
+}
+
+.question{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.question-header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 40px);
+    padding: 18px 20px;
+    background-color: rgba(7,11,13,0.5);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.question-name{
+    font-size: 25px;
+    width: 50%;
+}
+
+.question-edit{
+    position: absolute;
+    right: 30px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.questions-form{
+    padding: 35px 70px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 860px;
+}
+
+.questions-form-row{
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.text-fields-column{
+    width: 100%;
+}
+
+.questions-form input, .questions-form label{
+    display: block;
+    font-size: 14px;
+}
+
+.questions-form input, .questions-form textarea{
+    background-color: rgba(12,20,24,1);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 14px 20px;
+    color: white;
+    border-radius: 5px;
+    width: calc(100% - 41.6px);
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+textarea{
+    width: calc(100% - 41.6px);
+    height: 300px;
+    word-wrap: break-word;
+    font-family: 'Roboto', monospace;
+    font-size: 14px;
+}
+
+input::placeholder, textarea::placeholder{
+    color: rgba(255,255,255,0.3);
+}
+
+.dropzone{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    width: 160px;
+    font-weight: 200;
+    height: 160px;
+    border-radius: 5px;
+    background: rgba(12,20,24,1);
+    margin: 0;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.img-icon{
+    color: rgba(255,255,255,0.3);
+    font-size: 50px;
+}
+
+.form-title{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.form-subtitle{
+    font-size: 21px;
+    margin: 10px 0 30px;
+}
+
+.add-plan{
+    position: absolute;
+    right: 0;
+    top: 14px;
+    font-family: 'Lato', monospace;
+}
+
+.questions-table{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.questions-table-header{
+    width: calc(100% - 50px);
+    background-color: rgba(12,20,24,1);
+    display: flex;
+    padding: 13px 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.questions-table-header p{
+    width: calc(100%/4);
+    color: rgba(255,255,255,.5);
+    font-size: 14px;
+}
+
+.questions-table-row{
+    width: calc(100% - 50px);
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 13px 25px;
+    background-color: rgba(12,20,24,1);
+}
+
+.questions-table-row p{
+    width: calc(100%/4);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.delete-button{
+    width: 280px;
+    background-color: transparent;
+    border: 2px solid rgba(255,61,45,1);
+    color: rgba(255,61,45,1);
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 13px 0;
+}
+
+.save-button{
+    width: 580px;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: rgba(0,191,181,1);
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 13px 0;
+}

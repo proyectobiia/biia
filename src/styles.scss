@@ -1,0 +1,235 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$BIIA-primary: mat-palette($mat-indigo);
+$BIIA-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$BIIA-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$BIIA-theme: mat-light-theme((
+  color: (
+    primary: $BIIA-primary,
+    accent: $BIIA-accent,
+    warn: $BIIA-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($BIIA-theme);
+
+/* You can add global styles to this file, and also import other style files */
+$purple: rgba(108,49,247,1);
+$light-green: rgba(0,191,181,1);
+$orange: rgba(248,137,32,1);
+$darkGrey: rgba(255,255,255,0.7);
+$mediumGrey: rgba(255,255,255,0.5);
+$lightGrey: rgba(255,255,255,0.3);
+$black: rgba(7,11,13,1);
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #121D23;
+    color: white;
+    overflow-x: hidden;
+}
+
+.lightGreenText{
+    color: $light-green;
+}
+
+.lightGreenBackground{
+    background-color: $light-green;
+}
+
+.purpleText{
+    color: $purple;
+}
+
+.purpleBackground{
+    background-color: $purple;
+}
+
+.orangeText{
+    color: $orange;
+}
+
+.orangeBackground{
+    background-color: $orange;
+}
+
+.darkGreyText{
+    color: $darkGrey;
+}
+
+.mediumGreyText{
+    color: $mediumGrey;
+}
+
+.lightGreyText{
+    color: $lightGrey;
+}
+
+.blackBackground{
+    background-color: $black;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.titleText{
+    font-size: 40px;
+    letter-spacing: 3px;
+}
+
+.bigText{
+    font-size: 40px;
+}
+
+.normalText{
+    font-size: 20px;
+}
+
+.smallText{
+    font-size: 16px;
+}
+
+.text14{
+    font-size: 14px;
+}
+
+.text12{
+    font-size: 12px;
+}
+
+.robotoMono{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.bold{
+    font-weight: 700;
+}
+
+.strong{
+    font-weight: 500;
+}
+
+.underlined{
+    text-decoration: underline;
+}
+
+.right{
+    text-align: right;
+}
+
+app-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 720px;
+}
+
+app-signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 720px;
+    height: 100vh;
+}
+
+app-navbar{
+    position: fixed;
+    z-index: 100;
+}
+
+app-admin-navbar{
+    position: fixed;
+    z-index: 100;
+}
+
+button{
+    cursor: pointer;
+}
+
+.dashNavbar{
+    position: fixed;
+    height: 75px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(7,11,13,1);
+}
+
+.dashNavbar p{
+    font-family: 'Roboto Mono', monospace;
+    line-height: 75px;
+    margin-left: 10px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.swiper-container{
+    overflow: visible !important;
+}
+
+.swiper-slide{
+    overflow: visible !important;
+}
+
+.swiper-button-prev{
+    left: -50px !important;
+    color: $light-green !important;
+    cursor: pointer !important;
+}
+
+.swiper-button-next{
+    right: -50px !important;
+    color: $light-green !important;
+    cursor: pointer !important;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: -50px !important;
+
+}
+
+.swiper-pagination-bullet-active{
+    background: $light-green !important;
+}
+
+@media only screen and (max-width: 1000px){
+    .swiper-wrapper{
+        width: 100% !important;
+    }
+}
