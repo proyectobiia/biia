@@ -45,6 +45,7 @@ video{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .scrollBtn p{
@@ -93,6 +94,7 @@ video{
 #secondSection{
     text-align: center;
     font-family: 'Roboto Mono', monospace;
+    margin-top: 100px;
 }
 
 #secondSection > p{

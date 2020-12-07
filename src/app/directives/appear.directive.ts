@@ -26,6 +26,7 @@ export class AppearDirective implements AfterViewInit, OnDestroy {
         this.elementPos = this.getOffsetTop(this.element.nativeElement);
         this.elementHeight = this.element.nativeElement.offsetHeight;
         this.windowHeight = window.innerHeight;
+        console.log(this.elementPos)
     }
     saveScrollPos() {
         this.scrollPos = window.scrollY;
