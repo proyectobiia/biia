@@ -11,7 +11,7 @@ export class AcademiasComponent implements OnInit {
   academiaList
   showAcademiaInfo = false
   academiaName
-  academiaDescription
+  academiaDescription;
   academiaPath
   academiaDiscount
   planList
