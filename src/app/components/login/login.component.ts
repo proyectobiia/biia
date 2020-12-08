@@ -17,6 +17,13 @@ export class LoginComponent implements OnInit {
   constructor(public firebaseAuth : AngularFireAuth, private router: Router, private firestore: FirestoreAdminService, public fireauth: FireauthService) { }
 
   ngOnInit(): void {
+    this.firebaseAuth.currentUser.then(user =>{
+      if(user){
+        this.firebaseAuth.signOut().then(() =>{})
+      }else{
+        
+      }
+    })
   }
 
   toggleMail(){
