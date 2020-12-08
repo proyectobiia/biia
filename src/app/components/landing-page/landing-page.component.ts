@@ -11,9 +11,6 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     document.querySelector('video').playbackRate = 1.3
-  }
-
-  hasAppearedNavbar(){
     document.getElementsByClassName('navbar')[0].classList.add('appearedNavbar')
   }
 
