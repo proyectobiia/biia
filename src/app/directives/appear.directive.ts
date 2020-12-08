@@ -23,16 +23,17 @@ export class AppearDirective implements AfterViewInit, OnDestroy {
     }
 
     saveDimensions() {
-        this.elementPos = this.getOffsetTop(this.element.nativeElement);
-        this.elementHeight = this.element.nativeElement.offsetHeight;
+
+        //this.elementPos = this.getOffsetTop(this.element.nativeElement);
+        //this.elementHeight = this.element.nativeElement.offsetHeight;
         this.windowHeight = window.innerHeight;
-        console.log(this.elementPos)
     }
     saveScrollPos() {
         this.scrollPos = window.scrollY;
     }
     getOffsetTop(element: any) {
         let offsetTop = element.offsetTop || 0;
+        console.log("offsetTop: "+offsetTop,this.element.nativeElement.id)
         if (element.offsetParent) {
             offsetTop += this.getOffsetTop(element.offsetParent);
         }
@@ -49,13 +50,18 @@ export class AppearDirective implements AfterViewInit, OnDestroy {
         }
     }
     isVisible() {
-        return this.scrollPos >= this.elementPos || (this.scrollPos + this.windowHeight) >= (this.elementPos + this.elementHeight);
+        const rect = this.element.nativeElement.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        );
+        //return this.scrollPos >= this.elementPos || (this.scrollPos + this.windowHeight) >= (this.elementPos + this.elementHeight);
     }
 
     subscribe() {
         this.subscriptionScroll = fromEvent(window, 'scroll').pipe(startWith(null))
             .subscribe(() => {
-                this.saveScrollPos();
+                this.saveScrollPos(); 
                 this.checkVisibility();
             });
         this.subscriptionResize = fromEvent(window, 'resize').pipe(startWith(null))

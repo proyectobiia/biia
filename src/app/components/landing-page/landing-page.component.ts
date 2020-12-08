@@ -28,7 +28,6 @@ export class LandingPageComponent implements OnInit {
   }
 
   hasAppearedJaguar(){
-    console.log('appeared')
     document.getElementsByClassName('animal-text-container')[1].classList.add('appearedText')
     document.getElementById('jaguarImg').classList.add('appearedImg')
   }
