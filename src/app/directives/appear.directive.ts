@@ -33,7 +33,6 @@ export class AppearDirective implements AfterViewInit, OnDestroy {
     }
     getOffsetTop(element: any) {
         let offsetTop = element.offsetTop || 0;
-        console.log("offsetTop: "+offsetTop,this.element.nativeElement.id)
         if (element.offsetParent) {
             offsetTop += this.getOffsetTop(element.offsetParent);
         }

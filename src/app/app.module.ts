@@ -31,6 +31,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { InvierteComponent } from './components/invierte/invierte.component';
+import { NavbarDirective } from './directives/navbar.directive';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -60,7 +61,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     TermsComponent,
     ConditionsComponent,
     AprendeComponent,
-    InvierteComponent
+    InvierteComponent,
+    NavbarDirective
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit(): void {
     document.querySelector('video').playbackRate = 1.3
-    document.getElementsByClassName('navbar')[0].classList.add('appearedNavbar')
+    setTimeout(function(){document.getElementsByClassName('navbar')[0].classList.add('appearedNavbar')}, 300)
   }
 
   hasAppearedGuacamaya(){
