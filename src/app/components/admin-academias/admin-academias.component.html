@@ -86,7 +86,7 @@
                 <div class="academias-table-row" *ngFor="let plan of planes">
                     <p>{{plan.name}}</p>
                     <p style="text-decoration: line-through;">{{plan.price}}</p>
-                    <p>{{plan.discount}}</p>
+                    <p>{{plan.price - (plan.price * academiaDiscount/100)}}</p>
                     <p>{{academiaDiscount}}</p>
                     <a class="lightGreenText" (click)="toggleEditPlan(plan.id,plan.name,plan.buy_link,plan.price,plan.discount,plan.telegram,plan.success,plan.bullets)">Editar</a>
                 </div>
@@ -111,16 +111,8 @@
                 <input type="text" name="name" id="name" #planName placeholder="Escribe un nombre para el plan">
                 <label for="page">Link de Compra</label>
                 <input type="text" name="page" id="page" #planBuyLink placeholder="Link a la página de la academia">
-                <div class="academias-form-row">
-                    <div class="text-fields-column" style="width: 50%; margin-left: 0;">
-                        <label for="discount">Precio</label>
-                        <input type="text" name="Precio" id="Precio" #planPrice placeholder="Precio Original">
-                    </div>
-                    <div class="text-fields-column" style="width: 50%;">
-                        <label for="discount">Descuento</label>
-                        <input type="text" name="Descuento" id="Descuento" #planDiscount placeholder="Precio después del descuento">
-                    </div>
-                </div>
+                <label for="discount">Precio</label>
+                <input type="text" name="Precio" id="Precio" #planPrice placeholder="Precio Original">
                 <label for="telegram">Link de Telegram</label>
                 <input type="text" name="telegram" id="telegram" #planTelegramLink placeholder="Escribe el link para mandar mensaje a telegram">
                 <label for="success">Mensaje de éxito</label>
@@ -134,7 +126,7 @@
             </div>
         </div>
     </div>
-    <div style="margin-bottom: 20px;">{{confirmation}}</div>
+    <div style="margin-bottom: 20px;">{{planConfirmation}}</div>
     <div style="width: 860px; display: flex;">
         <button class="delete-button" (click)="togglePlanForm()">Eliminar</button>
         <button class="save-button" (click)="createPlan(editId,planName.value,planBuyLink.value,planPrice.value,planDiscount.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>
@@ -152,16 +144,8 @@
                 <input type="text" name="name" id="name" [value]="plan_name" #planName placeholder="Escribe un nombre para el plan">
                 <label for="page">Link de Compra</label>
                 <input type="text" name="page" id="page" [value]="plan_buy_link" #planBuyLink placeholder="Link a la página de la academia">
-                <div class="academias-form-row">
-                    <div class="text-fields-column" style="width: 50%; margin-left: 0;">
-                        <label for="discount">Precio</label>
-                        <input type="text" name="Precio" id="Precio" [value]="plan_price" #planPrice placeholder="Precio Original">
-                    </div>
-                    <div class="text-fields-column" style="width: 50%;">
-                        <label for="discount">Descuento</label>
-                        <input type="text" name="Descuento" id="Descuento" [value]="plan_discount" #planDiscount placeholder="Precio después del descuento">
-                    </div>
-                </div>
+                <label for="discount">Precio</label>
+                <input type="text" name="Precio" id="Precio" [value]="plan_price" #planPrice placeholder="Precio Original">
                 <label for="telegram">Link de Telegram</label>
                 <input type="text" name="telegram" id="telegram" [value]="plan_telegram" #planTelegramLink placeholder="Escribe el link para mandar mensaje a telegram">
                 <label for="success">Mensaje de éxito</label>
@@ -175,7 +159,7 @@
             </div>
         </div>
     </div>
-    <div style="margin-bottom: 20px;">{{confirmation}}</div>
+    <div style="margin-bottom: 20px;">{{planConfirmation}}</div>
     <div style="width: 860px; display: flex;">
         <button class="delete-button" (click)="removePlan(editId,plan_id)">Eliminar</button>
         <button class="save-button" (click)="updatePlan(planName.value,planBuyLink.value,planPrice.value,planDiscount.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>

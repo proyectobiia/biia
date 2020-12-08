@@ -36,6 +36,7 @@ export class AdminAcademiasComponent implements OnInit {
   showAddPlan:boolean = false;
   showEditPlan:boolean = false;
   confirmation:string = ''
+  planConfirmation:string = ''
   editId:string;
   academiaName:string;
   academiaDiscount:number;
@@ -141,21 +142,32 @@ export class AdminAcademiasComponent implements OnInit {
 
   togglePlanForm(){
     this.showAddPlan = !this.showAddPlan
+    this.planConfirmation = ""
   }
 
-  createPlan(academia_ID, name, buy_link, price, discount, telegram_link, success, bullets){
-    var bulletsSplit = bullets.split("\n")
-    this.afs.createPlan(academia_ID, name, buy_link, price, discount, telegram_link, success, bulletsSplit)
-    this.firestore.firestore.collection('academias').doc(academia_ID).collection('planes').get().then(snap =>{
-      this.firestore.collection('academias').doc(academia_ID).update({planNumber: snap.size})
-    })
-    this.showAddPlan = !this.showAddPlan
+  createPlan(academia_ID, name, buy_link, price, telegram_link, success, bullets){
+    if(buy_link==""){
+      this.planConfirmation = "Por favor rellena todos los campos antes de continuar"
+    }else{
+      var bulletsSplit = bullets.split("\n")
+      this.afs.createPlan(academia_ID, name, buy_link, price, telegram_link, success, bulletsSplit)
+      this.firestore.firestore.collection('academias').doc(academia_ID).collection('planes').get().then(snap =>{
+        this.firestore.collection('academias').doc(academia_ID).update({planNumber: snap.size})
+      })
+      this.showAddPlan = !this.showAddPlan
+      this.planConfirmation = ""
+    }
   }
 
-  updatePlan(name, buy_link, price, discount, telegram, success, bullets){
+  updatePlan(name, buy_link, price, telegram, success, bullets){
+    if(buy_link==""){
+      this.planConfirmation = "Por favor rellena todos los campos antes de continuar"
+    }else{
     var bulletsSplit = bullets.split("\n")
-    this.afs.updatePlan(this.editId, this.plan_id, name, buy_link, price, discount, telegram, success, bulletsSplit)
+    this.afs.updatePlan(this.editId, this.plan_id, name, buy_link, price, telegram, success, bulletsSplit)
     this.showEditPlan = !this.showEditPlan
+    this.planConfirmation = ""
+    }
   }
 
   removePlan(academia_ID,id){

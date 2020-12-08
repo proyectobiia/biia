@@ -11,12 +11,12 @@ exports.sendMailBroker = functions.firestore.document("correos/{correoId}").onCr
     let authData = nodemailer.createTransport({
         service: "Hotmail",
         auth: {
-          user: "picachuycradily@hotmail.com",
-          pass: "poIUytREwq$",
+          user: "soportebiia@hotmail.com",
+          pass: "BiiA2020:)",
         },
       });
       const mailOptions = {
-        from: "picachuycradily@hotmail.com",
+        from: "soportebiia@hotmail.com",
         to: newCorreo.email,
         subject: newCorreo.subject,
         text: newCorreo.body,

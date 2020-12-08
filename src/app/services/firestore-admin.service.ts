@@ -31,7 +31,6 @@ export interface plan{
   name: string,
   buy_link: string,
   price: number,
-  discount: number,
   telegram: string,
   success: string,
   bullets
@@ -190,13 +189,12 @@ export class FirestoreAdminService {
     });
   }
 
-  createPlan(academia_ID, name, buy_link, price, discount, telegram_link, success, bullets){
+  createPlan(academia_ID, name, buy_link, price, telegram_link, success, bullets){
     return new Promise<any>((resolve, reject) =>{
       this.firestore.collection("academias").doc(academia_ID).collection('planes').add({
             name: name,
             buy_link: buy_link,
             price: price,
-            discount: discount,
             telegram: telegram_link,
             success: success,
             bullets: bullets,
@@ -210,13 +208,12 @@ export class FirestoreAdminService {
     return this.planList
   }
 
-  updatePlan(academia_ID, plan_ID, name, buy_link, price, discount, telegram, success, bullets){
+  updatePlan(academia_ID, plan_ID, name, buy_link, price, telegram, success, bullets){
     return new Promise<any>((resolve, reject) =>{
       this.firestore.collection("academias").doc(academia_ID).collection('planes').doc(plan_ID).set({
             name: name,
             buy_link: buy_link,
             price: price,
-            discount: discount,
             telegram: telegram,
             success: success,
             bullets: bullets
@@ -291,16 +288,6 @@ export class FirestoreAdminService {
         });
       })
     )
-    var reembolsoPendingList = reembolsoPending.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        });
-      })
-    )
-    //reembolsoList.filter(value => reembolsoPendingList.includes(value))
     return reembolsoList
   }
 

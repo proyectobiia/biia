@@ -33,7 +33,7 @@
                     <p class="plan-name bold">{{plan.name}}</p>
                     <div class="plan-numbers">
                         <p class="plan-original-price bold" *ngIf="academiaDiscount != 0">${{plan.price}}USD<br><span class="lightGreenText" style="text-align: right;">{{academiaDiscount}}%</span></p>
-                        <p class="plan-discount bold">${{plan.discount}} USD</p>
+                        <p class="plan-discount bold">${{plan.price - (plan.price * academiaDiscount/100)}} USD</p>
                     </div>
                 </div>
                 <div class="plan-body">
