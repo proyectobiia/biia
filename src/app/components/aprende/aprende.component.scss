@@ -52,7 +52,7 @@
 .aprende-hero-container{
     display: flex;
     align-items: center;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 .aprende-hero-img-container, .aprende-hero-text{
@@ -232,6 +232,10 @@ swiper > .swiper.s-wrapper, swiper, .swiper-container{
 @media only screen and (max-width: 1000px){
     .aprende-hero-container{
         flex-direction: column;
+    }
+
+    .aprende-hero-description{
+        padding-bottom: 50px;
     }
 
     .aprende-hero-text{
