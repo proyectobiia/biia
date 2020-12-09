@@ -18,6 +18,9 @@ export class InvierteComponent implements OnInit {
       }
     )
     window.scrollTo(0, 0)
+    if(window.innerWidth >= 800){
+      document.getElementsByTagName("video")[0].setAttribute("autoplay","true")
+    }
   }
 
   config = {

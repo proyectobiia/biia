@@ -14,6 +14,9 @@ export class LandingPageComponent implements OnInit {
     document.querySelector('video').playbackRate = 1.3
     setTimeout(function(){document.getElementsByClassName('navbar')[0].classList.add('appearedNavbar')}, 300)
     window.scrollTo(0, 0)
+    if(window.innerWidth >= 800){
+      document.getElementsByTagName("video")[0].setAttribute("autoplay","true")
+    }
   }
 
   hasAppearedGuacamaya(){

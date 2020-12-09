@@ -17,6 +17,9 @@ export class AprendeComponent implements OnInit {
       this.brokerList = res
       }
     )
+    if(window.innerWidth >= 800){
+      document.getElementsByTagName("video")[0].setAttribute("autoplay","true")
+    }
     window.scrollTo(0, 0)
   }
 
