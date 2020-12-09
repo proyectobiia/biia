@@ -15,8 +15,9 @@ export class AprendeComponent implements OnInit {
   ngOnInit(): void {
     this.afs.getBrokers().subscribe(res => {
       this.brokerList = res
-    }
-  )
+      }
+    )
+    window.scrollTo(0, 0)
   }
 
   config = {

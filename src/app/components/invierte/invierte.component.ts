@@ -15,9 +15,9 @@ export class InvierteComponent implements OnInit {
     this.afs.getAcademias().subscribe(res => {
       this.academiaList = res
       console.log(this.academiaList.filter(academia => academia.id == "IulZhN4HnQsiUj9M1DQI"))
-    }
-  )
-    
+      }
+    )
+    window.scrollTo(0, 0)
   }
 
   config = {
