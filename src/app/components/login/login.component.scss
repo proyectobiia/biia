@@ -140,6 +140,16 @@ input{
     cursor: pointer;
 }
 
+@media only screen and (max-width: 1000px){
+
+    .return-button{
+        position: fixed;
+        top: 15px;
+        bottom: auto;
+    }
+    
+}
+
 @media only screen and (max-width: 650px){
     .inputContainer{
         width: calc(80% - 90px);

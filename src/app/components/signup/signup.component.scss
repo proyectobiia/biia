@@ -141,6 +141,16 @@ input{
     margin-right: 30px;
 }
 
+@media only screen and (max-width: 1000px){
+
+    .return-button{
+        position: fixed;
+        top: 15px;
+        bottom: auto;
+    }
+    
+}
+
 @media only screen and (max-width: 650px){
     .inputContainer, .mailInputContainer{
         width: calc(80% - 90px);
