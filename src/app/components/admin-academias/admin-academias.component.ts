@@ -112,13 +112,12 @@ export class AdminAcademiasComponent implements OnInit {
   }
 
   //Método para mostrar formulario para editar planes y asignar los valores actuales del plan
-  toggleEditPlan(planID,planName,buy_link,price,discount,telegram_link,success,bullets){
+  toggleEditPlan(planID,planName,buy_link,price,telegram_link,success,bullets){
     console.log(planID)
     this.plan_id = planID
     this.plan_name = planName
     this.plan_buy_link = buy_link
     this.plan_price = price
-    this.plan_discount = discount
     this.plan_telegram = telegram_link
     this.plan_success = success
     if(bullets != null){

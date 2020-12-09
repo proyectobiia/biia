@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { FirestoreAdminService } from 'src/app/services/firestore-admin.service';
 import { FireauthService } from 'src/app/services/fireauth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,18 @@ export class LoginComponent implements OnInit {
   passwordReset:boolean = false;
   errorText: string = "";
 
-  constructor(public firebaseAuth : AngularFireAuth, private router: Router, private firestore: FirestoreAdminService, public fireauth: FireauthService) { }
+  constructor(public firebaseAuth : AngularFireAuth, private userService: UserService, private router: Router, private firestore: FirestoreAdminService, public fireauth: FireauthService) { }
 
   ngOnInit(): void {
     this.firebaseAuth.currentUser.then(user =>{
       if(user){
-        this.firebaseAuth.signOut().then(() =>{})
+        this.userService.getUserById(user.uid).subscribe(res => {
+          if(res.role == 'user'){
+            this.router.navigate(['/dashboard'])
+          }else{
+            this.router.navigate(['/admin/reembolsos'])
+          }
+        })
       }else{
         
       }

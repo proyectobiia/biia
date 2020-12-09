@@ -67,7 +67,7 @@
             <div class="text-fields-column">
                 <div class="text-area-column">
                     <label for="descripcion">Descripción</label>
-                    <textarea name="descripcion" id="descripcion" #description placeholder="Escribe una descripción" [value]=academiaDiscount></textarea>
+                    <textarea name="descripcion" id="descripcion" #description placeholder="Escribe una descripción" [value]=academiaDescription></textarea>
                     </div> 
             </div>
         </div>
@@ -88,7 +88,7 @@
                     <p style="text-decoration: line-through;">{{plan.price}}</p>
                     <p>{{plan.price - (plan.price * academiaDiscount/100)}}</p>
                     <p>{{academiaDiscount}}</p>
-                    <a class="lightGreenText" (click)="toggleEditPlan(plan.id,plan.name,plan.buy_link,plan.price,plan.discount,plan.telegram,plan.success,plan.bullets)">Editar</a>
+                    <a class="lightGreenText" (click)="toggleEditPlan(plan.id,plan.name,plan.buy_link,plan.price,plan.telegram,plan.success,plan.bullets)">Editar</a>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
     <div style="margin-bottom: 20px;">{{planConfirmation}}</div>
     <div style="width: 860px; display: flex;">
         <button class="delete-button" (click)="togglePlanForm()">Eliminar</button>
-        <button class="save-button" (click)="createPlan(editId,planName.value,planBuyLink.value,planPrice.value,planDiscount.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>
+        <button class="save-button" (click)="createPlan(editId,planName.value,planBuyLink.value,planPrice.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>
     </div>
 </div>
 <div class="academias-wrapper" *ngIf="showEditPlan">

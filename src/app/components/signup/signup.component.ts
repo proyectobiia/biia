@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { FireauthService } from 'src/app/services/fireauth.service';
+import { UserService } from 'src/app/services/user.service';
 import { FirestoreAdminService} from '../../services/firestore-admin.service'
 
 @Component({
@@ -15,9 +16,22 @@ export class SignupComponent implements OnInit {
   googleSignup : boolean = false;
   facebookSignup : boolean = false;
   errorText: string = "";
-  constructor(public firebaseAuth : AngularFireAuth, private router: Router, private firestore: FirestoreAdminService, public fireauth: FireauthService) { }
+  constructor(public firebaseAuth : AngularFireAuth, private userService: UserService, private router: Router, private firestore: FirestoreAdminService, public fireauth: FireauthService) { }
 
   ngOnInit(): void {
+    this.firebaseAuth.currentUser.then(user =>{
+      if(user){
+        this.userService.getUserById(user.uid).subscribe(res => {
+          if(res.role == 'user'){
+            this.router.navigate(['/dashboard'])
+          }else{
+            this.router.navigate(['/admin/reembolsos'])
+          }
+        })
+      }else{
+        
+      }
+    })
   }
 
   toggleMail() {
