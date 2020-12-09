@@ -74,8 +74,8 @@ export class AdminCuentasComponent implements OnInit {
   }
 
   saveBalance(id,accountBalance){
-    this.afs.changeBalance(id,accountBalance)
-    this.afs.createPago(this.accountName,this.userID,this.accountRef,this.accountBalance,accountBalance)
+    this.afs.changeBalance(id,parseFloat(accountBalance))
+    this.afs.createPago(this.accountName,this.userID,this.accountRef,parseFloat(this.accountBalance),accountBalance)
     this.showBalanceModal = !this.showBalanceModal;
   }
 
