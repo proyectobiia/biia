@@ -18,7 +18,7 @@ export class AprendeComponent implements OnInit {
       }
     )
     if(window.innerWidth >= 800){
-      document.getElementsByTagName("video")[0].setAttribute("autoplay","true")
+      document.getElementById('aprendeVideo').setAttribute("autoplay", "true")
     }
     window.scrollTo(0, 0)
   }

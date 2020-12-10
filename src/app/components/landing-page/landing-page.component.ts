@@ -8,14 +8,16 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(public firebaseAuth : AngularFireAuth) { }
+  constructor(public firebaseAuth : AngularFireAuth) {
+    
+   }
 
   ngOnInit(): void {
     document.querySelector('video').playbackRate = 1.3
     setTimeout(function(){document.getElementsByClassName('navbar')[0].classList.add('appearedNavbar')}, 300)
     window.scrollTo(0, 0)
     if(window.innerWidth >= 800){
-      document.getElementsByTagName("video")[0].setAttribute("autoplay","true")
+      document.getElementById('myVideo').setAttribute("autoplay", "true")
     }
   }
 
