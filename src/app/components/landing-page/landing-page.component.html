@@ -6,7 +6,7 @@
     <img src="/assets/img/biiaLogo.png">
     <p id="firstSectionP">TRANSFORMAMOS EL MUNDO DE LAS FINANZAS</p>
     <div class="scrollBtn" (click)="scroll('secondSection')">
-        <p>scroll</p>
+        <p>SCROLL</p>
         <i class="fas fa-chevron-down" style="font-size: 30px"></i>
     </div>
 </div>
@@ -15,18 +15,18 @@
         <a class="orangeText strong loginBtn" routerLink="/login">INICIAR SESIÓN</a>  
     </div>
     <img src="/assets/img/Mexico.png" id="investorsBG">
-    <p>Somos una plataforma mexicana que ayuda al inversor y al nuevo inversor</p>
+    <p class="second-section-first-p">Somos una plataforma mexicana que ayuda al inversor y al nuevo inversor</p>
     <div id="roles">
         <div class="role">
             <p class="roleTitle lightGreenText">INVERSOR</p>
             <p class="roleText">Reducimos comisión por cada operación que abras.</p>
         </div>
         <div class="role">
-            <p class="roleTitle purpleText">NUEVO INVERSOR</p>
+            <p class="roleTitle lightGreenText">NUEVO INVERSOR</p>
             <p class="roleText">Comienza de la mano de las mejores academias de trading.</p>
         </div>
     </div>
-    <p>Somos conscientes del gran valor que  tiene México como país, nos inspira su patrimonio cultural y su gran biodiversidad, por  eso en BIIA, estamos comprometicos en ofrecerte ese mismo valor para ti.</p>
+    <p class="second-section-second-p">Somos conscientes del gran valor que  tiene México como país, nos inspira su patrimonio cultural y su gran biodiversidad, por  eso en BIIA, estamos comprometicos en ofrecerte ese mismo valor para ti.</p>
     <a class="lightGreenBackground linkBtn strong" routerLink="/login">DESCUBRE CÓMO <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
 </div>
 <div class="animalSections">
@@ -38,7 +38,7 @@
             <div class="animal-text-container">
                 <p class="lightGreenText animalName" (appear)="hasAppearedGuacamaya()" id="guacamaya">MOO | GUACAMAYA</p>
                 <p class="animalSubtitle bold">INVIERTE</p>
-                <p class="animalText bold">Comienza con los mejores brókers a<br> nivel mundial</p>
+                <p class="animalText bold">Comienza con los mejores brókers a nivel mundial</p>
                 <a class="lightGreenBackground linkBtn strong" routerLink="/invierte">SABER MÁS <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
         </div>
@@ -48,7 +48,7 @@
             <div id="tortugaText">
                 <p class="purpleText animalName right" (appear)="hasAppearedTortuga()" id="tortuga">TORTUGA | AKK</p>
                 <p class="animalSubtitle bold right">APRENDE</p>
-                <p class="animalText bold right">COMIENZA TU CARTERA COMO UN TRADER</p>
+                <p class="animalText bold right">COMIENZA TU CARTERA COMO <br>UN TRADER</p>
                 <a class="purpleBackground linkBtn strong right" id="tortugaBtn" routerLink="/aprende"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
             </div>
             <div class="animalImg" id="tortugaImg">
@@ -64,15 +64,15 @@
             <div class="animal-text-container" id="jaguar-text">
                 <p class="orangeText animalName" (appear)="hasAppearedJaguar()" id="Jaguar">BALAM | JAGUAR</p>
                 <p class="animalSubtitle bold">GANA</p>
-                <p class="animalText bold">Reducimos tu spread hasta un 25%</p>
+                <p class="animalText bold">Reducimos tu spread hasta <br>un 25%</p>
                 <a class="orangeBackground linkBtn strong" routerLink="/login">SABER MÁS <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
         </div>
     </div>
 </div>
 <div class="landingSection centerText">
-    <p class="strong titleText" id="infoTitle">¿CÓMO FUNCIONA?</p>
-    <p class="normalText robotoMono" id="infoText"><span class="strong"><span class="lightGreenText">BIIA</span> es una nueva forma de invertir tu dinero</span><br><br>
+    <p class="strong normalText" id="infoTitle">¿CÓMO FUNCIONA?</p>
+    <p class="smallText robotoMono" id="infoText"><span class="strong"><span class="lightGreenText">BIIA</span> es una nueva forma de invertir tu dinero</span><br><br>
         Si eres un inversionista recurrente en <span class="lightGreenText bold">BIIA</span>, sacarás el máximo provecho a tus operaciones y te reembolsaremos parte del spread que te cobra tu actual bróker.<br><br>
         <span class="bold">PARECE MAGIA</span><br>
         <span class="lightGreenText bold">¡PERO NO LO ES!</span><br><br><br>
@@ -84,28 +84,28 @@
     <div id="explainDiv">
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options1.png">
-            <p class="bold normalText space-bottom">ACCIONES</p>
-            <p class="normalText robotoMono">Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la información para tu portafolio de inversión.</p>
+            <p class="bold smallText space-bottom wide-spacing">ACCIONES</p>
+            <p class="text14 robotoMono wide-spacing">Invierte en millones de compañias utilizando todas las herramientas para trading y analizar la información para tu portafolio de inversión.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options2.png">
-            <p class="bold normalText space-bottom">OPCIONES</p>
-            <p class="normalText robotoMono">Las opciones proveen de una alternativa estratégica para tu capital en donde podrás invertir en el mercado de capitales.</p>
+            <p class="bold smallText space-bottom wide-spacing">OPCIONES</p>
+            <p class="text14 robotoMono wide-spacing">Las opciones proveen de una alternativa estratégica para tu capital en donde podrás invertir en el mercado de capitales.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options3.png">
-            <p class="bold normalText space-bottom">ETF´S</p>
-            <p class="normalText robotoMono">Diversifica tus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.</p>
+            <p class="bold smallText space-bottom wide-spacing">ETF´S</p>
+            <p class="text14 robotoMono wide-spacing">Diversifica tus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options4.png">
-            <p class="bold normalText space-bottom">FOREX</p>
-            <p class="normalText robotoMono">Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.</p>
+            <p class="bold smallText space-bottom wide-spacing">FOREX</p>
+            <p class="text14 robotoMono wide-spacing">Diferencia tu portafolio con el mercado mas líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.</p>
         </div>
     </div>
 </div>
-<div id="footer">
-    <div id="footerContainer">
+<div id="footer-mobile">
+    <div class="footerContainer">
         <img src="/assets/img/logoWhite.png">
         <p class="bold footer-text" style="letter-spacing: 5px;">BIIA</p>
         <div>
@@ -114,4 +114,25 @@
         </div>
         <p class="footer-text darkGreyText">BIIA. Todos los derechos reservados</p>
     </div>
+</div>
+<div id="footer-desktop">
+    <div class="footer-scroll lightGreenBackground" (click)="scrollStart()"><i class="fas fa-chevron-up"></i></div>
+    <div class="footer-container-desktop">
+        <div class="footer-desktop-section">
+            <img src="../../../assets/img/logoWhite.png" style="width: 38px;">
+            <p class="bold footer-text" style="letter-spacing: 5px; margin-top: 20px;">BIIA</p>
+        </div>
+        <div class="footer-desktop-section">
+            <p class="bold footer-desktop-title text14">CONTACTO</p>
+            <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="far fa-envelope"></i>Email</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>
+        </div>
+        <div class="footer-desktop-section">
+            <p class="bold footer-desktop-title text14">SOCIAL</p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln"><i class="fab fa-instagram"></i>Instagram</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p>
+        </div>
+    </div>
+    <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>
 </div>

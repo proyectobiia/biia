@@ -51,4 +51,11 @@ export class LandingPageComponent implements OnInit {
     });
   }
 
+  scrollStart(){
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
 }

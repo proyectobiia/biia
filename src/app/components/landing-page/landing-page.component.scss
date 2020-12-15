@@ -5,7 +5,7 @@ a{
 video{
     position: absolute;
     object-fit: fill;
-    opacity: .4;
+    opacity: .1;
 }
 
 .landingSection{
@@ -30,6 +30,10 @@ video{
     overflow: hidden;
 }
 
+#firstSection img{
+    margin-top: -54px;
+}
+
 .video-cover{
     position: absolute;
     top: 0;
@@ -40,11 +44,11 @@ video{
 
 #firstSectionP{
     position: absolute;
-    color: rgba(255,255,255,0.5);
-    font-size: 16px;
+    color: rgba(255,255,255,1);
+    font-size: 17px;
     font-weight: 700;
-    margin-top: 20px;
-    bottom: 25vh;
+    bottom: 30vh;
+    letter-spacing: 5px;
 }
 
 .scrollBtn{
@@ -106,10 +110,22 @@ video{
     margin-top: 100px;
 }
 
-#secondSection > p{
-    margin-top: 50px;
-    width: 70%;
+p{
+    letter-spacing: 2px;
+}
+
+#secondSection > .second-section-second-p{
+    margin-top: 80px;
+    width: 80%;
     line-height: 1.8em;
+    font-size: 16px;
+}
+
+#secondSection > .second-section-first-p{
+    margin-top: 0px;
+    width: 80%;
+    line-height: 1.8em;
+    font-size: 16px;
 }
 
 #investorsBG{
@@ -153,13 +169,15 @@ video{
     font-family: 'Roboto Mono', monospace;
     font-weight: 700;
     margin-bottom: 50px;
+    font-size: 18px;
 }
 
 .roleText{
     padding: 30px;
     background-color: rgba(18,29,35,1);
     border-radius: 30px;
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.65);;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.65);
+    font-size: 16px;
 }
 
 .animalSections{
@@ -186,7 +204,7 @@ video{
 }
 
 .animalName{
-    font-size: 29px;
+    font-size: 23px;
     margin: 16px 0;
     letter-spacing: 10px;
 }
@@ -194,12 +212,13 @@ video{
 .animalSubtitle{
     font-size: 65px;
     margin: 16px 0;
-    letter-spacing: 5px;
+    letter-spacing: 10px;
 }
 
 .animalText{
-    font-size: 14px;
+    font-size: 17px;
     margin: 16px 0 30px;
+    letter-spacing: 5px;
     text-transform: uppercase;
 }
 
@@ -252,12 +271,12 @@ video{
 }
 
 #infoTitle{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 #infoText{
-    width: 45%;
-    line-height: 1.5em;
+    width: 75%;
+    line-height: 2em;
 }
 
 #explainDiv{
@@ -275,24 +294,96 @@ video{
     margin: 0 2%;
 }
 
-#footer{
+.explainContainer p{
+    line-height: 1.8em;
+}
+
+.wide-spacing{
+    letter-spacing: 3px;
+}
+
+#footer-mobile{
     position: relative;
     left: 0;
     background-color: rgba(7,11,13,1);
     padding: 70px 0 30px;
     width: 100vw;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    display: none;
 }
 
-#footerContainer{
+#footer-desktop{
+    position: relative;
+    left: 0;
+    background-color: rgba(7,11,13,1);
+    padding: 100px 0 100px;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.footerContainer{
     width: 50%;
     text-align: center;
 }
 
-#footerContainer img{
+.footer-container-desktop{
+    width: 70%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-scroll{
+    position: absolute;
+    top: -25px;
+    right: 150px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-scroll i{
+    font-size: 30px;
+}
+
+.footer-desktop-section{
+    margin: 0 50px;
+}
+
+.footer-desktop-title{
+    text-align: left;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.footer-desktop-text{
+    text-align: left;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.footer-desktop-text a{
+    color: white;
+}
+
+.footer-desktop-section i {
+    margin-right: 15px;
+}
+
+.footer-disclaimer{
+    margin-top: 50px;
+}
+
+.footerContainer img{
     margin-bottom: 20px;
     width: 40px;
 }
@@ -301,7 +392,7 @@ video{
     font-size: 14px;
 }
 
-#footerContainer i{
+.footerContainer i{
     margin: 50px 5%;
     font-size: 18px;
 }
@@ -359,12 +450,13 @@ video{
 .ver-brokers{
     border-bottom: 4px solid rgba(248,137,32,1); 
     padding: 10px 30px; 
-    font-size: 22px;
+    font-size: 16px;
+    letter-spacing: 3px;
     z-index: 10;
 }
 
 .space-bottom{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -402,6 +494,14 @@ video{
     }
 
     .scrollBtn{
+        display: none;
+    }
+
+    #footer-mobile{
+        display: flex;
+    }
+
+    #footer-desktop{
         display: none;
     }
 
