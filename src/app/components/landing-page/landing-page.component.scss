@@ -464,12 +464,21 @@ p{
         height: 800px;
     }
 
+    #firstSectionP{
+        line-height: 1.8em;
+    }
+
     .animalContainer{
         flex-direction: column;
     }
     
     .animal-text-container, .appearedTextLeft, .right{
         text-align: center;
+    }
+
+    .animalText{
+        padding: 0 15%;
+        letter-spacing: 2px;
     }
 
     #tortugaBtn{
@@ -538,6 +547,10 @@ p{
         align-items: center;
     }
 
+    #infoSection{
+        height: 1000px;
+    }
+
     .explainContainer{
         width: 50%;
         min-width: 300px;
@@ -546,7 +559,7 @@ p{
     }
 
     #tallSection{
-        height: 1200px;
+        height: 1600px;
     }
 
     #infoText{
