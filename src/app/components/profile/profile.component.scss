@@ -256,9 +256,9 @@
     margin-top: 30px;
     background-color: rgba(12,20,24,1);
     border-radius: 10px;
-    overflow: hidden;
     position: relative;
     margin-bottom: 30px;
+    height: 260px;
 }
 
 .table-img{
@@ -285,4 +285,51 @@
     align-items: center;
     width: 20%;
     font-size: 14px;
+}
+
+@media only screen and (max-width: 1000px){
+    .user-info-container{
+        flex-direction: column;
+    }
+
+    .info{
+        margin: 0;
+        margin-bottom: 30px;
+        width: calc(100% - 60px);
+    }
+
+    .table-wrapper{
+        width: 90%;
+        overflow-x: scroll;
+    }
+
+    .paypal-container{
+        width: 90%;
+    }
+
+    .table-title, .table-row{
+        min-width: 800px;
+    }
+
+    .edit-modal{
+        width: 90%;
+    }
+
+    .modal-label{
+        width: 100%;
+    }
+
+    .edit-input input[type="text"], .paypal-input input[type="text"]{
+        width: calc(100% - 40px);
+    }
+
+    .paypal-btn{
+        width: 70%;
+        left: 15%;
+    }
+
+    .paypal-modal{
+        width: 90%;
+    }
+
 }

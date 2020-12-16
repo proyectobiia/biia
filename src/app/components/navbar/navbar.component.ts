@@ -23,11 +23,16 @@ export class NavbarComponent implements OnInit {
       if(this.currentTab<4){
         document.getElementsByClassName('navbar-link')[this.currentTab].classList.add('navbar-selected')
       }
+      document.getElementsByClassName('navbar-link-mobile')[this.currentTab].classList.add('navbar-selected-mobile')
       this.userService.getUserById(this.uid).subscribe(res => {
       this.name = res.name;
     })
     
     })
+  }
+
+  toggleHamburger(){
+    document.getElementsByClassName("navbar-links-mobile")[0].classList.toggle("mobile-shown-navbar")
   }
 
   onLogout(){

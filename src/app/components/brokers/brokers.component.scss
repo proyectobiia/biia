@@ -152,6 +152,11 @@ pre{
     text-decoration: none;
 }
 
+.checkbox-container{
+    display: flex; 
+    margin-top: 20px;
+}
+
 .step-checkbox{
     width: 20px;
     height: 20px;
@@ -159,6 +164,7 @@ pre{
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .step-checkbox.checked{
@@ -213,5 +219,101 @@ pre{
 .disabled #email-btn{
     background-color: rgba(123,132,136,1);
     cursor: default;
+}
+
+@media only screen and (max-width: 1000px){
+    .brokers-title{
+        padding: 0;
+    }
+
+    #brokers-container{
+        margin-top: 80px;
+    }
+
+    .broker{
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .broker-header{
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+    }
+
+    .broker-name{
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .cuenta-add{
+        position: relative;
+        margin-top: 15px;
+        right: 0;
+        font-size: 16px;
+    }
+
+    .add-broker-info{
+        margin-top: 30px;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+
+    .step, .step-full{
+        width: 100%;
+        padding: 0;
+    }
+
+    .step-title{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .step-body{
+        width: calc(100% - 50px);
+    }
+
+    .step-btn{
+        width: 80%;
+    }
+
+    .checkbox-container{
+        margin-top: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkbox-container p{
+        font-size: 12px;
+    }
+
+    .step input[type="text"]{
+        width: 80%;
+    }
+
+    .step-3-email-container{
+        width: 100%;
+    }
+
+    .email-header{
+        padding: 20px 10px;
+        width: calc(100% - 20px);
+    }
+    
+    .email-header p{
+        font-size: 12px;
+        text-align: center;
+    }
+
+    pre{
+        font-size: 12px;
+    }
+
+    #email-btn{
+        width: 100%;
+        margin-left: 0;
+    }
+
 }
 

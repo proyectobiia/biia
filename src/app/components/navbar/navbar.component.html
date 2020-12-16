@@ -11,4 +11,13 @@
         <a class="navbar-name lightGreenText smallText" routerLink="/perfil">{{name}}<i class="fas fa-user lightGreenText navbar-icon"></i></a>
         <button (click)="onLogout()" class="text14 bold logoutBtn lightGreenBackground">Cerrar Sesión</button>
     </div>
+    <i class="fas fa-bars hamburger-button" (click)="toggleHamburger()"></i>
+    <div class="navbar-links-mobile">
+        <a class="navbar-link-mobile smallText" routerLink="/dashboard">Dashboard</a>
+        <a class="navbar-link-mobile smallText" routerLink="/brokers">Brókers</a>
+        <a class="navbar-link-mobile smallText" routerLink="/academias">Academias</a>
+        <a class="navbar-link-mobile smallText" routerLink="/faq">FAQ's</a>
+        <a class="navbar-link-mobile smallText" routerLink="/perfil">{{name}}</a>
+        <a class="navbar-link-mobile smallText" (click)="onLogout()">Cerrar Sesión</a>
+    </div>
 </div>

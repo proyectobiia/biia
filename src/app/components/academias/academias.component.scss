@@ -202,3 +202,64 @@
     letter-spacing: 4px;
     font-weight: 500;
 }
+
+@media only screen and (max-width: 1000px){
+
+    .academias-title{
+        margin-bottom: 30px;
+    }
+
+    .academia{
+        width: 100%;
+        padding: 0;
+        margin-top: 60px;
+    }
+
+    .academia-header{
+        justify-content: center;
+    }
+
+    .academia-body{
+        text-align: center;
+    }
+
+    .academia-details{
+        flex-direction: column;
+        padding: 20px 25px;
+        width: calc(100% - 50px);
+    }
+
+    .academia-column{
+        width: 100%;
+        margin-bottom: 30px;
+        margin-right: 0;
+    }
+
+    .plan-list{
+        width: 100%;
+    }
+
+    .plan-header{
+        flex-direction: column;
+        background-color: #090E11;
+        padding: 20px 20px 60px;
+    }
+
+    .plan-numbers{
+        position: absolute;
+        width: max-content;
+        right: 20px;
+        top: 60px;
+        margin-top: 5px;
+    }
+
+    .plan-bullet{
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    
+    .plan-link{
+        letter-spacing: 2px;
+    }
+
+}

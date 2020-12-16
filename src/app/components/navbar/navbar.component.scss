@@ -69,3 +69,56 @@
     font-family: 'Roboto', monospace;
 }
 
+.hamburger-button{
+    display: none;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.navbar-links-mobile{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #070b0d;
+}
+
+.navbar-link-mobile{
+    padding: 20px 0;
+    color: white;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 1000px){
+    .hamburger-button{
+        display: block;
+    }
+
+    .navbar-user, .navbar-links{
+        display: none;
+    }
+
+    .mobile-shown-navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-link-mobile{
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .navbar-selected-mobile{
+        color: rgba(0,191,181,1);
+    }
+
+}
+
