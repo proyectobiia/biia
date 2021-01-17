@@ -66,10 +66,10 @@ export class SignupComponent implements OnInit {
         this.errorText = "La contraseña debe contener un mínimo de 6 caracteres"
       }
       console.log(err)
-    })}else{
-      this.errorText = "Por favor ingresa un nombre."
+      })}else{
+        this.errorText = "Por favor ingresa un nombre."
+    }
   }
-}
 
   async SignupWithGoogle(name){
     if(name!=""){
@@ -97,7 +97,6 @@ export class SignupComponent implements OnInit {
     }else{
       this.errorText = "Por favor ingresa un nombre"
     }
-    
   }
 
 }

@@ -5,7 +5,7 @@
         <div class="broker" *ngFor="let broker of brokerList">
             <div class="broker-header">
                 <img [src]="broker.path" class="broker-img">
-                <p class="broker-name"><b>{{broker.name}}</b><br><a target="_blank" class="lightGreyText smallText broker-link" style="text-decoration: underline;" href="{{broker.page}}">{{broker.page}}</a></p>
+                <p class="broker-name"><b>{{broker.name}}</b></p>
                 <p class="cuenta-add smallText lightGreenText" (click)="changeBroker(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email)">+ Añadir Cuenta</p>
             </div>
             <pre class="smallText">{{broker.description}}</pre>

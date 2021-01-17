@@ -1,15 +1,27 @@
 <app-navbar [currentTab]=2></app-navbar>
 <div class="academias-wrapper" *ngIf="!showAcademiaInfo">
     <p class="academias-title bold">ACADEMIAS</p>
+    <p class="academias-intro">En seguida te presentamos los diferentes paquetes que ofrece la academia, para que elijas el más apropiado para ti, y al ser nuestro usuario, recibe un descuento especial al inscribirte a la academia.</p>
     <div class="academias-container">
-        <div class="academia" *ngFor="let academia of academiaList">
+        <!--<div class="academia" *ngFor="let academia of academiaList">
             <div class="academia-img-container">
                 <img [src]="academia.path" class="academia-img">
                 <p class="academia-discount lightGreenBackground bold" *ngIf="academia.discount && academia.discount!=0">{{academia.discount}}% off</p>
             </div>
             <p class="academia-name bold">{{academia.name | uppercase}}</p>
             <p class="academia-text smallText">{{academia.description}}</p>
-            <a class="academia-link lightGreenText" (click)="toggleAcademiaInfo(academia.name,academia.description,academia.discount,academia.path,academia.id)">DESCUBRE CÓMO</a>
+            <a class="academia-link lightGreenText" (click)="toggleAcademiaInfo(academia.name,academia.description,academia.discount,academia.path,academia.id)">Descubre Cómo</a>
+        </div>-->
+        <div class="broker"  *ngFor="let academia of academiaList">
+            <div class="broker-header">
+                <img [src]="academia.path" class="broker-img">
+                <div>
+                    <p class="broker-name"><b>{{academia.name | uppercase}}</b></p>
+                    <p class="academia-discount lightGreenText" *ngIf="academia.discount && academia.discount!=0">{{academia.discount}}% off</p>
+                </div>
+            </div>
+            <pre class="smallText">{{academia.description}}</pre>
+            <a class="academia-link lightGreenText" (click)="toggleAcademiaInfo(academia.name,academia.description,academia.discount,academia.path,academia.id)">Descubre Cómo</a>
         </div>
     </div>
 </div>
