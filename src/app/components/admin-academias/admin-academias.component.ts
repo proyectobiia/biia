@@ -94,7 +94,9 @@ export class AdminAcademiasComponent implements OnInit {
     this.academiaPath = path;
     this.academiaPlansNumber = planNumber;
     this.currentUpload=null
-    this.planCollection = this.firestore.collection('academias').doc(this.editId).collection<plan>('planes');
+    if(this.editId != null){
+      this.planCollection = this.firestore.collection('academias').doc(this.editId).collection<plan>('planes');
+    }
     this.planList = this.planCollection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
