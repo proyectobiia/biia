@@ -1,7 +1,6 @@
 <app-navbar [currentTab]=2></app-navbar>
 <div class="academias-wrapper" *ngIf="!showAcademiaInfo">
     <p class="academias-title bold">ACADEMIAS</p>
-    <p class="academias-intro">En seguida te presentamos los diferentes paquetes que ofrece la academia, para que elijas el más apropiado para ti, y al ser nuestro usuario, recibe un descuento especial al inscribirte a la academia.</p>
     <div class="academias-container">
         <!--<div class="academia" *ngFor="let academia of academiaList">
             <div class="academia-img-container">
@@ -17,7 +16,7 @@
                 <img [src]="academia.path" class="broker-img">
                 <div>
                     <p class="broker-name"><b>{{academia.name | uppercase}}</b></p>
-                    <p class="academia-discount lightGreenText" *ngIf="academia.discount && academia.discount!=0">{{academia.discount}}% off</p>
+                    <p class="academia-discount lightGreenBackground bold" *ngIf="academia.discount && academia.discount!=0">{{academia.discount}}% off</p>
                 </div>
             </div>
             <pre class="smallText">{{academia.description}}</pre>
@@ -36,7 +35,7 @@
                 <p class="bold">{{academiaName}}<br><span *ngIf="academiaDiscount != 0" class="lightGreenText">{{academiaDiscount}}% OFF</span></p>
             </div>
             <div class="academia-body">
-                <p>{{academiaDescription}}</p>
+                <p style="line-height: 1.5em;">{{academiaDescription}}<br><br>En seguida te presentamos los diferentes paquetes que ofrece la academia, para que elijas el más apropiado para ti, y al ser nuestro usuario, recibe un descuento especial al inscribirte a la academia.</p>
             </div>
         </div>
         <div class="plan-list">
