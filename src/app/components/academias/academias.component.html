@@ -14,7 +14,7 @@
         <div class="broker"  *ngFor="let academia of academiaList">
             <div class="broker-header">
                 <img [src]="academia.path" class="broker-img">
-                <div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
                     <p class="broker-name"><b>{{academia.name | uppercase}}</b></p>
                     <p class="academia-discount lightGreenBackground bold" *ngIf="academia.discount && academia.discount!=0">{{academia.discount}}% off</p>
                 </div>
