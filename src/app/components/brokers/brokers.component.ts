@@ -21,6 +21,7 @@ export class BrokersComponent implements OnInit {
   accountEmail;
   userName;
   userID;
+  userMail;
   accountSubject;
   mailBody;
   checkbox1Checked = false
@@ -70,6 +71,7 @@ ${this.userName}.`
     })
     this.firebaseAuth.currentUser.then(user =>{
       this.userID = user.uid;
+      this.userMail = user.email;
       this.userService.getUserById(user.uid).subscribe(res => {
         this.userName = res.name
       })
@@ -126,7 +128,7 @@ ${this.userName}.`
   }
 
   createAccount(userID,userName,accountID,brokerName,brokerPath){
-    this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody);
+    this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody,this.userMail);
     this.userService.createAccount(userID,userName,accountID,brokerName,brokerPath)
     this.showAddAccount = false
   }

@@ -376,16 +376,18 @@ export class FirestoreAdminService {
     return this.pagosList
   }
 
-  sendBrokerEmail(email, subject, body){
+  sendBrokerEmail(email, subject, body, userMail){
     return new Promise<any>((resolve, reject) =>{
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
       var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
       var yyyy = today.getFullYear();
       var time = today.getHours() + ':' + String(today.getMinutes()).padStart(2, '0')
+      console.log(userMail)
 
       var date = dd + '/' + mm + '/' + yyyy + " a las "+ time
       this.firestore.collection("correos").add({
+        user: userMail,
         email: email,
         subject: subject,
         body: body,
