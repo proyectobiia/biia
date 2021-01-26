@@ -88,7 +88,7 @@
                     <p style="text-decoration: line-through;">{{plan.price}}</p>
                     <p>{{plan.price - (plan.price * academiaDiscount/100)}}</p>
                     <p>{{academiaDiscount}}</p>
-                    <a class="lightGreenText" (click)="toggleEditPlan(plan.id,plan.name,plan.buy_link,plan.price,plan.telegram,plan.success,plan.bullets)">Editar</a>
+                    <a class="lightGreenText" (click)="toggleEditPlan(plan.id,plan.name,plan.buy_link,plan.price,plan.telegram,plan.order,plan.bullets)">Editar</a>
                 </div>
             </div>
         </div>
@@ -115,8 +115,8 @@
                 <input type="text" name="Precio" id="Precio" #planPrice placeholder="Precio Original">
                 <label for="telegram">Link de Telegram</label>
                 <input type="text" name="telegram" id="telegram" #planTelegramLink placeholder="Escribe el link para mandar mensaje a telegram">
-                <label for="success">Mensaje de éxito</label>
-                <textarea name="success" id="success" #planSuccess placeholder="" style="height: 60px;"></textarea>
+                <label for="order">Orden</label>
+                <input type="number" name="order" id="order" #planOrder placeholder="" style="height: 60px;">
             </div>
             <div class="text-fields-column" style="width: 50%;">
                 <div class="text-area-column">
@@ -129,7 +129,7 @@
     <div style="margin-bottom: 20px;">{{planConfirmation}}</div>
     <div style="width: 860px; display: flex;">
         <button class="delete-button" (click)="togglePlanForm()">Eliminar</button>
-        <button class="save-button" (click)="createPlan(editId,planName.value,planBuyLink.value,planPrice.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>
+        <button class="save-button" (click)="createPlan(editId,planName.value,planBuyLink.value,planPrice.value,planTelegramLink.value,planOrder.value,planBullets.value)">Guardar</button>
     </div>
 </div>
 <div class="academias-wrapper" *ngIf="showEditPlan">
@@ -148,8 +148,8 @@
                 <input type="text" name="Precio" id="Precio" [value]="plan_price" #planPrice placeholder="Precio Original">
                 <label for="telegram">Link de Telegram</label>
                 <input type="text" name="telegram" id="telegram" [value]="plan_telegram" #planTelegramLink placeholder="Escribe el link para mandar mensaje a telegram">
-                <label for="success">Mensaje de éxito</label>
-                <textarea name="success" id="success" [value]="plan_success" #planSuccess placeholder="" style="height: 60px;"></textarea>
+                <label for="order">Orden</label>
+                <input type="number" name="order" id="order" [value]="plan_order" #planOrder placeholder="" style="height: 60px;">
             </div>
             <div class="text-fields-column" style="width: 50%;">
                 <div class="text-area-column">
@@ -162,6 +162,6 @@
     <div style="margin-bottom: 20px;">{{planConfirmation}}</div>
     <div style="width: 860px; display: flex;">
         <button class="delete-button" (click)="removePlan(editId,plan_id)">Eliminar</button>
-        <button class="save-button" (click)="updatePlan(planName.value,planBuyLink.value,planPrice.value,planTelegramLink.value,planSuccess.value,planBullets.value)">Guardar</button>
+        <button class="save-button" (click)="updatePlan(planName.value,planBuyLink.value,planPrice.value,planTelegramLink.value,planOrder.value,planBullets.value)">Guardar</button>
     </div>
 </div>

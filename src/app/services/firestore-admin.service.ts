@@ -189,14 +189,14 @@ export class FirestoreAdminService {
     });
   }
 
-  createPlan(academia_ID, name, buy_link, price, telegram_link, success, bullets){
+  createPlan(academia_ID, name, buy_link, price, telegram_link, order, bullets){
     return new Promise<any>((resolve, reject) =>{
       this.firestore.collection("academias").doc(academia_ID).collection('planes').add({
             name: name,
             buy_link: buy_link,
             price: price,
             telegram: telegram_link,
-            success: success,
+            order: order,
             bullets: bullets,
           }).then(res => {resolve(res)}, err => reject(err));
     });
@@ -208,14 +208,14 @@ export class FirestoreAdminService {
     return this.planList
   }
 
-  updatePlan(academia_ID, plan_ID, name, buy_link, price, telegram, success, bullets){
+  updatePlan(academia_ID, plan_ID, name, buy_link, price, telegram, order, bullets){
     return new Promise<any>((resolve, reject) =>{
       this.firestore.collection("academias").doc(academia_ID).collection('planes').doc(plan_ID).set({
             name: name,
             buy_link: buy_link,
             price: price,
             telegram: telegram,
-            success: success,
+            order: order,
             bullets: bullets
           }).then(res => {resolve(res)}, err => reject(err));
     });

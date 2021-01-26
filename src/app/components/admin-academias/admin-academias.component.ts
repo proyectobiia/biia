@@ -12,7 +12,7 @@ export interface plan{
   price: number,
   discount: number,
   telegram: string,
-  success: string,
+  order: number,
   bullets
 }
 
@@ -50,7 +50,7 @@ export class AdminAcademiasComponent implements OnInit {
   plan_price: number
   plan_discount: number
   plan_telegram: string
-  plan_success: string
+  plan_order: number
   plan_bullets
 
   plans$: Observable<any>
@@ -114,14 +114,14 @@ export class AdminAcademiasComponent implements OnInit {
   }
 
   //Método para mostrar formulario para editar planes y asignar los valores actuales del plan
-  toggleEditPlan(planID,planName,buy_link,price,telegram_link,success,bullets){
+  toggleEditPlan(planID,planName,buy_link,price,telegram_link,order,bullets){
     console.log(planID)
     this.plan_id = planID
     this.plan_name = planName
     this.plan_buy_link = buy_link
     this.plan_price = price
     this.plan_telegram = telegram_link
-    this.plan_success = success
+    this.plan_order = order
     if(bullets != null){
       this.plan_bullets = bullets.join("\n")
     }
@@ -146,12 +146,12 @@ export class AdminAcademiasComponent implements OnInit {
     this.planConfirmation = ""
   }
 
-  createPlan(academia_ID, name, buy_link, price, telegram_link, success, bullets){
-    if(buy_link==""){
+  createPlan(academia_ID, name, buy_link, price, telegram_link, order, bullets){
+    if(buy_link=="" || order==""){
       this.planConfirmation = "Por favor rellena todos los campos antes de continuar"
     }else{
       var bulletsSplit = bullets.split("\n")
-      this.afs.createPlan(academia_ID, name, buy_link, price, telegram_link, success, bulletsSplit)
+      this.afs.createPlan(academia_ID, name, buy_link, price, telegram_link, order, bulletsSplit)
       this.firestore.firestore.collection('academias').doc(academia_ID).collection('planes').get().then(snap =>{
         this.firestore.collection('academias').doc(academia_ID).update({planNumber: snap.size})
       })
@@ -160,12 +160,12 @@ export class AdminAcademiasComponent implements OnInit {
     }
   }
 
-  updatePlan(name, buy_link, price, telegram, success, bullets){
-    if(buy_link==""){
+  updatePlan(name, buy_link, price, telegram, order, bullets){
+    if(buy_link=="" || order==""){
       this.planConfirmation = "Por favor rellena todos los campos antes de continuar"
     }else{
     var bulletsSplit = bullets.split("\n")
-    this.afs.updatePlan(this.editId, this.plan_id, name, buy_link, price, telegram, success, bulletsSplit)
+    this.afs.updatePlan(this.editId, this.plan_id, name, buy_link, price, telegram, order, bulletsSplit)
     this.showEditPlan = !this.showEditPlan
     this.planConfirmation = ""
     }

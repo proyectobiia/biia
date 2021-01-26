@@ -33,9 +33,19 @@ export class AcademiasComponent implements OnInit {
     this.editId = id
     console.log(id)
     this.firestore.collection('academias').doc(id).collection('planes').valueChanges().subscribe(res =>{
-      this.planList = res
+      this.planList = res.sort(this.compare)
     })
     this.showAcademiaInfo = !this.showAcademiaInfo
+  }
+
+  compare( a, b ) {
+    if ( a.order < b.order ){
+      return -1;
+    }
+    if ( a.order > b.order ){
+      return 1;
+    }
+    return 0;
   }
 
 }
