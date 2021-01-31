@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class BrokersComponent implements OnInit {
   brokerList
   showAddAccount: boolean = false;
+  showAddExistingAccount: boolean = false;
   brokerID;
   brokerName;
   brokerPage;

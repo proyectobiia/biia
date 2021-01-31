@@ -63,6 +63,10 @@ export class UserService {
             broker: brokerName,
             brokerPath: brokerPath,
             time: date,
+            day: dd,
+            month: mm,
+            year: yyyy,
+            hour: time,
             balance: this.balance,
             isActive: false
           }).then(res => {resolve(res)}, err => reject(err));

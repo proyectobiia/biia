@@ -23,8 +23,8 @@ export class AdminCuentasComponent implements OnInit {
 
   ngOnInit(): void {
     this.afs.getAccounts().subscribe(res => {
-      this.accountsList = res
-      this.accountsFiltered = res
+      this.accountsList = res.sort( this.compare );
+      this.accountsFiltered = this.accountsList
     })
     this.afs.getPagos().subscribe(res => {
       this.pagosList = res.sort( this.compare );
