@@ -6,12 +6,28 @@
             <div class="broker-header">
                 <img [src]="broker.path" class="broker-img">
                 <p class="broker-name"><b>{{broker.name}}</b></p>
-                <p class="cuenta-add smallText lightGreenText" (click)="changeBroker(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email)">+ Añadir Cuenta</p>
+                <p class="cuenta-add smallText lightGreenText" (click)="toggleBrokerModal(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email)">+ Añadir Cuenta</p>
             </div>
             <pre class="smallText">{{broker.description}}</pre>
         </div>
     </div>
 </div>
+
+<div class="modal" *ngIf="showBrokerModal">
+    <div class="modal-background" (click)='toggleBrokerModal("","","","","","")'></div>
+    <div class="broker-modal">
+        <div class="edit-header" (click)='toggleBrokerModal("","","","","","")'>
+            <p class="smallText"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Cancelar</p>
+        </div>
+        <div class="edit-body">
+            <p class="bold modal-title">Agregar Cuenta con {{brokerName}}</p>
+            <button class="text14 bold edit-btn lightGreenBackground" id="broker-new-btn" (click)="toggleNewBrokerAccount()">Crear Cuenta</button>
+            <button class="text14 bold edit-btn lightGreenBackground" id="broker-existing-btn" (click)="toggleExistingBrokerAccount()">Cuenta Existente</button>
+        </div>
+    </div>
+</div>
+
+
 <div class="brokers-wrapper" *ngIf="showAddAccount">
     <div class="add-account-wrapper">
         <a (click)="toggleAddAccount()"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Brokers</a>
@@ -61,6 +77,38 @@
         </div>
     </div>
 </div>
-<div class="brokers-wrapper" *ngIf="showAddExistingAccount">
 
+
+<div class="brokers-wrapper" *ngIf="showAddExistingAccount">
+    <div class="add-account-wrapper">
+        <a (click)="toggleAddAccount()"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Brokers</a>
+    </div>
+    <div class="add-broker-info">
+        <img src={{brokerPath}} class="add-broker-img"> 
+        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
+    </div>
+    <div class="add-broker-body">
+        <!--<div class="step-full">
+            <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
+            <div class="step-body">
+                <p class="bold step-title">Abrir una cuenta en {{brokerName}}</p>
+                <a class="step-btn" href="{{brokerPage}}" target="_blank">Abrir {{brokerName}}</a>
+                <div class="checkbox-container">
+                    <div id="step-1-checkbox" class="step-checkbox" (click)="toggleCheckBox1()"></div><p class="bold">Ya tengo una cuenta en {{brokerName}}.</p>
+                </div>
+            </div>
+        </div>-->
+        <div class="step-full" id="step-2">
+            <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
+            <div class="step-body">
+                <p class="bold step-title">Ingresar tu número de cuenta en {{brokerName}}</p>
+                <input type="text" class="step-input" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)">
+                <button class="link-btn" (click)="linkAccount()">Vincular Cuenta</button>
+                <p style="color:rgba(255, 255, 255, 0.7); margin-top: 20px; font-size: 10px;">Al vincular una cuenta, estás accediendo a nuestros <a class="bold" style="color: white;" routerLink="/terminos">Términos y Condiciones</a></p>
+                <!--<div class="checkbox-container">
+                    <div id="step-2-checkbox" class="step-checkbox" (click)="toggleCheckBox2()"></div><p style="color:rgba(255, 255, 255, 0.7)">Acepto los <span class="bold" style="color: white;">Términos y condiciones</span>
+                </div>-->
+            </div>
+        </div>
+    </div>
 </div>

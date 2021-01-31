@@ -56,17 +56,17 @@
 </div>
 <div class="modal" *ngIf="showBalanceModal">
     <div class="modal-background" (click)='toggleEditModal("","")'></div>
-        <div class="edit-modal">
-            <div class="edit-header" (click)='toggleEditModal("","")'>
-                <p class="smallText"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Cancelar</p>
-            </div>
-            <div class="edit-body">
-                <p class="bold modal-title">Editar Ganancia</p>
-                <div class="edit-input">
-                    <label class="modal-label" for="edit">Ganancia</label>
-                    <input type="text" placeholder="Ingresa nuevo valor" [value]="accountBalance" name="edit" id="edit" class="bold" #edit>
-                </div>
-                <button class="text14 bold edit-btn lightGreenBackground" id="edit-save" (click)="saveBalance(accountID,edit.value)">Guardar</button>
-            </div>
+    <div class="edit-modal">
+        <div class="edit-header" (click)='toggleEditModal("","")'>
+            <p class="smallText"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Cancelar</p>
         </div>
+        <div class="edit-body">
+            <p class="bold modal-title">Editar Ganancia</p>
+            <div class="edit-input">
+                <label class="modal-label" for="edit">Ganancia</label>
+                <input type="text" placeholder="Ingresa nuevo valor" [value]="accountBalance" name="edit" id="edit" class="bold" #edit>
+            </div>
+            <button class="text14 bold edit-btn lightGreenBackground" id="edit-save" (click)="saveBalance(accountID,edit.value)">Guardar</button>
+        </div>
+    </div>
 </div>

@@ -12,6 +12,7 @@ export class BrokersComponent implements OnInit {
   brokerList
   showAddAccount: boolean = false;
   showAddExistingAccount: boolean = false;
+  showBrokerModal: boolean = false;
   brokerID;
   brokerName;
   brokerPage;
@@ -31,14 +32,71 @@ export class BrokersComponent implements OnInit {
   constructor(public firebaseAuth : AngularFireAuth, private firestore : FirestoreAdminService, private userService: UserService) { 
   }
 
-  changeBroker(id,name,page,path,ref,email){
+  ngOnInit(): void {
+    this.firestore.getBrokers().subscribe(res =>{
+      this.brokerList = res
+    })
+    this.firebaseAuth.currentUser.then(user =>{
+      this.userID = user.uid;
+      this.userMail = user.email;
+      this.userService.getUserById(user.uid).subscribe(res => {
+        this.userName = res.name
+      })
+    })
+  }
+
+  toggleExistingBrokerAccount(){
+    this.showAddExistingAccount = true
+    this.showBrokerModal = false
+  }
+
+  toggleNewBrokerAccount(){
+    this.showAddAccount = true
+    this.showBrokerModal = false
+    /*this.brokerID = id;
+    this.brokerName = name;
+    this.brokerPage = page;
+    this.brokerPath = path;
+    this.brokerRef = ref;
+    this.brokerEmail = email;
+    this.accountSubject =  `Account ${this.brokerName} change to BIIA`
+    this.mailBody = `
+Dear ${this.brokerName},
+
+Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me. 
+
+This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below. 
+
+Account ID: ${this.accountNumber}
+Referral ID: ${this.brokerRef}
+
+I appreciate your prompt action to resolve my issue.
+
+Thanks and kind regards,
+${this.userName}.`*/
+  }
+
+  toggleAddAccount(){
+    this.brokerID = "";
+    this.brokerName = "";
+    this.brokerPage = "";
+    this.brokerPath = "";
+    this.brokerRef = "";
+    this.brokerEmail = "";
+    this.showAddAccount = false
+    this.showAddExistingAccount = false
+    this.checkbox1Checked = false
+    this.checkbox2Checked = false
+  }
+
+  toggleBrokerModal(id,name,page,path,ref,email){
+    this.showBrokerModal = !this.showBrokerModal;
     this.brokerID = id;
     this.brokerName = name;
     this.brokerPage = page;
     this.brokerPath = path;
     this.brokerRef = ref;
     this.brokerEmail = email;
-    this.showAddAccount = true
     this.accountSubject =  `Account ${this.brokerName} change to BIIA`
     this.mailBody = `
 Dear ${this.brokerName},
@@ -54,29 +112,6 @@ I appreciate your prompt action to resolve my issue.
 
 Thanks and kind regards,
 ${this.userName}.`
-  }
-
-  toggleAddAccount(){
-    this.brokerID = "";
-    this.brokerName = "";
-    this.brokerPage = "";
-    this.brokerPath = "";
-    this.brokerRef = "";
-    this.brokerEmail = "";
-    this.showAddAccount = false
-  }
-
-  ngOnInit(): void {
-    this.firestore.getBrokers().subscribe(res =>{
-      this.brokerList = res
-    })
-    this.firebaseAuth.currentUser.then(user =>{
-      this.userID = user.uid;
-      this.userMail = user.email;
-      this.userService.getUserById(user.uid).subscribe(res => {
-        this.userName = res.name
-      })
-    })
   }
 
   toggleCheckBox1(){
@@ -132,6 +167,11 @@ ${this.userName}.`
     this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody,this.userMail);
     this.userService.createAccount(userID,userName,accountID,brokerName,brokerPath)
     this.showAddAccount = false
+  }
+
+  linkAccount(){
+    this.userService.createAccount(this.userID,this.userName,this.accountNumber,this.brokerName,this.brokerPath)
+    this.showAddExistingAccount = false
   }
 
 }
