@@ -51,13 +51,36 @@ export class AdminCuentasComponent implements OnInit {
   }
 
   compare( a, b ) {
-    if ( a.time > b.time ){
-      return -1;
+    if(a.isActive && !b.isActive){
+      return 1
+    }if(!a.isActive && b.isActive){
+      return -1
+    }else{
+      if(a.year > b.year){
+        return -1
+      }if(a.year < b.year){
+        return 1
+      }else{
+        if(a.month > b.month){
+          return -1
+        }if(a.month < b.month){
+          return 1
+        }else{
+          if(a.day > b.day){
+            return -1
+          }if(a.day < b.day){
+            return 1
+          }else{
+            if(a.hour > b.hour){
+              return -1
+            }if(a.hour < b.hour){
+              return 1
+            }
+          }
+        }
+      }
     }
-    if ( a.time < b.time ){
-      return 1;
-    }
-    return 0;
+    
   }
 
   activateAccount(id){
