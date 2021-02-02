@@ -28,7 +28,7 @@ export class UserService {
 
   constructor(private afs: AngularFirestore, public firebaseAuth : AngularFireAuth) {
     this.usersCollection = this.afs.collection<user>('users');
-   }
+  }
 
 
   getUserById(id:string): Observable<user>{
@@ -37,8 +37,10 @@ export class UserService {
         user.id = id;
         return user
       })
-    )}
+    )
+  }
 
+  //Este método actualiza el nombre de un usuario en la base de datos de Firebase
   changeName(userId,name){
     this.afs.collection('users').doc(userId).update({name:name})
   }

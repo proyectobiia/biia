@@ -80,7 +80,6 @@ export class AdminCuentasComponent implements OnInit {
         }
       }
     }
-    
   }
 
   activateAccount(id){
