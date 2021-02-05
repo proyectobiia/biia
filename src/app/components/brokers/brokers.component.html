@@ -37,7 +37,7 @@
         <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
     </div>
     <div class="add-broker-body">
-        <div class="step">
+        <!--<div class="step">
             <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
             <div class="step-body">
                 <p class="bold step-title">Abrir una cuenta en {{brokerName}}</p>
@@ -46,12 +46,13 @@
                     <div id="step-1-checkbox" class="step-checkbox" (click)="toggleCheckBox1()"></div><p class="bold">Ya tengo una cuenta en {{brokerName}}.</p>
                 </div>
             </div>
-        </div>
-        <div class="step disabled" id="step-2">
+        </div>-->
+        <div class="step-full" id="step-2">
             <div class="step-label"><p class="bold smallText">Paso 2:</p></div>
             <div class="step-body">
                 <p class="bold step-title">Ingresar tu número de cuenta en {{brokerName}}</p>
-                <input type="text" class="step-input" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)" disabled>
+                <input type="text" class="step-input" (keypress)="numberOnly($event)" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)">
+                <p class="error-text">{{errorText}}</p>
                 <div class="checkbox-container">
                     <div id="step-2-checkbox" class="step-checkbox" (click)="toggleCheckBox2()"></div><p style="color:rgba(255, 255, 255, 0.7)">Acepto los <span class="bold" style="color: white;">Términos y condiciones</span>
                 </div>
@@ -88,26 +89,21 @@
         <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
     </div>
     <div class="add-broker-body">
-        <!--<div class="step-full">
+        <div class="step-full">
             <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
             <div class="step-body">
                 <p class="bold step-title">Abrir una cuenta en {{brokerName}}</p>
                 <a class="step-btn" href="{{brokerPage}}" target="_blank">Abrir {{brokerName}}</a>
-                <div class="checkbox-container">
-                    <div id="step-1-checkbox" class="step-checkbox" (click)="toggleCheckBox1()"></div><p class="bold">Ya tengo una cuenta en {{brokerName}}.</p>
-                </div>
             </div>
-        </div>-->
+        </div>
         <div class="step-full" id="step-2">
             <div class="step-label"><p class="bold smallText">Paso 1:</p></div>
             <div class="step-body">
                 <p class="bold step-title">Ingresar tu número de cuenta en {{brokerName}}</p>
-                <input type="text" class="step-input" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)">
+                <input type="text" class="step-input" (keypress)="numberOnly($event)" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)">
+                <p class="error-text">{{errorText}}</p>
                 <button class="link-btn" (click)="linkAccount()">Vincular Cuenta</button>
-                <p style="color:rgba(255, 255, 255, 0.7); margin-top: 20px; font-size: 10px;">Al vincular una cuenta, estás accediendo a nuestros <a class="bold" style="color: white;" routerLink="/terminos">Términos y Condiciones</a></p>
-                <!--<div class="checkbox-container">
-                    <div id="step-2-checkbox" class="step-checkbox" (click)="toggleCheckBox2()"></div><p style="color:rgba(255, 255, 255, 0.7)">Acepto los <span class="bold" style="color: white;">Términos y condiciones</span>
-                </div>-->
+                <p style="color:rgba(255, 255, 255, 0.7); margin-top: 20px; font-size: 10px; text-align: center;">Al vincular una cuenta, estás accediendo a nuestros <a class="bold" style="color: white;" routerLink="/terminos">Términos y Condiciones</a></p>
             </div>
         </div>
     </div>

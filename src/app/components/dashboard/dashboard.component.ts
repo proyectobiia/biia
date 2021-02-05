@@ -63,7 +63,6 @@ export class DashboardComponent implements OnInit {
       this.afs.getReembolsosFiltered(user.uid).subscribe(res => {
         this.reembolsoList = res.sort( this.compare )
         if(this.reembolsoList.length>0){
-          console.log(res)
           var reembolsoFiltered = res.filter(pago => pago.pending)
           this.gPen = reembolsoFiltered.map(a => a.amount).reduce(function(a, b)
         {
@@ -118,7 +117,6 @@ export class DashboardComponent implements OnInit {
       return false;
     }
     return true;
-
   }
 
 }

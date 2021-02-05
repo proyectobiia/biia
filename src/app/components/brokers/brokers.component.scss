@@ -188,7 +188,7 @@ pre{
 
 .step-full input[type="text"]{
     width: calc(60% - 40px);
-    min-width: 300px;
+    min-width: calc(250px - 40px);
 }
 
 .step input[type="text"]::placeholder,.step-full input[type="text"]::placeholder{
@@ -230,6 +230,10 @@ pre{
 .disabled #email-btn{
     background-color: rgba(123,132,136,1);
     cursor: default;
+}
+
+.error-text{
+    margin-top: 20px;
 }
 
 
