@@ -34,7 +34,7 @@
     </div>
     <div class="add-broker-info">
         <img src={{brokerPath}} class="add-broker-img"> 
-        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
+        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b></p>
     </div>
     <div class="add-broker-body">
         <!--<div class="step">
@@ -86,7 +86,7 @@
     </div>
     <div class="add-broker-info">
         <img src={{brokerPath}} class="add-broker-img"> 
-        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b><br><a target="_blank" class="lightGreyText smallText" style="text-decoration: underline;" href="{{brokerPage}}">{{brokerPage}}</a></p>
+        <p class="broker-name"><b style="text-transform: uppercase;">{{brokerName}}</b></p>
     </div>
     <div class="add-broker-body">
         <div class="step-full">
@@ -99,7 +99,7 @@
         <div class="step-full" id="step-2">
             <div class="step-label"><p class="bold smallText">Paso 2:</p></div>
             <div class="step-body">
-                <p class="bold step-title">Ingresar tu número de cuenta en {{brokerName}}</p>
+                <p class="bold step-title">Ingresar tu número de cuenta de {{brokerName}}</p>
                 <input type="text" class="step-input" (keypress)="numberOnly($event)" #cuenta placeholder="Número de cuenta" id="cuenta" (keyup)="changeAccount(cuenta.value)">
                 <p class="error-text">{{errorText}}</p>
                 <button class="link-btn" (click)="linkAccount()">Vincular Cuenta</button>
