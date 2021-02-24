@@ -82,18 +82,18 @@ export class BrokersComponent implements OnInit {
     this.brokerEmail = email;
     this.accountSubject =  `Account ${this.brokerName} change to BIIA`
     this.mailBody = `
-Dear ${this.brokerName},
+Dear ${this.brokerName},%0D%0D
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me. 
+Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.%0D%0D
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below. 
+This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.%0D%0D
 
-Account ID: ${this.accountNumber}
-Referral ID: ${this.brokerRef}
+Account ID: ${this.accountNumber}%0D%0D
+Referral ID: ${this.brokerRef}%0D%0D
 
-I appreciate your prompt action to resolve my issue.
+I appreciate your prompt action to resolve my issue.%0D%0D
 
-Thanks and kind regards,
+Thanks and kind regards,%0D
 ${this.userName}.`
   }
 
@@ -114,24 +114,24 @@ ${this.userName}.`
   changeAccount(value){
     this.accountNumber = value
     this.mailBody = `
-Dear ${this.brokerName},
+Dear ${this.brokerName},%0D%0D
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me. 
+Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me. %0D%0D
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below. 
+This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below. %0D%0D
 
-Account ID: ${this.accountNumber}
-Referral ID: ${this.brokerRef}
+Account ID: ${this.accountNumber}%0D%0D
+Referral ID: ${this.brokerRef}%0D%0D
 
-I appreciate your prompt action to resolve my issue.
+I appreciate your prompt action to resolve my issue.%0D%0D
 
-Thanks and kind regards,
+Thanks and kind regards,%0D
 ${this.userName}.`
   }
 
   createAccount(userID,userName,accountID,brokerName,brokerPath){
     if(accountID != ""){
-      this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody,this.userMail);
+      //this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody,this.userMail);
       this.userService.createAccount(userID,userName,accountID,brokerName,brokerPath)
       this.showAddAccount = false
     }else{
