@@ -63,17 +63,18 @@
             <div class="step-body">
                 <p class="bold step-title">Enviar un correo a {{brokerName}}</p>
                 <div class="step-3-email-container">
-                    <!--<div class="step-3-email">
-                        <div class="email-header">
-                            <p><span class="bold">Enviar a:</span> {{brokerEmail}}</p>
-                            <p><span class="bold">Título:</span> {{accountSubject}}</p>
-                        </div>
-                        <pre class="smallText">
-                            {{mailBody}}
-                        </pre>
-                    </div>-->
                     <p class="email-explain">Para finalizar el proceso de vinculación de cuenta debes enviar un correo al broker comunicándole el cambio. Haz click en el botón para abrir tu servicio de correo electrónico y finalizar el proceso. Es importante que no modifiques los contenidos del correo para que la operación sea exitosa.</p>
                     <a href="mailto:{{brokerEmail}}?subject={{accountSubject}}&body={{mailBody}}"><button class="step-btn smallText" id="email-btn" (click)="createAccount(userID,userName,accountNumber,brokerName,brokerPath)">Mandar Correo</button></a>
+                    <p class="email-explain" id="second-option">Alternativamente, si deseas mandar el correo de manera manual, puedes hacerlo copiando y pegando los siguientes datos:</p>
+                    <div class="step-3-email">
+                        <div class="email-header">
+                            <p><span class="bold">Destinatario:</span> {{brokerEmail}}</p>
+                            <p><span class="bold">Asunto:</span> {{accountSubject}}</p>
+                        </div>
+                        <pre class="smallText">
+                            {{mailBodyNormal}}
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>

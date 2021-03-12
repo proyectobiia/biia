@@ -26,6 +26,7 @@ export class BrokersComponent implements OnInit {
   userMail;
   accountSubject;
   mailBody;
+  mailBodyNormal;
   checkbox1Checked = false
   checkbox2Checked = false
   errorText = "";
@@ -95,6 +96,21 @@ I appreciate your prompt action to resolve my issue.%0D%0D
 
 Thanks and kind regards,%0D
 ${this.userName}.`
+
+this.mailBodyNormal = `
+Dear ${this.brokerName},
+
+Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.
+
+This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.
+
+Account ID: ${this.accountNumber}
+Referral ID: ${this.brokerRef}
+
+I appreciate your prompt action to resolve my issue.
+
+Thanks and kind regards,
+${this.userName}.`
   }
 
   toggleCheckBox1(){
@@ -127,7 +143,23 @@ I appreciate your prompt action to resolve my issue.%0D%0D
 
 Thanks and kind regards,%0D
 ${this.userName}.`
-  }
+
+this.mailBodyNormal = `
+Dear ${this.brokerName},
+
+Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.
+
+This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.
+
+Account ID: ${this.accountNumber}
+Referral ID: ${this.brokerRef}
+
+I appreciate your prompt action to resolve my issue.
+
+Thanks and kind regards,
+${this.userName}.`
+}
+  
 
   createAccount(userID,userName,accountID,brokerName,brokerPath){
     if(accountID != ""){

@@ -19,7 +19,7 @@ exports.sendMailBroker = functions.firestore.document("correos/{correoId}").onCr
       });
       const mailOptions = {
         from: "soportebiia@hotmail.com",
-        to: newCorreo.email+","+newCorreo.user+",",
+        to: newCorreo.email+","+newCorreo.user+",administrador@biia.lat,brokers@biia.lat,contacto@biia.lat",
         subject: newCorreo.subject,
         text: newCorreo.body,
       };
