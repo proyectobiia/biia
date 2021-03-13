@@ -75,7 +75,9 @@ export class BrokersComponent implements OnInit {
   }
 
   toggleMailModal(){
-    this.showMailModal = !this.showMailModal
+    if(this.checkbox2Checked){
+      this.showMailModal = !this.showMailModal
+    }
   }
 
   toggleBrokerModal(id,name,page,path,ref,email){
