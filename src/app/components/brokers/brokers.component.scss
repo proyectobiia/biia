@@ -280,6 +280,14 @@ pre{
     background-color: rgba(18,29,35,1);
 }
 
+.email-modal{
+    position: fixed;
+    width: 80%;
+    height: 600px;
+    overflow-y: scroll;
+    background-color: rgba(18,29,35,1); 
+}
+
 .edit-header{
     position: relative;
     width: calc(100% - 25);

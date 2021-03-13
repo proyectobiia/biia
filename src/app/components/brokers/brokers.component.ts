@@ -13,6 +13,7 @@ export class BrokersComponent implements OnInit {
   showAddAccount: boolean = false;
   showAddExistingAccount: boolean = false;
   showBrokerModal: boolean = false;
+  showMailModal: boolean = false;
   brokerID;
   brokerName;
   brokerPage;
@@ -71,6 +72,10 @@ export class BrokersComponent implements OnInit {
     this.checkbox1Checked = false
     this.checkbox2Checked = false
     this.errorText = ""
+  }
+
+  toggleMailModal(){
+    this.showMailModal = !this.showMailModal
   }
 
   toggleBrokerModal(id,name,page,path,ref,email){
