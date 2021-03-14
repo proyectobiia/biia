@@ -242,8 +242,19 @@ pre{
 }
 
 #second-option{
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.popup-btn{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.popup-error{
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 
@@ -323,6 +334,10 @@ pre{
     padding: 20px;
     border-radius: 5px;
     font-family: 'Roboto', monospace;
+}
+
+.popup-text{
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 1000px){

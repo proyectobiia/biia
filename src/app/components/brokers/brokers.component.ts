@@ -186,6 +186,8 @@ ${this.userName}.`
     if(this.accountNumber != ""){
     this.userService.createAccount(this.userID,this.userName,this.accountNumber,this.brokerName,this.brokerPath)
     this.showAddExistingAccount = false
+    this.showAddAccount = false
+    this.showMailModal = false
     }else{
       this.errorText = "Por favor introduce un número de cuenta."
     }
