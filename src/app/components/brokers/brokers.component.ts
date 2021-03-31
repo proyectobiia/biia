@@ -20,6 +20,7 @@ export class BrokersComponent implements OnInit {
   brokerPath;
   brokerRef;
   brokerEmail;
+  brokerHide;
   accountNumber = "";
   accountEmail;
   userName;
@@ -80,7 +81,7 @@ export class BrokersComponent implements OnInit {
     }
   }
 
-  toggleBrokerModal(id,name,page,path,ref,email){
+  toggleBrokerModal(id,name,page,path,ref,email,hide){
     this.showBrokerModal = !this.showBrokerModal;
     this.brokerID = id;
     this.brokerName = name;
@@ -88,6 +89,7 @@ export class BrokersComponent implements OnInit {
     this.brokerPath = path;
     this.brokerRef = ref;
     this.brokerEmail = email;
+    this.brokerHide = hide;
     this.accountSubject =  `Account ${this.brokerName} change to BIIA`
     this.mailBody = `
 Dear ${this.brokerName},%0D%0D

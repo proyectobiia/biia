@@ -13,7 +13,7 @@ export class UploadService {
 
   }
 
-  createBroker(upload: Upload,name,id,page,mail,description){
+  createBroker(upload: Upload,name,id,page,mail,description,hideExistingAccount){
     let storageRef = firebase.default.storage().ref()
     let uploadTask = storageRef.child(`uploads/${upload.file.name}`).put(upload.file);
 
@@ -28,12 +28,12 @@ export class UploadService {
          uploadTask.snapshot.ref.getDownloadURL().then(url =>{
           upload.url = url
           upload.name = upload.file.name
-          this.createFileDataBroker(name,id,page,mail,description,url)
+          this.createFileDataBroker(name,id,page,mail,description,url,hideExistingAccount)
           })
       })
   }
 
-  private createFileDataBroker(name,id,page,mail,description,path){
+  private createFileDataBroker(name,id,page,mail,description,path,hideExistingAccount){
     return new Promise<any>((resolve, reject) =>{
       this.db.collection("brokers").add({
             name: name,
@@ -41,12 +41,13 @@ export class UploadService {
             page: page,
             email: mail,
             description: description,
-            path: path
+            path: path,
+            hide: hideExistingAccount
           }).then(res => {resolve(res)}, err => reject(err));
     });
   }
 
-  editBroker(upload: Upload,name,brokerRef,page,mail,description,id,path){
+  editBroker(upload: Upload,name,brokerRef,page,mail,description,id,path,hideExistingAccount){
     if(upload){
       let storageRef = firebase.default.storage().ref()
     let uploadTask = storageRef.child(`brokers/${upload.file.name}`).put(upload.file);
@@ -62,15 +63,15 @@ export class UploadService {
          uploadTask.snapshot.ref.getDownloadURL().then(url =>{
           upload.url = url
           upload.name = upload.file.name
-          this.editFileDataBroker(id,name,brokerRef,page,mail,description,upload.url)
+          this.editFileDataBroker(id,name,brokerRef,page,mail,description,upload.url,hideExistingAccount)
           })
       })
     }else{
-      this.editFileDataBroker(id,name,brokerRef,page,mail,description,path)
+      this.editFileDataBroker(id,name,brokerRef,page,mail,description,path,hideExistingAccount)
     }
   }
 
-  private editFileDataBroker(id,name,brokerRef,page,mail,description,path){
+  private editFileDataBroker(id,name,brokerRef,page,mail,description,path,hideExistingAccount){
     return new Promise<any>((resolve, reject) =>{
       this.db.collection("brokers").doc(id).set({
             name: name,
@@ -78,7 +79,8 @@ export class UploadService {
             page: page,
             email: mail,
             description: description,
-            path: path
+            path: path,
+            hide: hideExistingAccount
           }).then(res => {resolve(res)}, err => reject(err));
     });
   }

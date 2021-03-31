@@ -6,7 +6,7 @@
             <div class="broker-header">
                 <img [src]="broker.path" class="broker-img">
                 <p class="broker-name"><b>{{broker.name}}</b></p>
-                <p class="cuenta-add smallText lightGreenText" (click)="toggleBrokerModal(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email)">+ Añadir Cuenta</p>
+                <p class="cuenta-add smallText lightGreenText" (click)="toggleBrokerModal(broker.id,broker.name,broker.page,broker.path,broker.brokerID,broker.email,broker.hide)">+ Añadir Cuenta</p>
             </div>
             <pre class="smallText">{{broker.description}}</pre>
         </div>
@@ -14,14 +14,14 @@
 </div>
 
 <div class="modal" *ngIf="showBrokerModal">
-    <div class="modal-background" (click)='toggleBrokerModal("","","","","","")'></div>
+    <div class="modal-background" (click)='toggleBrokerModal("","","","","","",false)'></div>
     <div class="broker-modal">
-        <div class="edit-header" (click)='toggleBrokerModal("","","","","","")'>
+        <div class="edit-header" (click)='toggleBrokerModal("","","","","","",false)'>
             <p class="smallText"><i class="fas fa-arrow-left" style="margin-right: 15px;"></i>Cancelar</p>
         </div>
         <div class="edit-body">
             <p class="bold modal-title">Agregar Cuenta con {{brokerName}}</p>
-            <button class="text14 bold edit-btn lightGreenBackground" id="broker-new-btn" (click)="toggleNewBrokerAccount()">Cuenta Existente</button>
+            <button class="text14 bold edit-btn lightGreenBackground" id="broker-new-btn" (click)="toggleNewBrokerAccount()" *ngIf="!brokerHide">Cuenta Existente</button>
             <button class="text14 bold edit-btn lightGreenBackground" id="broker-existing-btn" (click)="toggleExistingBrokerAccount()">Crear Cuenta</button>
         </div>
     </div>

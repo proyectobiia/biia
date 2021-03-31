@@ -12,7 +12,7 @@
             <img [src]="broker.path" class="broker-img">
             <p class="broker-name bold">{{broker.name}}</p>
             <a target="_blank" class="broker-link smallText" [href]="broker.page">{{broker.page}}</a>
-            <p class="broker-edit lightGreenText" (click)="toggleEditBroker(broker.id,broker.name,broker.brokerID,broker.page,broker.email,broker.description,broker.path)">Editar</p>
+            <p class="broker-edit lightGreenText" (click)="toggleEditBroker(broker.id,broker.name,broker.brokerID,broker.page,broker.email,broker.description,broker.path,broker.hide)">Editar</p>
         </div>
     </div>
 </div>
@@ -44,6 +44,9 @@
             <div class="text-area-column">
             <label for="descripcion">Descripción</label>
             <textarea name="descripcion" id="descripcion" #description placeholder="Escribe una descripción"></textarea>
+            <div style="display: flex;flex-direction: row; width: max-content; cursor: pointer;" (click)="hideExistingAccount = !hideExistingAccount">
+                <div class="checkbox" [class.checkbox-checked]="hideExistingAccount"></div><p style="line-height: 22px;">Deshabilitar botón de cuenta existente</p>
+            </div>
             </div>  
         </div>
     </div>
@@ -80,7 +83,10 @@
         <div class="brokers-form-row">
             <div class="text-area-column">
             <label for="descripcion">Descripción</label>
-            <textarea name="descritcion" id="descritcion" #description placeholder="Escribe una descripción" [value]=brokerDescription></textarea>
+            <textarea name="descripcion" id="descripcion" #description placeholder="Escribe una descripción" [value]=brokerDescription></textarea>
+            <div style="display: flex;flex-direction: row; width: max-content; cursor: pointer;" (click)="hideExistingAccount = !hideExistingAccount">
+                <div class="checkbox" [class.checkbox-checked]="hideExistingAccount"></div><p style="line-height: 22px;">Deshabilitar botón de cuenta existente</p>
+            </div>
             </div>  
         </div>
     </div>

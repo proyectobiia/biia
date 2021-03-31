@@ -25,6 +25,8 @@ export class AdminBrokersComponent implements OnInit {
   brokerDescription;
   brokerPath;
   editId;
+
+  hideExistingAccount = false;
   
 
   constructor(private upSvc: UploadService, private afs : FirestoreAdminService) { }
@@ -53,18 +55,20 @@ export class AdminBrokersComponent implements OnInit {
     this.showCreateBroker = !this.showCreateBroker
     this.currentUpload = null
     this.confirmation = ""
+    this.hideExistingAccount = false
   }
 
   uploadBroker(name,id,page,mail,description){
     if(this.currentUpload){
-      this.upSvc.createBroker(this.currentUpload,name,id,page,mail,description)
+      this.upSvc.createBroker(this.currentUpload,name,id,page,mail,description,this.hideExistingAccount)
       this.showCreateBroker = !this.showCreateBroker
+      this.hideExistingAccount = false
     }else{
       this.confirmation="Por favor inserta una imagen para el broker"
     }
   }
 
-  toggleEditBroker(id,name,brokerID,page,mail,description,path){
+  toggleEditBroker(id,name,brokerID,page,mail,description,path,hide){
     this.editId = id;
     this.brokerName = name;
     this.brokerRef = brokerID;
@@ -74,17 +78,19 @@ export class AdminBrokersComponent implements OnInit {
     this.brokerPath = path;
     this.currentUpload=null
     this.showEditBroker = !this.showEditBroker;
+    this.hideExistingAccount = hide
     this.confirmation = ""
   }
 
   editBroker(name,brokerID,page,mail,description,path){
-      this.upSvc.editBroker(this.currentUpload,name,brokerID,page,mail,description,this.editId,path)
+      this.upSvc.editBroker(this.currentUpload,name,brokerID,page,mail,description,this.editId,path,this.hideExistingAccount)
       this.showEditBroker = !this.showEditBroker
+      this.hideExistingAccount = false
   }
 
   removeBroker(){
     this.afs.removeBroker(this.editId)
-    this.toggleEditBroker(null,null,null,null,null,null,null)
+    this.toggleEditBroker(null,null,null,null,null,null,null,false)
   }
 
 }
