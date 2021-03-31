@@ -90,15 +90,16 @@ export class BrokersComponent implements OnInit {
     this.brokerRef = ref;
     this.brokerEmail = email;
     this.brokerHide = hide;
-    this.accountSubject =  `Account ${this.brokerName} change to BIIA`
+    this.accountSubject =  `Account under referral id.`
     this.mailBody = `
 Dear ${this.brokerName},%0D%0D
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.%0D%0D
+Could you put my ${this.brokerName} account under referral ID, please.%0D%0D
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.%0D%0D
+This issue is quite urgent for me, so please make this change as soon as possible.%0D
+My account details and referral ID are listed below.%0D%0D
 
-Account ID: ${this.accountNumber}%0D%0D
+Account ID: ${this.accountNumber}%0D
 Referral ID: ${this.brokerRef}%0D%0D
 
 I appreciate your prompt action to resolve my issue.%0D%0D
@@ -106,12 +107,14 @@ I appreciate your prompt action to resolve my issue.%0D%0D
 Thanks and kind regards,%0D
 ${this.userName}.`
 
-this.mailBodyNormal = `
+
+  this.mailBodyNormal = `
 Dear ${this.brokerName},
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.
+Could you put my ${this.brokerName} account under referral ID, please.
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.
+This issue is quite urgent for me, so please make this change as soon as possible.
+My account details and referral ID are listed below.
 
 Account ID: ${this.accountNumber}
 Referral ID: ${this.brokerRef}
@@ -141,11 +144,12 @@ ${this.userName}.`
     this.mailBody = `
 Dear ${this.brokerName},%0D%0D
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me. %0D%0D
+Could you put my ${this.brokerName} account under referral ID, please.%0D%0D
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below. %0D%0D
+This issue is quite urgent for me, so please make this change as soon as possible.%0D
+My account details and referral ID are listed below.%0D%0D
 
-Account ID: ${this.accountNumber}%0D%0D
+Account ID: ${this.accountNumber}%0D
 Referral ID: ${this.brokerRef}%0D%0D
 
 I appreciate your prompt action to resolve my issue.%0D%0D
@@ -156,9 +160,10 @@ ${this.userName}.`
 this.mailBodyNormal = `
 Dear ${this.brokerName},
 
-Could you put my following ${this.brokerName} Broker account under BIIA IB, can you make the change as soon as possible? this issue is quite urgent for me.
+Could you put my ${this.brokerName} account under referral ID, please.
 
-This issue is quite urgent for me, so please make this change as soon as possible. My account details and referral ID are listed below.
+This issue is quite urgent for me, so please make this change as soon as possible.
+My account details and referral ID are listed below.
 
 Account ID: ${this.accountNumber}
 Referral ID: ${this.brokerRef}
@@ -172,7 +177,6 @@ ${this.userName}.`
 
   createAccount(userID,userName,accountID,brokerName,brokerPath){
     if(accountID != ""){
-      //this.firestore.sendBrokerEmail(this.brokerEmail, this.accountSubject,this.mailBody,this.userMail);
       this.userService.createAccount(userID,userName,accountID,brokerName,brokerPath)
       this.showAddAccount = false
     }else{
