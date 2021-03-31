@@ -21,13 +21,22 @@ export interface user {
   providedIn: 'root'
 })
 export class UserService {
-  private users:Observable<user[]>;
+  private usersList:Observable<user[]>;
   private user;
   private usersCollection: AngularFirestoreCollection<user>;
   balance:number = 0
 
   constructor(private afs: AngularFirestore, public firebaseAuth : AngularFireAuth) {
     this.usersCollection = this.afs.collection<user>('users');
+    this.usersList = this.usersCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      })
+    );
   }
 
 
@@ -38,6 +47,10 @@ export class UserService {
         return user
       })
     )
+  }
+
+  getUsers(){
+    return this.usersList
   }
 
   //Este método actualiza el nombre de un usuario en la base de datos de Firebase

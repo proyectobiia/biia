@@ -17,21 +17,25 @@
             <div class="cuentas-header">
                 <p>Bróker</p>
                 <p>Usuario</p>
+                <p>Correo</p>
                 <p>Cuenta</p>
                 <p>Ganancia</p>
                 <p>Tiempo de Creación</p>
             </div>
-            <div class="cuentas-row" *ngFor="let account of accountsFiltered">
-                <p class="cuenta-column"><img src="{{account.brokerPath}}" class="cuenta-img">{{account.broker}}</p>
-                <p class="cuenta-column">{{account.name}}</p>
-                <p class="cuenta-column">{{account.accountID}}</p>
-                <p class="cuenta-column">$ {{account.balance | number}}</p>
-                <p class="cuenta-column">{{account.time}}</p>
-                <div class="icons-container">
-                    <p class="lightGreenText smallText clickable" *ngIf="!account.isActive" (click)="activateAccount(account.id)">Activar</p>
-                    <p class="smallText" *ngIf="account.isActive">Activada</p>
-                    <p class="lightGreenText normalText clickable" (click)="toggleEditModal(account.id,account.userID,account.balance,account.name,account.accountID)" *ngIf="account.isActive">+</p>
-                </div>  
+            <div class="cuentas-body">
+                <div class="cuentas-row" *ngFor="let account of accountsFiltered">
+                    <p class="cuenta-column"><img src="{{account.brokerPath}}" class="cuenta-img">{{account.broker}}</p>
+                    <p class="cuenta-column">{{account.name}}</p>
+                    <p class="cuenta-column">{{account.email}}</p>
+                    <p class="cuenta-column">{{account.accountID}}</p>
+                    <p class="cuenta-column">$ {{account.balance | number}}</p>
+                    <p class="cuenta-column">{{account.time}}</p>
+                    <div class="icons-container">
+                        <p class="lightGreenText smallText clickable" *ngIf="!account.isActive" (click)="activateAccount(account.id)">Activar</p>
+                        <p class="smallText" *ngIf="account.isActive">Activada</p>
+                        <p class="lightGreenText normalText clickable" (click)="toggleEditModal(account.id,account.userID,account.balance,account.name,account.accountID)" *ngIf="account.isActive">+</p>
+                    </div>  
+                </div>
             </div>
         </div>
     </div>

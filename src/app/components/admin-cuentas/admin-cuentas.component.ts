@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreAdminService } from 'src/app/services/firestore-admin.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-admin-cuentas',
@@ -18,12 +19,20 @@ export class AdminCuentasComponent implements OnInit {
   accountRef
   userID
   showPagos = false
+  users
 
-  constructor(private afs : FirestoreAdminService) { }
+  constructor(private afs : FirestoreAdminService, private userService : UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe(res => {
+      this.users = res
+    })
     this.afs.getAccounts().subscribe(res => {
       this.accountsList = res.sort( this.compare );
+      this.accountsList.forEach(account => {
+        const user = this.users.find(user => user.id == account.userID)
+        account.email = user.email
+      });
       this.accountsFiltered = this.accountsList
     })
     this.afs.getPagos().subscribe(res => {
