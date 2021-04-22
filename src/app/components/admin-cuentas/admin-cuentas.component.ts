@@ -38,8 +38,9 @@ export class AdminCuentasComponent implements OnInit {
       });
       this.accountsFiltered = this.accountsList
     })
-    this.afs.getPagos().subscribe(res => {
-      this.pagosList = res.sort( this.compare );
+    this.afs.getPagos().subscribe((res:any) => {
+      this.pagosList = res.sort( this.compareDate );
+      console.log(this.pagosList[0].realDate)
       this.pagosFiltered = this.pagosList
     })
   }
@@ -92,6 +93,11 @@ export class AdminCuentasComponent implements OnInit {
         }
       }
     }
+  }
+
+  compareDate(a,b){
+    if(a.realDate>b.realDate) return -1
+    if(a.realDate<=b.realDate)return 1
   }
 
   activateAccount(id){
@@ -152,11 +158,15 @@ export class AdminCuentasComponent implements OnInit {
   changeBalanceFromCSVRecords(records){
     let account
     records.forEach(record => {
-      console.log(record.id)
       account = this.accountsList.find(account => account.accountID == record.id)
-      console.log(account)
+      this.afs.createPago(account.name,account.userID,account.accountID,account.balance,account.balance + parseFloat(record.amount))
       this.afs.changeBalance(account.id,account.balance + parseFloat(record.amount))
     })
+    if(records.length>0){
+      window.alert('Pagos registrados')
+      return
+    }
+    window.alert('Error al importar, revise el archivo ingresado.')
   }
 
   getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {  

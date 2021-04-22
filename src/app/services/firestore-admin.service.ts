@@ -359,7 +359,7 @@ export class FirestoreAdminService {
       var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
       var yyyy = today.getFullYear();
       var time = today.getHours() + ':' + String(today.getMinutes()).padStart(2, '0')
-
+      console.log('Pago')
       var date = dd + '/' + mm + '/' + yyyy + " a las "+ time
       this.firestore.collection("pagos").add({
             user: user,
@@ -367,7 +367,8 @@ export class FirestoreAdminService {
             userRef: userRef,
             userBalancePrev: userBalancePrev,
             userBalanceNew: userBalanceNew,
-            time: date
+            time: date,
+            realDate: today
           }).then(res => {resolve(res)}, err => reject(err));
     });
   }
