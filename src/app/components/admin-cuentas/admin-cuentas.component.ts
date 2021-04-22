@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FirestoreAdminService } from 'src/app/services/firestore-admin.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,6 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin-cuentas.component.scss']
 })
 export class AdminCuentasComponent implements OnInit {
+  @ViewChild('fileInput') csvReader: any;
   accountsList
   accountsFiltered
   pagosList
@@ -20,6 +21,8 @@ export class AdminCuentasComponent implements OnInit {
   userID
   showPagos = false
   users
+
+  records: any[] = []; 
 
   constructor(private afs : FirestoreAdminService, private userService : UserService) { }
 
@@ -119,5 +122,75 @@ export class AdminCuentasComponent implements OnInit {
     document.getElementsByClassName('chosen-tab')[0].classList.remove('chosen-tab')
     document.getElementById(element).classList.add('chosen-tab')
   }
+
+  onFileChanged(event) {
+    let data:any[] = []
+    let files = event.target.files
+    if(!this.isValidCSVFile(files[0])){
+      window.alert('Por favor ingrese un archivo csv')
+      this.fileReset()
+      return
+    }
+    let input = event.target;  
+    let reader = new FileReader();  
+    reader.readAsText(input.files[0]);  
+
+    reader.onload = () => {  
+      let csvData = reader.result;  
+      let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);  
+
+      let headersRow = this.getHeaderArray(csvRecordsArray);  
+
+      this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);  
+
+      this.changeBalanceFromCSVRecords(this.records)
+
+      console.log(this.records)
+    }; 
+  }
+
+  changeBalanceFromCSVRecords(records){
+    let account
+    records.forEach(record => {
+      console.log(record.id)
+      account = this.accountsList.find(account => account.accountID == record.id)
+      console.log(account)
+      this.afs.changeBalance(account.id,account.balance + parseFloat(record.amount))
+    })
+  }
+
+  getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {  
+    let csvArr = [];  
+  
+    for (let i = 1; i < csvRecordsArray.length; i++) {  
+      let currentRecord = (<string>csvRecordsArray[i]).split(',');  
+      if (currentRecord.length == headerLength) {  
+        let csvRecord: any = {id: '',amount: 0}
+        csvRecord.id = currentRecord[0].trim();  
+        csvRecord.amount = currentRecord[1].trim();  
+        console.log(currentRecord)
+        csvArr.push(csvRecord);  
+      }  
+    }  
+    return csvArr;  
+  }
+
+  getHeaderArray(csvRecordsArr: any) {  
+    let headers = (<string>csvRecordsArr[0]).split(',');  
+    let headerArray = [];  
+    for (let j = 0; j < headers.length; j++) {  
+      headerArray.push(headers[j]);  
+    }  
+    return headerArray;  
+  }
+
+  fileReset() {  
+    this.csvReader.nativeElement.value = "";  
+    this.records = [];  
+  }
+
+  isValidCSVFile(file: any) {  
+    return file.name.endsWith(".csv");  
+  }  
 
 }
