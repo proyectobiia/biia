@@ -53,8 +53,8 @@
             <div class="pagos-row" *ngFor="let pago of pagosFiltered">
                 <p class="pagos-column">{{pago.user}}</p>
                 <p class="pagos-column">{{pago.userRef}}</p>
-                <p class="pagos-column">$ {{pago.userBalancePrev}}</p>
-                <p class="pagos-column">$ {{pago.userBalanceNew}}</p>
+                <p class="pagos-column">$ {{pago.userBalancePrev | number: '1.1-2'}}</p>
+                <p class="pagos-column">$ {{pago.userBalanceNew | number: '1.1-2'}}</p>
                 <p class="pagos-column">{{pago.time}}</p>
             </div>
         </div>

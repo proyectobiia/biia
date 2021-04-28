@@ -159,6 +159,7 @@ export class AdminCuentasComponent implements OnInit {
     let account
     records.forEach(record => {
       account = this.accountsList.find(account => account.accountID == record.id)
+      if(!account) return
       this.afs.createPago(account.name,account.userID,account.accountID,account.balance,account.balance + parseFloat(record.amount))
       this.afs.changeBalance(account.id,account.balance + parseFloat(record.amount))
     })
