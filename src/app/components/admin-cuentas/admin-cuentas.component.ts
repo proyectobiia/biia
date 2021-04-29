@@ -40,7 +40,6 @@ export class AdminCuentasComponent implements OnInit {
     })
     this.afs.getPagos().subscribe((res:any) => {
       this.pagosList = res.sort( this.compareDate );
-      console.log(this.pagosList[0].realDate)
       this.pagosFiltered = this.pagosList
     })
   }
@@ -150,21 +149,24 @@ export class AdminCuentasComponent implements OnInit {
       this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);  
 
       this.changeBalanceFromCSVRecords(this.records)
-
-      console.log(this.records)
     }; 
   }
 
   changeBalanceFromCSVRecords(records){
+    let invalidRecords:string = ""
     let account
     records.forEach(record => {
       account = this.accountsList.find(account => account.accountID == record.id)
-      if(!account) return
+      if(!account) {
+        if(record.id!="Account")invalidRecords += ` ${record.id},`
+        return
+      }
       this.afs.createPago(account.name,account.userID,account.accountID,account.balance,account.balance + parseFloat(record.amount))
       this.afs.changeBalance(account.id,account.balance + parseFloat(record.amount))
     })
     if(records.length>0){
       window.alert('Pagos registrados')
+      if(invalidRecords!="")window.alert(`Las cuentas${invalidRecords} no fueron encontradas.` )
       return
     }
     window.alert('Error al importar, revise el archivo ingresado.')
@@ -178,8 +180,7 @@ export class AdminCuentasComponent implements OnInit {
       if (currentRecord.length == headerLength) {  
         let csvRecord: any = {id: '',amount: 0}
         csvRecord.id = currentRecord[0].trim();  
-        csvRecord.amount = currentRecord[1].trim();  
-        console.log(currentRecord)
+        csvRecord.amount = currentRecord[1].trim();
         csvArr.push(csvRecord);  
       }  
     }  
