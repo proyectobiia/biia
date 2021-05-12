@@ -54,6 +54,12 @@ export interface pago{
   time
 }
 
+export interface previousPayment{
+  accountID: string,
+  amount: number,
+  date
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -75,6 +81,9 @@ export class FirestoreAdminService {
 
   private pagosList: Observable<pago[]>
   private pagosCollection: AngularFirestoreCollection<pago>
+
+  private previousPaymentsList: Observable<previousPayment[]>
+  private previousPaymentsCollection: AngularFirestoreCollection<previousPayment>
 
   academia_id = ""
 
@@ -128,6 +137,17 @@ export class FirestoreAdminService {
           const id = a.payload.doc.id;
           return { id, ...data };
         });
+      })
+    )
+
+    this.previousPaymentsCollection = this.firestore.collection<previousPayment>('pagosPrevios')
+    this.previousPaymentsList = this.previousPaymentsCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
       })
     )
    }
@@ -375,6 +395,22 @@ export class FirestoreAdminService {
 
   getPagos(){
     return this.pagosList
+  }
+
+  createPreviousPayment(payment){
+    return new Promise<any>((resolve,reject) => {
+      console.log('lol')
+      var today = new Date()
+      this.firestore.collection("pagosPrevios").doc(payment.uid).set({
+        uid: payment.uid,
+        amount: payment.amount,
+        date: today
+      })
+    })
+  }
+
+  getPreviousPayments(){
+    return this.previousPaymentsList
   }
 
   sendBrokerEmail(email, subject, body, userMail){

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FirestoreAdminService } from 'src/app/services/firestore-admin.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,11 +9,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminCuentasComponent implements OnInit {
   @ViewChild('fileInput') csvReader: any;
+  fileValue:ElementRef;
   accountsList
   accountsFiltered
   pagosList
   pagosFiltered
   showBalanceModal
+  previousPayments
   accountID
   accountBalance
   accountName
@@ -41,6 +43,9 @@ export class AdminCuentasComponent implements OnInit {
     this.afs.getPagos().subscribe((res:any) => {
       this.pagosList = res.sort( this.compareDate );
       this.pagosFiltered = this.pagosList
+    })
+    this.afs.getPreviousPayments().subscribe(res => {
+      this.previousPayments = res
     })
   }
 
@@ -155,18 +160,31 @@ export class AdminCuentasComponent implements OnInit {
   changeBalanceFromCSVRecords(records){
     let invalidRecords:string = ""
     let account
+    let duplicatePayments = false
     records.forEach(record => {
       account = this.accountsList.find(account => account.accountID == record.id)
       if(!account) {
         if(record.id!="Account")invalidRecords += ` ${record.id},`
         return
       }
+      if(this.previousPayments.find(payment => payment.uid == record.id && payment.amount == record.amount)){
+        duplicatePayments = true
+        return
+      }
+      let payment = {
+        uid: record.id,
+        amount: record.amount
+      }
+      this.afs.createPreviousPayment(payment)
       this.afs.createPago(account.name,account.userID,account.accountID,account.balance,account.balance + parseFloat(record.amount))
       this.afs.changeBalance(account.id,account.balance + parseFloat(record.amount))
     })
     if(records.length>0){
       window.alert('Pagos registrados')
       if(invalidRecords!="")window.alert(`Las cuentas${invalidRecords} no fueron encontradas.` )
+      if(duplicatePayments=true)window.alert('Se encontraron algunos pagos duplicados, no fueron registrados.')
+      if(this.fileValue)this.fileValue.nativeElement.value = ""
+      duplicatePayments = false
       return
     }
     window.alert('Error al importar, revise el archivo ingresado.')
