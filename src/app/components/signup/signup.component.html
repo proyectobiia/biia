@@ -1,7 +1,7 @@
 <img src="../../../../assets/img/loginBG.png" class="signupBG">
 <img src="../../../../assets/img/logoWhite.png" class="signupLogo">
     <p class="lightGreyText smallText signupText">Registrarse</p>
-    <p class="strong signupTitle">Bienvenido a BIIA</p>
+    <p class="strong signupTitle">Bienvenido a SUNUM</p>
     <div class="inputContainer" *ngIf="!mailSignup && !googleSignup && !facebookSignup">
         <p class="smallText">Elige uno para crear tu cuenta:</p>
         <button style="background-color: rgba(255,61,45,1);" (click)="toggleGoogleSignup()"><i class="fab fa-google"></i>Google</button>
@@ -34,6 +34,6 @@
     <p class="lightGreenText bold loginLink" routerLink="/login">Ya tengo cuenta</p>
     <div id="bottom-text">
         <p class="darkGreyText smallText centerText termsText">Al crear una cuenta aceptas nuestros <a style="color: white; text-decoration: none;" routerLink="/terminos">Términos y Condiciones</a> y nuestro <a style="color: white; text-decoration: none;" routerLink="/aviso">Aviso de Privacidad</a></p>
-        <p class="darkGreyText smallText rightsText">BIIA. Todos los derechos reservados. 2020</p>
+        <p class="darkGreyText smallText rightsText">SUNUM. Todos los derechos reservados. 2020</p>
     </div>
     <a class="orangeText strong return-button" routerLink="/">Inicio</a>
