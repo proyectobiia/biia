@@ -62,7 +62,7 @@ video{
 }
 
 .scrollBtn p{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 10px;
 }
 
@@ -97,7 +97,7 @@ video{
     border: 1px solid white;
     padding: 10px 20px;
     border-radius: 10px;
-    font-family: 'Roboto', monospace;
+    font-family: 'Roboto', sans-serif;
     letter-spacing: 3px;
     font-size: 16px;
     margin-right: 30px;
@@ -106,7 +106,7 @@ video{
 
 #secondSection{
     text-align: center;
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     margin-top: 100px;
 }
 
@@ -119,13 +119,80 @@ p{
     width: 80%;
     line-height: 1.8em;
     font-size: 16px;
+    font-weight: 300;
 }
 
 #secondSection > .second-section-first-p{
     margin-top: 0px;
-    width: 80%;
+    width: 60%;
     line-height: 1.8em;
     font-size: 16px;
+    font-weight: 300;
+}
+
+.buttons{
+    margin-top: 5px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    >*{
+        box-sizing: border-box;
+        text-transform: uppercase;
+        font-weight: 300;
+    }
+}
+
+.operative-title{
+    font-size: 16px;
+    margin-top: 50px;
+    font-weight: 300;
+}
+
+.operatives{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 80%;
+    min-width: 299px;
+    max-width: 1000px;
+    margin: 50px auto;
+    gap: 100px;
+}
+
+.operative{
+    position: relative;
+    border-radius: 20px;
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 8px 8px rgba(0,0,0,.3);
+    line-height: 100px;
+    font-size: 40px;
+    color: rgba(0,191,181,1);
+    font-weight: 700;
+    transition: transform .5s;
+    cursor: default;
+    font-family: 'Roboto', sans-serif;
+    &:hover{
+        transform: scale(1.3);
+    }
+}
+
+.operative-name{
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: white;
+    font-weight: 400;
+    line-height: 1.5em;
+    word-wrap: normal;
+    white-space: nowrap;
+    font-weight: 300;
 }
 
 #investorsBG{
@@ -145,10 +212,12 @@ p{
     padding: 12px 20px;
     border-radius: 10px;
     font-size: 16px;
-    letter-spacing: 2px;
-    font-family: 'Roboto', monospace;
+    letter-spacing: 0.1em;
+    font-family: 'Roboto', sans-serif;
     margin-top: 75px;
     color: white;
+    text-transform: uppercase;
+    font-weight: 400;
 }
 
 #roles{
@@ -157,7 +226,7 @@ p{
     width: 100%;
 }
 
-.role{
+/* .role{
     width: 30%;
     margin-left: 10%;
     margin-right: 10%;
@@ -166,7 +235,7 @@ p{
 }
 
 .roleTitle{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
     font-size: 18px;
@@ -178,12 +247,22 @@ p{
     border-radius: 30px;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.65);
     font-size: 16px;
-}
+} */
 
 .animalSections{
+    position: relative;
     background-image: url('/assets/img/animalSections.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#services-title{
+    position: absolute;
+    top: 10px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
 }
 
 .animalContainer{
@@ -207,6 +286,7 @@ p{
     font-size: 23px;
     margin: 16px 0;
     letter-spacing: 10px;
+    font-weight: 300;
 }
 
 .animalSubtitle{
@@ -218,8 +298,10 @@ p{
 .animalText{
     font-size: 17px;
     margin: 16px 0 30px;
-    letter-spacing: 5px;
+    line-height: 1.8em;
+    letter-spacing: 3px;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
 #tortugaContainer{
@@ -260,7 +342,15 @@ p{
     background-image: url('/assets/img/jaguarBG.png');
     background-repeat: no-repeat;
     background-position: 60% 63%;
-    background-size: 52%;
+    background-size: 70%;
+    right: -150%;
+    left: auto;
+    padding: 0;
+    margin: 0;
+    transform: scale(-1,1);
+    position: relative;
+    right: -150%;
+    transition: 1s;
 }
 
 #functionBG{
@@ -272,11 +362,13 @@ p{
 
 #infoTitle{
     margin-bottom: 50px;
+    font-weight: 400;
 }
 
 #infoText{
     width: 75%;
     line-height: 2em;
+    font-weight: 400;
 }
 
 #explainDiv{
@@ -292,6 +384,7 @@ p{
 .explainContainer{
     width: 21%;
     margin: 0 2%;
+    padding: 0 1.5%;
 }
 
 .explainContainer p{
@@ -397,7 +490,7 @@ p{
     font-size: 18px;
 }
 
-#guacamayaImg, #jaguarImg{
+#guacamayaImg{
     position: relative;
     left: -150%;
     transition: 1s;
@@ -431,6 +524,15 @@ p{
     width: 500px;
 }
 
+#jaguar-text{
+    width: 450px;
+    text-align: right;
+    margin-right: 50px;
+    position: relative;
+    left: -150%;
+    transition: 1s;
+}
+
 .appearedTextLeft{
     left: 0 !important;
 }
@@ -461,7 +563,14 @@ p{
 
 @media only screen and (max-width: 1000px) {
     .landingSection{
-        height: 800px;
+        height: max-content;
+        margin-bottom: 100px;
+    }
+
+    #firstSection{
+        height: 100vh;
+        margin-bottom: 50px;
+        overflow: hidden;
     }
 
     #firstSectionP{
@@ -469,8 +578,12 @@ p{
     }
 
     #firstSection img{
-        margin-top: -260px;
+        margin-top: -150px;
         width: 150px;
+    }
+
+    #secondSection{
+        margin-top: 50px;
     }
 
     .animalContainer{
@@ -494,13 +607,21 @@ p{
         margin-top: 70px;
     }
 
+    #tortugaContainer{
+        margin-top: 50px !important;
+    }
+
     #jaguarImg{
-        background-position: 60% 75%;
-        background-size: 62%;
+        margin-top: 70px;
+        background-position: 57% 75%;
+        background-size: 61%;
+        width: 450px;
     }
 
     #jaguar-text{
         margin-top: 50px;
+        text-align: center;
+        margin: 0;
     }
 
     .appearedImg{
@@ -527,10 +648,10 @@ p{
         font-size: 14px;
         text-align: center;
         width: 70%;
+        bottom: 25%;
     }
 
     #secondSection{
-        height: 1000px;
         font-size: 14px;
     }
 
@@ -543,8 +664,19 @@ p{
         width: 80%;
     }
 
+    .buttons{
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        margin-top: 80px;
+        >*{
+            width: 300px;
+            margin-top: 0;
+        }
+    }
+
     #tortugaText{
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
     #explainDiv{
@@ -553,18 +685,21 @@ p{
     }
 
     #infoSection{
-        height: 900px;
+        height: max-content;
+        margin: 50px 0;
     }
 
     .explainContainer{
         width: 50%;
         min-width: 300px;
         margin: 0;
-        margin-bottom: 30px;
+        margin-bottom: 100px;
     }
 
     #tallSection{
-        height: 1600px;
+        height: max-content;
+        padding: 100px 0 0;
+        margin-bottom: 0;
     }
 
     #infoText{
@@ -618,6 +753,7 @@ p{
         width: 70%;
         margin-left: 0;
         padding: 0;
+        height: max-content;
     }
 
     .appearedImg{
@@ -625,7 +761,9 @@ p{
     }
 
     .animalSections .landingSection{
-        height: 700px;
+        height: max-content;
+        padding: 50px 0;
+        margin-bottom: 50px;
     }
 
     #infoTitle{

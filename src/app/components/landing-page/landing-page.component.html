@@ -5,18 +5,18 @@
     <div class="video-cover"></div>
     <img src="/assets/img/biiaLogo.png">
     <p id="firstSectionP">TRANSFORMAMOS EL MUNDO DE LAS FINANZAS</p>
-    <div class="scrollBtn" (click)="scroll('secondSection')">
+    <!-- <div class="scrollBtn" (click)="scroll('secondSection')">
         <p>SCROLL</p>
         <i class="fas fa-chevron-down" style="font-size: 30px"></i>
-    </div>
+    </div> -->
 </div>
 <div class="landingSection" id="secondSection">
     <div class="navbar">
         <a class="orangeText strong loginBtn" routerLink="/login">INICIAR SESIÓN</a>  
     </div>
-    <img src="/assets/img/Mexico.png" id="investorsBG">
-    <p class="second-section-first-p">Somos una plataforma mexicana que ayuda al inversor y al nuevo inversor</p>
-    <div id="roles">
+    <!-- <img src="/assets/img/Mexico.png" id="investorsBG"> -->
+    <p class="second-section-first-p">Somos la primera plataforma que brinda enseñanza gratuita de trading con un sistema que hace tu operativa rentable.</p>
+    <!-- <div id="roles">
         <div class="role">
             <p class="roleTitle lightGreenText">INVERSOR</p>
             <p class="roleText">Pagamos comisión por cada operación que abras</p>
@@ -25,11 +25,36 @@
             <p class="roleTitle lightGreenText">NUEVO INVERSOR</p>
             <p class="roleText">Aprende a invertir con las mejores academias de trading</p>
         </div>
+    </div> -->
+    <div class="buttons">
+        <a class="lightGreenBackground linkBtn strong" routerLink="/login">Comienza Gratis <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
+        <a class="secondary-btn linkBtn strong" routerLink="/login">Descubre Más <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
     </div>
-    <p class="second-section-second-p">Somos conscientes del gran valor que tiene México como país, nos inspira su patrimonio cultural y su gran biodiversidad, por eso en SUNUM, estamos comprometidos en ofrecerte ese mismo valor para ti</p>
-    <a class="lightGreenBackground linkBtn strong" routerLink="/login">Descubre cómo <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
+    <p class="second-section-second-p">Integramos inteligencia artificial y educación para brindarte mejores resultados en tu operativa.</p>
+    <p class="operative-title">¿Qué operativa usas?</p>
+    <div class="operatives">
+        <div class="operative">F<span style="font-size: 27px;">i</span><p class="operative-name">Fibonacci</p></div>
+        <div class="operative">E<span style="font-size: 27px;">w</span><p class="operative-name">Elliot Wave</p></div>
+        <div class="operative">W<span style="font-size: 27px;">y</span><p class="operative-name">Wyckoff</p></div>
+        <div class="operative">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
+        <div class="operative">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
+    </div>
 </div>
 <div class="animalSections">
+    <p id="services-title">SERVICIOS</p>
+    <div class="landingSection">
+        <div class="animalContainer" id="tortugaContainer">
+            <div id="tortugaText">
+                <p class="purpleText animalName right" (appear)="hasAppearedTortuga()" id="tortuga">TORTUGA | AKK</p>
+                <p class="animalSubtitle bold right">APRENDE</p>
+                <p class="animalText bold right">Escoge la operativa que mejor <br>se adapte a ti</p>
+                <a class="purpleBackground linkBtn strong right" id="tortugaBtn" routerLink="/aprende"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
+            </div>
+            <div class="animalImg" id="tortugaImg">
+                <img src="/assets/img/tortuga.png">
+            </div>
+        </div>
+    </div>
     <div class="landingSection animalSection" >
         <div class="animalContainer">
             <div class="animalImg" id="guacamayaImg" >
@@ -38,71 +63,60 @@
             <div class="animal-text-container">
                 <p class="lightGreenText animalName" (appear)="hasAppearedGuacamaya()" id="guacamaya">MOO | GUACAMAYA</p>
                 <p class="animalSubtitle bold">INVIERTE</p>
-                <p class="animalText bold">Comienza con los mejores brokers a nivel mundial</p>
+                <p class="animalText bold">FONDEA TU CUENTA Y SÉ MENTOREADO<br>POR LOS MEJORES PROFESORES</p>
                 <a class="lightGreenBackground linkBtn strong" routerLink="/invierte">Saber más <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
         </div>
     </div>
     <div class="landingSection">
-        <div class="animalContainer" id="tortugaContainer">
-            <div id="tortugaText">
-                <p class="purpleText animalName right" (appear)="hasAppearedTortuga()" id="tortuga">TORTUGA | AKK</p>
-                <p class="animalSubtitle bold right">APRENDE</p>
-                <p class="animalText bold right">Comienza tu carrera como <br>trader</p>
-                <a class="purpleBackground linkBtn strong right" id="tortugaBtn" routerLink="/aprende"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
-            </div>
-            <div class="animalImg" id="tortugaImg">
-                <img src="/assets/img/tortuga.png">
-            </div>
-        </div>
-    </div>
-    <div class="landingSection">
         <div class="animalContainer">
-            <div class="animalImg" id="jaguarImg">
-                <img src="/assets/img/jaguar.png">
-            </div>
             <div class="animal-text-container" id="jaguar-text">
                 <p class="orangeText animalName" (appear)="hasAppearedJaguar()" id="Jaguar">BALAM | JAGUAR</p>
                 <p class="animalSubtitle bold">GANA</p>
-                <p class="animalText bold">Pagamos comisión de hasta <br>60% por cada operación</p>
-                <a class="orangeBackground linkBtn strong" routerLink="/login">Saber más <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
+                <p class="animalText bold">RECUPERA COMISIÓN Y OBTÉN UNA <br>ESTRATEGIA GANADORA</p>
+                <a class="orangeBackground linkBtn strong" routerLink="/login"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
+            </div>
+            <div class="animalImg" id="jaguarImg">
+                <img src="/assets/img/jaguar.png">
             </div>
         </div>
     </div>
 </div>
 <div class="landingSection centerText" id="infoSection">
     <p class="strong normalText" id="infoTitle">¿CÓMO FUNCIONA?</p>
-    <p class="smallText robotoMono" id="infoText">
-        Si eres un inversionista recurrente en <span class="lightGreenText">SUNUM</span>, sacarás el máximo provecho a tus operaciones. Como usuario nuestro, ganarás dinero extra por cada operación, lo que hace que operar a través de nosotros, sea más rentable que abrir una cuenta directamente con el broker.<br><br>
+    <p class="smallText" id="infoText">
+        Aprende gratis y desarrolla la habilidad y la psicología correcta para ser un trader rentable y consistente.<br><br>
         
-        El broker te cobra comisión por spread, el broker nos paga un margen de esa comisión por referirte y nosotros compartimos hasta el 60% de esa comisión contigo.<br><br>
+        Invierte con alguno de nuestros brokers aliados y gana de la mano de nuestros mentores.<br><br>
         
-        Te pagamos por el volumen total de operaciones cada mes.<br><br>
+        Recupera las comisiones que te cobra el broker por los trades realizados y aumenta tu rendimiento mensual.<br><br>
+
+        Operar a través de nosotros y aprender de nuestros mentores, te es más rentable que abrir una cuenta directamente con el broker<br><br>
         
-        Somos <span class="lightGreenText">SUNUM</span>, la nueva forma de invertir tu dinero.</p>
-        <div class="ver-brokers"><a class="lightGreenBackground linkBtn strong" routerLink="/login">Comienza ya <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a></div>
+        <span class="lightGreenText" style="font-weight: 700;">SOMOS SUNUM, TRANSFORMAMOS EL MUNDO DE LAS FINANZAS.</span></p>
+        <div class="ver-brokers"><a class="lightGreenBackground linkBtn strong" routerLink="/login">Comienza gratis <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a></div>
 </div>
 <div class="landingSection centerText" id="tallSection">
     <div id="explainDiv">
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options1.png">
             <p class="bold smallText space-bottom wide-spacing">ACCIONES</p>
-            <p class="text14 robotoMono wide-spacing">Invierte correctamente tu dinero en millones de compañías y analizala información para tu portafolio de inversión.</p>
+            <p class="text14 wide-spacing">Invierte en millones de compañías utilizando todas las herramientas para trading y analizar la información para tu portafolio de inversión.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options2.png">
             <p class="bold smallText space-bottom wide-spacing">OPCIONES</p>
-            <p class="text14 robotoMono wide-spacing">Las opciones proveen de una alternativa estratégica para tu dinero, en donde podrás invertir en el mercado de capitales.</p>
+            <p class="text14 wide-spacing">Las opciones proveen de una alternativa estratégica para tu capital en donde podrás invertir en el mercado de capitales.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options3.png">
             <p class="bold smallText space-bottom wide-spacing">ETF´S</p>
-            <p class="text14 robotoMono wide-spacing">Diversifica tu dinero invirtiendo en un grupo de acciones con elmismo beneficioque negociar una sola acción.</p>
+            <p class="text14 wide-spacing">Diversifica tus valores invirtiendo en un grupo de acciones con la misma conveniencia que negociar una sola acción.</p>
         </div>
         <div class="explainContainer">
             <img class="explainImg" src="/assets/img/options4.png">
             <p class="bold smallText space-bottom wide-spacing">FOREX</p>
-            <p class="text14 robotoMono wide-spacing">Ingresa al mercado más líquido del mundo, negocia en divisas y obtén ganancias a través del flujo monetario derivado del comercio internacional.</p>
+            <p class="text14 wide-spacing">Diferencia tu portafolio con el mercado más líquido del mundo que te permitirá aumentar los rendimientos que puedas obtener.</p>
         </div>
     </div>
 </div>
@@ -113,6 +127,8 @@
         <div>
             <a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln" style="color: white;"><i class="fab fa-instagram"></i></a>
             <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
+            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-youtube"></i></a>
         </div>
         <p class="footer-text darkGreyText">SUNUM. Todos los derechos reservados</p>
     </div>
@@ -127,6 +143,7 @@
         <div class="footer-desktop-section">
             <p class="bold footer-desktop-title text14">CONTACTO</p>
             <p class="footer-desktop-text text14"><a target="_blank" href="mailto:Contacto@biia.lat"><i class="far fa-envelope"></i>Email</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p>
             <!--<p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>-->
         </div>
         <div class="footer-desktop-section">
@@ -134,6 +151,7 @@
             <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln"><i class="fab fa-instagram"></i>Instagram</a></p>
             <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
             <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-youtube"></i>Youtube</a></p>
         </div>
     </div>
     <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>

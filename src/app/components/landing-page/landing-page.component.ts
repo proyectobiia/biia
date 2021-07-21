@@ -21,19 +21,20 @@ export class LandingPageComponent implements OnInit {
     }
   }
 
-  hasAppearedGuacamaya(){
-    document.getElementsByClassName('animal-text-container')[0].classList.add('appearedText')
-    document.getElementById('guacamayaImg').classList.add('appearedImg')
-  }
 
   hasAppearedTortuga(){
     document.getElementById('tortugaText').classList.add('appearedTextLeft')
     document.getElementById('tortugaImg').classList.add('appearedImgRight')
   }
 
+  hasAppearedGuacamaya(){
+    document.getElementsByClassName('animal-text-container')[0].classList.add('appearedText')
+    document.getElementById('guacamayaImg').classList.add('appearedImg')
+  }
+
   hasAppearedJaguar(){
-    document.getElementsByClassName('animal-text-container')[1].classList.add('appearedText')
-    document.getElementById('jaguarImg').classList.add('appearedImg')
+    document.getElementById('jaguar-text').classList.add('appearedTextLeft')
+    document.getElementById('jaguarImg').classList.add('appearedImgRight')
   }
 
 
