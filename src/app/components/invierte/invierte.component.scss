@@ -83,17 +83,17 @@ video{
 
 .aprende-hero-img-container{
     margin-right: 50px;
-    /* background-image: url('../../../assets/img/tortugaBG.png'); */
+    background-image: url('../../../assets/img/tortugaBG.png');
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: 40% 40%;
+    transform: scale(-1,1);
 }
 
 .aprende-hero-img{
     position: relative;
     width: 100%;
     left: -9%;
-    transform: scale(-1,1);
 }
 
 .aprende-hero-animal{
