@@ -10,6 +10,10 @@
     z-index: 100;
 }
 
+p{
+    cursor: default;
+}
+
 a{
     color: white;
     text-decoration: none;
@@ -83,11 +87,10 @@ video{
 
 .aprende-hero-img-container{
     margin-right: 50px;
-    background-image: url('../../../assets/img/tortugaBG.png');
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: 40% 40%;
     transform: scale(-1,1);
+    img{
+        transform: rotateY(180deg);
+    }
 }
 
 .aprende-hero-img{
@@ -193,7 +196,7 @@ video{
         color: rgba(0,191,181,1);
         font-weight: 700;
         transition: transform .5s;
-        cursor: default;
+        cursor: pointer;
         font-family: 'Roboto', sans-serif;
         text-align: center;
         &:hover{
@@ -221,116 +224,6 @@ video{
 .lightGreenText{
     color: rgba(0,191,181,1);
 }
-
-/* .aprende-swiper-container{
-    position: relative;
-    min-height: 750px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.swiper-legend{
-    position: absolute;
-    top: 40px;
-    color: black;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 2.8px;
-    text-align: center;
-    text-transform: uppercase;
-    transition: all .2s ease-out;
-    padding: 0 30px;
-}
-
-.aprende-swiper{
-    width: 90%;
-    margin-top: 80px;
-    overflow: visible;
-    display: flex;
-    position: relative;
-}
-
-.aprende-academia{
-    position: relative;
-    border-radius: 40px;
-    box-shadow: 0 20px 15px 0 rgba(0,0,0,.3);
-    background-image: linear-gradient(180deg,#121d23,#60686c);
-    padding: 35px 25px;
-    padding-top: 57px;
-    text-align: center;
-    cursor: pointer;
-    transition: .5s;
-    margin: 0 25px;
-    height: 270px;
-}
-
-.aprende-academia:hover{
-    margin-top: 20px;
-}
-
-.aprende-img-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;
-    box-shadow: 0 15px 6px 0 rgba(0,0,0,.16);
-    background: #121d23;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    transition: all .2s ease-out;
-    top: calc(-75px - 97px);
-    overflow: visible;
-}
-
-.aprende-img{
-    display: block;
-    width: 100%;
-    height: 100%;
-    transition: all .2s ease-out;
-}
-
-.aprende-academia-title{
-    position: relative;
-    top: -120px;
-    font-size: 18px;
-    line-height: 1.28;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-}
-
-.aprende-academia-text{
-    position: relative;
-    top: -100px;
-    font-size: 14px;
-    line-height: 1.43;
-    letter-spacing: 1.4px;
-    //margin-top: 20px;
-}
-
-.aprende-slide{
-
-}
-
-swiper > .swiper.s-wrapper, swiper, .swiper-container{
-    overflow: visible !important;
-}
-
-.swiper-container{
-    overflow: visible !important;
-}
-
-.swiper-div{
-    padding: 90px 0;
-    overflow-x: hidden;
-    width: 90%;
-} */
 
 #footer-mobile{
     position: relative;
@@ -427,6 +320,34 @@ swiper > .swiper.s-wrapper, swiper, .swiper-container{
     font-size: 18px;
 }
 
+.tooltip{
+    position: relative;
+}
+
+.tooltip::after{
+    content: '- Crea una cuenta de 100 USD en el broker que el mentor utiliza.\A- Requieres operar un mínimo de 0.10 lotes por semana para poder\A estar activo dentro de la comunidad del mentor.';
+    white-space: pre;
+    padding: 30px;
+    background-color: rgba(0,191,181,1);
+    color: white;
+    left: 10%;
+    top: 0;
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    border-radius: 20px;
+    transition: transform .5s ease-out;
+    transform: translate(-50%,-55%) scale(0);
+}
+
+.tooltip:hover::after{
+    transform: translate(-50%, -105%) scale(1);
+}
+
+.operatives-mobile{
+    display: none;
+}
+
 @media only screen and (max-width: 1000px){
     .aprende-hero-container{
         flex-direction: column;
@@ -459,6 +380,17 @@ swiper > .swiper.s-wrapper, swiper, .swiper-container{
         width: 70% !important;
         margin-left: 15%;
         margin-right: 7%;
+    }
+
+    .operatives{
+        display: none !important;
+    }
+
+    .operatives-mobile{
+        .operatives-slide{
+            display: flex;
+            justify-content: center;
+        }
     }
 
     #footer-mobile{

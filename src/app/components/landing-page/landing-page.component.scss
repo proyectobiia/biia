@@ -194,6 +194,10 @@ p{
     font-weight: 300;
 }
 
+.operatives-mobile{
+    display: none;
+}
+
 #investorsBG{
     position: absolute;
     top: 20px;
@@ -205,6 +209,7 @@ p{
     z-index: 1;
     cursor: pointer;
     text-decoration: none;
+    transition: .5s transform ease-out;
 }
 
 .linkBtn{
@@ -217,6 +222,7 @@ p{
     color: white;
     text-transform: uppercase;
     font-weight: 400;
+    transition: .5s transform ease-out;
 }
 
 #roles{
@@ -224,29 +230,6 @@ p{
     flex-direction: row;
     width: 100%;
 }
-
-/* .role{
-    width: 30%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 50px;
-    z-index: 1;
-}
-
-.roleTitle{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    margin-bottom: 50px;
-    font-size: 18px;
-}
-
-.roleText{
-    padding: 30px;
-    background-color: rgba(18,29,35,1);
-    border-radius: 30px;
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.65);
-    font-size: 16px;
-} */
 
 .animalSections{
     position: relative;
@@ -277,7 +260,7 @@ p{
     margin-right: 5%;
 }
 
-.animalImg img{
+#jaguarImg img{
     width: 100%;
 }
 
@@ -312,7 +295,7 @@ p{
     margin-right: 0px;
 }
 
-#tortugaBtn{
+.leftBtn{
     position: absolute;
     margin: 0;
     right: 0;
@@ -335,6 +318,7 @@ p{
     width: 43%;
     margin-right: 0;
     margin-left: 10%;
+    margin-top: 50px;
 }
 
 #jaguarImg{
@@ -499,6 +483,13 @@ p{
 
 #guacamayaImg img{
     height: 100%;
+    transform: rotateY(180deg);
+}
+
+#tortugaImg img{
+    transform: rotateY(180deg);
+    height: 70%;
+    margin-top: 15%;
 }
 
 .appearedImg{
@@ -554,10 +545,28 @@ p{
     font-size: 16px;
     letter-spacing: 3px;
     z-index: 10;
+    a{
+        position: absolute;
+        margin: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        &:hover{
+            transform: translateX(-50%) scale(1.2) !important;
+        }
+    }
 }
 
 .space-bottom{
     margin-bottom: 30px;
+}
+
+.loginBtn:hover,.linkBtn:hover{
+    transform: scale(1.2);
+}
+
+.animalBtn{
+    position: absolute;
+    margin: 0;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -637,6 +646,23 @@ p{
 
     #footer-desktop{
         display: none;
+    }
+
+    .operatives{
+        display: none;
+    }
+
+    .operatives-mobile{
+        display: block;
+        width: 100%;
+        .operatives-academia{
+            display: flex;
+            justify-content: center;
+            margin-block: 50px 25px;
+        }
+        .swiper-pagination{
+            margin-top: 50px;
+        }
     }
 
 }

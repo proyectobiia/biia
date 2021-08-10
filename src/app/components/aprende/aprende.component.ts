@@ -40,7 +40,7 @@ export class AprendeComponent implements OnInit {
     slidesOffsetBefore: 0,
     slidesOffsetAfter: 0,
     spaceBetween: 0,
-    pagination: { el: '.swiper-pagination', clickable: true },
+    pagination: false,
     breakpoints: {
         // when window width is >= 320px
         1000: {

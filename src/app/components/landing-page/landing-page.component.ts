@@ -7,6 +7,30 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  config = {
+    direction: 'horizontal',
+    slidesPerView: 1,
+    slideToClickedSlide: false,
+    initialSlide: 0,
+    mousewheel: false,
+    setWrapperSize: true,
+    scrollbar: false,
+    watchSlidesProgress: true,
+    navigation: true,
+    keyboard: true,
+    centeredSlides: false,
+    loop: false,
+    roundLengths: true,
+    slidesOffsetBefore: 0,
+    slidesOffsetAfter: 0,
+    spaceBetween: 0,
+    pagination: false,
+    breakpoints: {
+        1000: {
+            slidesPerView: 1
+        }
+    }
+  }
 
   constructor(public firebaseAuth : AngularFireAuth) {
     

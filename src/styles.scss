@@ -220,13 +220,15 @@ a{
 }
 
 .swiper-button-prev{
-    left: -50px !important;
+    top: 60% !important;
+    left: 5% !important;
     color: $light-green !important;
     cursor: pointer !important;
 }
 
 .swiper-button-next{
-    right: -50px !important;
+    top: 60% !important;
+    right: 5% !important;
     color: $light-green !important;
     cursor: pointer !important;
 }

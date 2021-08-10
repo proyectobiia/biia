@@ -39,32 +39,62 @@
         <div class="operative">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
         <div class="operative">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
     </div>
+    <div class="operatives-mobile">
+        <swiper [config]="config" class="operatives-swiper">
+            <div class="operatives-slide">
+                <div class="operatives-academia">
+                    <div class="operative">F<span style="font-size: 27px;">i</span><p class="operative-name">Fibonacci</p></div>
+                </div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operatives-academia">
+                    <div class="operative">E<span style="font-size: 27px;">w</span><p class="operative-name">Elliot Wave</p></div>
+                </div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operatives-academia">
+                    <div class="operative">W<span style="font-size: 27px;">y</span><p class="operative-name">Wyckoff</p></div>
+
+                </div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operatives-academia">
+                    <div class="operative">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
+                </div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operatives-academia">
+                    <div class="operative">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
+                </div>
+            </div>
+        </swiper>
+    </div>
 </div>
 <div class="animalSections">
     <p id="services-title">SERVICIOS</p>
     <div class="landingSection">
         <div class="animalContainer" id="tortugaContainer">
             <div id="tortugaText">
-                <p class="purpleText animalName right" (appear)="hasAppearedTortuga()" id="tortuga">TORTUGA | AKK</p>
+                <p class="purpleText animalName right" (appear)="hasAppearedTortuga()" id="tortuga">AKK | TORTUGA</p>
                 <p class="animalSubtitle bold right">APRENDE</p>
                 <p class="animalText bold right">Escoge la operativa que mejor <br>se adapte a ti</p>
-                <a class="purpleBackground linkBtn strong right" id="tortugaBtn" routerLink="/aprende"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
+                <a class="purpleBackground linkBtn strong right leftBtn" id="tortugaBtn" routerLink="/aprende">SABER MÁS <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
             <div class="animalImg" id="tortugaImg">
-                <img src="/assets/img/tortuga.png">
+                <img src="../../../assets/img/Tortuga.png">
             </div>
         </div>
     </div>
     <div class="landingSection animalSection" >
         <div class="animalContainer">
             <div class="animalImg" id="guacamayaImg" >
-                <img src="/assets/img/guacamaya.png">
+                <img src="/assets/img/Guacamaya.png">
             </div>
             <div class="animal-text-container">
                 <p class="lightGreenText animalName" (appear)="hasAppearedGuacamaya()" id="guacamaya">MOO | GUACAMAYA</p>
                 <p class="animalSubtitle bold">INVIERTE</p>
                 <p class="animalText bold">FONDEA TU CUENTA Y SÉ MENTOREADO<br>POR LOS MEJORES PROFESORES</p>
-                <a class="lightGreenBackground linkBtn strong" routerLink="/invierte">Saber más <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
+                <a class="lightGreenBackground linkBtn strong animalBtn" routerLink="/invierte">Saber más <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
         </div>
     </div>
@@ -74,10 +104,10 @@
                 <p class="orangeText animalName" (appear)="hasAppearedJaguar()" id="Jaguar">BALAM | JAGUAR</p>
                 <p class="animalSubtitle bold">GANA</p>
                 <p class="animalText bold">RECUPERA COMISIÓN Y OBTÉN UNA <br>ESTRATEGIA GANADORA</p>
-                <a class="orangeBackground linkBtn strong" routerLink="/login"><i class="fas fa-long-arrow-alt-left" style="margin-right: 15px;"></i>SABER MÁS</a>
+                <a class="orangeBackground linkBtn strong animalBtn leftBtn" routerLink="/login">SABER MÁS <i class="fas fa-long-arrow-alt-right" style="margin-left: 15px;"></i></a>
             </div>
             <div class="animalImg" id="jaguarImg">
-                <img src="/assets/img/jaguar.png">
+                <img src="/assets/img/Jaguar.png">
             </div>
         </div>
     </div>
@@ -125,16 +155,16 @@
         <img src="/assets/img/logoWhite.png">
         <p class="bold footer-text" style="letter-spacing: 5px;">SUNUM</p>
         <div>
-            <a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln" style="color: white;"><i class="fab fa-instagram"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="https://www.instagram.com/sunum_bank/" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <!-- <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a> -->
+            <a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="mailto:contacto@sunum.com.mx" style="color: white;"><i class="far fa-envelope"></i></a>
         </div>
         <p class="footer-text darkGreyText">SUNUM. Todos los derechos reservados</p>
     </div>
 </div>
 <div id="footer-desktop">
-    <div class="footer-scroll lightGreenBackground" (click)="scrollStart()"><i class="fas fa-chevron-up"></i></div>
     <div class="footer-container-desktop">
         <div class="footer-desktop-section">
             <img src="../../../assets/img/logoWhite.png" style="width: 38px;">
@@ -142,16 +172,16 @@
         </div>
         <div class="footer-desktop-section">
             <p class="bold footer-desktop-title text14">CONTACTO</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:Contacto@biia.lat"><i class="far fa-envelope"></i>Email</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:contacto@sunum.com.mx"><i class="far fa-envelope"></i>Email</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p> -->
             <!--<p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>-->
         </div>
         <div class="footer-desktop-section">
             <p class="bold footer-desktop-title text14">SOCIAL</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln"><i class="fab fa-instagram"></i>Instagram</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-youtube"></i>Youtube</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/sunum_bank/"><i class="fab fa-instagram"></i>Instagram</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p> -->
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ"><i class="fab fa-youtube"></i>Youtube</a></p>
         </div>
     </div>
     <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>

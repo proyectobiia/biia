@@ -10,6 +10,10 @@
     z-index: 100;
 }
 
+p{
+    cursor: default;
+}
+
 .aprende-navbar-logo{
     width: 25px;
     margin-left: 30px;
@@ -78,10 +82,9 @@ video{
 
 .aprende-hero-img-container{
     margin-right: 50px;
-    background-image: url('../../../assets/img/guacamayaBG.png');
-    background-repeat: no-repeat;
-    background-size: 80%;
-    background-position: 100% 55%;
+    img{
+        transform: rotateY(180deg);
+    }
 }
 
 .aprende-hero-img{
@@ -404,6 +407,10 @@ a{
     font-size: 18px;
 }
 
+.brokers-mobile{
+    display: none;
+}
+
 @media only screen and (max-width: 1000px){
     .aprende-hero-container{
         flex-direction: column;
@@ -443,6 +450,18 @@ a{
 
     #footer-desktop{
         display: none;
+    }
+
+    .brokers{
+        display: none !important;
+    }
+
+    .brokers-mobile{
+        display: block;
+        .operatives-slide{
+            display: flex;
+            justify-content: center;
+        }
     }
 
 }

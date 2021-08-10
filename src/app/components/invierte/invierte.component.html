@@ -1,8 +1,8 @@
 <div class="aprende-navbar">
     <a routerLink="/"><img src="../../../assets/img/logoWhite.png" class="aprende-navbar-logo"></a>
     <div class="aprende-links">
-        <a class="aprende-link" routerLink="/invierte">INVIERTE</a>
         <a class="aprende-selected-link aprende-link">APRENDE</a>
+        <a class="aprende-link" routerLink="/invierte">INVIERTE</a>
     </div>
 </div>
 <div class="aprende-hero">
@@ -12,7 +12,7 @@
     <div class="video-cover"></div>
     <div class="aprende-hero-container">
         <div class="aprende-hero-img-container">
-            <img src="../../../assets/img/tortuga.png" class="aprende-hero-img">
+            <img src="../../../assets/img/Tortuga.png" class="aprende-hero-img">
         </div>
         <div class="aprende-hero-text">
             <p class="aprende-hero-animal">AKK | MAYA</p>
@@ -23,21 +23,78 @@
 </div>
 <div class="info-container">
     <p class="info-text">En Sunum te brindamos la experiencia y el conocimiento de nuestros mentores con diferentes operativas que te ayudan a ser rentable y consistente.</p>
-    <p class="info-text">Conoce con inteligencia artificial las mejoras que puedes implementar en tu operativa para que en conjunto logremos tus objetivos de inversión</p>
+    <p class="info-text">Conoce con inteligencia artificial las mejoras que puedes implementar en tu operativa para que en conjunto logremos tus objetivos de inversión.</p>
     <h3>Proceso de 3 pasos</h3>
     <div class="steps">
-        <div class="step"><div class="number">1</div> <p>Si eres un operador nuevo, te recomendamos comiences dando click <a class="lightGreenText">aquí</a>.</p></div>
+        <div class="step"><div class="number">1</div> <p>Si eres un operador nuevo, te recomendamos comiences dando click <a class="lightGreenText" target="_blank" href="https://youtube.com/playlist?list=PLLNzc9eda90TIahixOvUkllsca9JFxVmy">aquí</a>.</p></div>
         <div class="step"><div class="number">2</div> <p>Elije la operativa que mejor se adapte a tu forma de hacer trading.</p></div>
-        <div class="step"><div class="number">3</div> <p>Crea tu cuenta y recibe un correo electrónico con el proceso para que fondees tu cuenta con <span class="lightGreenText">100 USD</span> y te unas a la comunidad de la operativa que elegiste... ¡Tu mentor te espera!</p></div>
+        <div class="step"><div class="number">3</div> <p>Crea tu cuenta y recibe un correo electrónico con el proceso para que fondees tu cuenta con <span class="lightGreenText tooltip">100 USD</span> y te unas a la comunidad de la operativa que elegiste... ¡Tu mentor te espera!</p></div>
     </div>
     <div class="operatives">
-        <div class="operative">F<span style="font-size: 27px;">i</span><p class="operative-name">Fibonacci</p></div>
-        <div class="operative">E<span style="font-size: 27px;">w</span><p class="operative-name">Elliot Wave</p></div>
-        <div class="operative">W<span style="font-size: 27px;">y</span><p class="operative-name">Wyckoff</p></div>
-        <div class="operative">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
-        <div class="operative">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
+        <div class="operative" routerLink="/signup">F<span style="font-size: 27px;">i</span><p class="operative-name">Fibonacci</p></div>
+        <div class="operative" routerLink="/signup">E<span style="font-size: 27px;">w</span><p class="operative-name">Elliot Wave</p></div>
+        <div class="operative" routerLink="/signup">W<span style="font-size: 27px;">y</span><p class="operative-name">Wyckoff</p></div>
+        <div class="operative" routerLink="/signup">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
+        <div class="operative" routerLink="/signup">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
+    </div>
+    <div class="operatives-mobile">
+        <swiper [config]="config" class="operatives-swiper">
+            <div class="operatives-slide">
+                <div class="operative" routerLink="/signup">F<span style="font-size: 27px;">i</span><p class="operative-name">Fibonacci</p></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operative" routerLink="/signup">E<span style="font-size: 27px;">w</span><p class="operative-name">Elliot Wave</p></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operative" routerLink="/signup">W<span style="font-size: 27px;">y</span><p class="operative-name">Wyckoff</p></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operative" routerLink="/signup">S<span style="font-size: 27px;">t</span><p class="operative-name">Structure</p></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="operative" routerLink="/signup">S<span style="font-size: 27px;">mc</span><p class="operative-name">Smart Money</p></div>
+            </div>
+        </swiper>
     </div>
 </div>
+
+<div id="footer-mobile">
+    <div class="footerContainer">
+        <img src="/assets/img/logoWhite.png">
+        <p class="bold footer-text" style="letter-spacing: 5px;">SUNUM</p>
+        <div>
+            <a target="_blank" href="https://www.instagram.com/sunum_bank/" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <!-- <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a> -->
+            <a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="mailto:contacto@sunum.com.mx" style="color: white;"><i class="far fa-envelope"></i></a>
+        </div>
+        <p class="footer-text darkGreyText">SUNUM. Todos los derechos reservados</p>
+    </div>
+</div>
+<div id="footer-desktop">
+    <div class="footer-container-desktop">
+        <div class="footer-desktop-section">
+            <img src="../../../assets/img/logoWhite.png" style="width: 38px;">
+            <p class="bold footer-text" style="letter-spacing: 5px; margin-top: 20px;">SUNUM</p>
+        </div>
+        <div class="footer-desktop-section">
+            <p class="bold footer-desktop-title text14">CONTACTO</p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:contacto@sunum.com.mx"><i class="far fa-envelope"></i>Email</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p> -->
+            <!--<p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>-->
+        </div>
+        <div class="footer-desktop-section">
+            <p class="bold footer-desktop-title text14">SOCIAL</p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/sunum_bank/"><i class="fab fa-instagram"></i>Instagram</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p> -->
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ"><i class="fab fa-youtube"></i>Youtube</a></p>
+        </div>
+    </div>
+    <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>
+</div>
+
 <!-- <div class="aprende-swiper-container">
     <p class="swiper-legend">Aprende de los mejores</p>
         <swiper [config]="config" class="aprende-swiper">
@@ -55,39 +112,3 @@
         </swiper>
 
 </div> -->
-<div id="footer-mobile">
-    <div class="footerContainer">
-        <img src="/assets/img/logoWhite.png">
-        <p class="bold footer-text" style="letter-spacing: 5px;">SUNUM</p>
-        <div>
-            <a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln" style="color: white;"><i class="fab fa-instagram"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p class="footer-text darkGreyText">SUNUM. Todos los derechos reservados</p>
-    </div>
-</div>
-<div id="footer-desktop">
-    <div class="footer-container-desktop">
-        <div class="footer-desktop-section">
-            <img src="../../../assets/img/logoWhite.png" style="width: 38px;">
-            <p class="bold footer-text" style="letter-spacing: 5px; margin-top: 20px;">SUNUM</p>
-        </div>
-        <div class="footer-desktop-section">
-            <p class="bold footer-desktop-title text14">CONTACTO</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:Contacto@biia.lat"><i class="far fa-envelope"></i>Email</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p>
-            <!--<p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>-->
-        </div>
-        <div class="footer-desktop-section">
-            <p class="bold footer-desktop-title text14">SOCIAL</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln"><i class="fab fa-instagram"></i>Instagram</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-youtube"></i>Youtube</a></p>
-        </div>
-    </div>
-    <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>
-</div>
-

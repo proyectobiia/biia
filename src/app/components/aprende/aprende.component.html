@@ -1,8 +1,8 @@
 <div class="aprende-navbar">
     <a routerLink="/"><img src="../../../assets/img/logoWhite.png" class="aprende-navbar-logo"></a>
     <div class="aprende-links">
-        <a class="aprende-selected-link aprende-link" >INVIERTE</a>
         <a class="aprende-link" routerLink="/aprende">APRENDE</a>
+        <a class="aprende-selected-link aprende-link" >INVIERTE</a>
     </div>
 </div>
 <div class="aprende-hero">
@@ -12,7 +12,7 @@
     <div class="video-cover"></div>
     <div class="aprende-hero-container">
         <div class="aprende-hero-img-container">
-            <img src="../../../assets/img/guacamaya.png" class="aprende-hero-img">
+            <img src="../../../assets/img/Guacamaya.png" class="aprende-hero-img">
         </div>
         <div class="aprende-hero-text">
             <p class="aprende-hero-animal">MOO | MAYA</p>
@@ -23,48 +23,47 @@
 </div>
 
 <div class="info-container">
-    <p class="info-text">Los mercados bursátilos están en constante movimiento (alteraciones), en Sunum nos preocupamos por ofrecerte los movimientos más preciosas mediante alianzas con los mejores brokers a nivel internacional con las regulaciones más rigurosas como son la ASIC, FCA y CySEC.</p>
+    <p class="info-text">Los mercados bursátilos están en constante movimiento (alteraciones), en Sunum nos preocupamos por ofrecerte los movimientos más precisos mediante alianzas con los mejores brokers a nivel internacional con las regulaciones más rigurosas como son la ASIC, FCA y CySEC.</p>
     <h3>PROCESO DE 3 PASOS.</h3>
     <div class="steps">
-        <div class="step"><div class="number">1</div> <p>Si eres un operador nuevo, te recomendamos comiences dando click <a class="lightGreenText">aquí</a>.</p></div>
-        <div class="step"><div class="number">2</div> <p>Crea tu cuenta Sunum gratis <a routerLink="signup" class="lightGreenText">aquí</a>.</p></div>
+        <div class="step"><div class="number">1</div> <p>Si eres un operador nuevo, te recomendamos comiences dando click <a href="https://youtube.com/playlist?list=PLLNzc9eda90TIahixOvUkllsca9JFxVmy" class="lightGreenText">aquí</a>.</p></div>
+        <div class="step"><div class="number">2</div> <p>Crea tu cuenta Sunum gratis <a routerLink="/signup" class="lightGreenText">aquí</a>.</p></div>
         <div class="step"><div class="number">3</div> <p>Elige tu broker favorito.</p></div>
     </div>
     <div class="brokers">
-        <div class="broker"><img src="../../../assets/img/Tickmill.png" alt=""></div>
-        <div class="broker"><img src="../../../assets/img/Global Prime.png" alt=""></div>
-        <div class="broker"><img src="../../../assets/img/ICMarkets.png" alt=""></div>
-        <div class="broker"><img src="../../../assets/img/Pepperstone.png" alt=""></div>
+        <div class="broker" routerLink="/signup"><img src="../../../assets/img/Tickmill.png" alt=""></div>
+        <div class="broker" routerLink="/signup"><img src="../../../assets/img/Global Prime.png" alt=""></div>
+        <div class="broker" routerLink="/signup"><img src="../../../assets/img/ICMarkets.png" alt=""></div>
+        <div class="broker" routerLink="/signup"><img src="../../../assets/img/Pepperstone.png" alt=""></div>
+    </div>
+    <div class="brokers-mobile">
+        <swiper [config]="config" class="operatives-swiper">
+            <div class="operatives-slide">
+                <div class="broker" routerLink="/signup"><img src="../../../assets/img/Tickmill.png" alt=""></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="broker" routerLink="/signup"><img src="../../../assets/img/Global Prime.png" alt=""></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="broker" routerLink="/signup"><img src="../../../assets/img/ICMarkets.png" alt=""></div>
+            </div>
+            <div class="operatives-slide">
+                <div class="broker" routerLink="/signup"><img src="../../../assets/img/Pepperstone.png" alt=""></div>
+            </div>
+        </swiper>
     </div>
 </div>
-
-
-
-
-<!-- <div class="aprende-swiper-container">
-    <p class="swiper-legend">Elige al bróker con el que más te adaptes</p>
-    <swiper [config]="config" class="aprende-swiper">
-        <div class="aprende-slide" *ngFor="let broker of brokerList">
-            <div class="aprende-academia" ><a routerLink="/login">
-                <div class="aprende-img-container">
-                    <img [src]="broker.path" class="aprende-img">
-                </div>
-                <p class="aprende-academia-title">{{broker.name}}</p>
-                <p class="aprende-academia-text">{{broker.description}}</p>
-            </a></div>
-        </div>    
-    </swiper>
-</div> -->
 
 <div id="footer-mobile">
     <div class="footerContainer">
         <img src="/assets/img/logoWhite.png">
         <p class="bold footer-text" style="letter-spacing: 5px;">SUNUM</p>
         <div>
-            <a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln" style="color: white;"><i class="fab fa-instagram"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a>
-            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="https://www.instagram.com/sunum_bank/" style="color: white;"><i class="fab fa-instagram"></i></a>
+            <!-- <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/" style="color: white;"><i class="fab fa-linkedin-in"></i></a> -->
+            <a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ" style="color: white;"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" href="mailto:contacto@sunum.com.mx" style="color: white;"><i class="far fa-envelope"></i></a>
         </div>
         <p class="footer-text darkGreyText">SUNUM. Todos los derechos reservados</p>
     </div>
@@ -77,16 +76,16 @@
         </div>
         <div class="footer-desktop-section">
             <p class="bold footer-desktop-title text14">CONTACTO</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:Contacto@biia.lat"><i class="far fa-envelope"></i>Email</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="mailto:contacto@sunum.com.mx"><i class="far fa-envelope"></i>Email</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href=""><i class="fab fa-whatsapp"></i>WhatsApp</a></p> -->
             <!--<p class="footer-desktop-text text14"><a target="_blank" href="https://wa.me/+526623003805?text=¡Hola! Quisiera hablar con ustedes acerca de"><i class="fab fa-whatsapp"></i>Whatsapp</a></p>-->
         </div>
         <div class="footer-desktop-section">
             <p class="bold footer-desktop-title text14">SOCIAL</p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/biia.lat/?igshid=kv2tz50zwwln"><i class="fab fa-instagram"></i>Instagram</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p>
-            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-youtube"></i>Youtube</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.instagram.com/sunum_bank/"><i class="fab fa-instagram"></i>Instagram</a></p>
+            <!-- <p class="footer-desktop-text text14"><a target="_blank" href="https://www.facebook.com/pages/category/Product-Service/BIIA-106236047693293/"><i class="fab fa-facebook-square"></i>Facebook</a></p>
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.linkedin.com/company/biia-invest/"><i class="fab fa-linkedin-in"></i>LinkedIn</a></p> -->
+            <p class="footer-desktop-text text14"><a target="_blank" href="https://www.youtube.com/channel/UCTksxK_EZwxw0XIKUl9TpPQ"><i class="fab fa-youtube"></i>Youtube</a></p>
         </div>
     </div>
     <p class="bold footer-disclaimer">2021. TODOS LOS DERECHOS RESERVADOS.</p>
