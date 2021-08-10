@@ -490,6 +490,7 @@ p{
     transform: rotateY(180deg);
     height: 70%;
     margin-top: 15%;
+    width: 100%;
 }
 
 .appearedImg{
@@ -570,6 +571,14 @@ p{
 }
 
 @media only screen and (max-width: 1000px) {
+    .animalBtn{
+        left: 50%;
+        margin-left: -90px;
+        width: 180px;
+        box-sizing: border-box;
+    }
+
+
     .landingSection{
         height: max-content;
         margin-bottom: 100px;
@@ -605,6 +614,7 @@ p{
     .animalText{
         padding: 0 15%;
         letter-spacing: 2px;
+        font-size: 15px;
     }
 
     #tortugaBtn{
@@ -665,9 +675,20 @@ p{
         }
     }
 
+
+    #secondSection > .second-section-first-p{
+        min-width: 300px;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {
+
+    
+
+    .leftBtn{
+        right: auto !important;
+    }
 
     #firstSectionP{
         font-size: 14px;
