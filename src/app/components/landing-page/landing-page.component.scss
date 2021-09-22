@@ -796,6 +796,9 @@ p{
 @media only screen and (max-width: 500px) {
     .ver-brokers{
         width: calc(80% - 60px);
+        a{
+            width: 300px;
+        }
     }
 
     
