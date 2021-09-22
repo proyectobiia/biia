@@ -1,3 +1,11 @@
+$purple: rgba(108,49,247,1);
+$light-green: rgba(0,191,181,1);
+$orange: rgba(248,137,32,1);
+$darkGrey: rgba(255,255,255,0.7);
+$mediumGrey: rgba(255,255,255,0.5);
+$lightGrey: rgba(255,255,255,0.3);
+$black: rgba(7,11,13,1);
+
 a{
     text-decoration: none;
 }
@@ -222,7 +230,6 @@ p{
     color: white;
     text-transform: uppercase;
     font-weight: 400;
-    transition: .5s transform ease-out;
 }
 
 #roles{
@@ -334,6 +341,7 @@ p{
     position: relative;
     right: -150%;
     transition: 1s;
+    width: 450px;
 }
 
 #functionBG{
@@ -561,8 +569,32 @@ p{
     margin-bottom: 30px;
 }
 
-.loginBtn:hover,.linkBtn:hover{
-    transform: scale(1.2);
+.linkBtn:hover{
+    transition: .5s all ease;
+    background-color: transparent;
+    background: linear-gradient(45deg, transparent,#00bfb5 50%, #00bfb5);
+}
+
+.secondary-btn:hover{
+    border: 1px $light-green solid;
+    color: $light-green;
+    background: none;
+}
+
+.purpleBackground:hover{
+    background: linear-gradient(45deg, transparent,$purple 50%, $purple);
+}
+
+.orangeBackground:hover{
+    background: linear-gradient(45deg, transparent,$orange 50%, $orange);
+}
+
+.loginBtn{
+    transition: .5s all ease;
+}
+
+.loginBtn:hover{
+    border: 1px $orange solid !important;
 }
 
 .animalBtn{
