@@ -1,6 +1,6 @@
-$purple: rgba(108,49,247,1);
-$light-green: rgba(0,191,181,1);
-$orange: rgba(248,137,32,1);
+$purple: #6c31f7;
+$light-green: #00bfb5;
+$orange: #f88920;
 $darkGrey: rgba(255,255,255,0.7);
 $mediumGrey: rgba(255,255,255,0.5);
 $lightGrey: rgba(255,255,255,0.3);
@@ -230,6 +230,7 @@ p{
     color: white;
     text-transform: uppercase;
     font-weight: 400;
+    box-shadow: 0px 8px 8px rgba(0,0,0,.3);
 }
 
 #roles{
@@ -559,9 +560,6 @@ p{
         margin: 0;
         left: 50%;
         transform: translateX(-50%);
-        &:hover{
-            transform: translateX(-50%) scale(1.2) !important;
-        }
     }
 }
 
@@ -572,21 +570,22 @@ p{
 .linkBtn:hover{
     transition: .5s all ease;
     background-color: transparent;
-    background: linear-gradient(45deg, transparent,#00bfb5 50%, #00bfb5);
+    background: linear-gradient(45deg, #0F3237,#00bfb5 50%, #00bfb5);
 }
 
 .secondary-btn:hover{
     border: 1px $light-green solid;
     color: $light-green;
     background: none;
+    box-shadow: none;
 }
 
 .purpleBackground:hover{
-    background: linear-gradient(45deg, transparent,$purple 50%, $purple);
+    background: linear-gradient(45deg, #1F1F41,$purple 50%, $purple);
 }
 
 .orangeBackground:hover{
-    background: linear-gradient(45deg, transparent,$orange 50%, $orange);
+    background: linear-gradient(45deg, #352D22,$orange 50%, $orange);
 }
 
 .loginBtn{
@@ -603,6 +602,10 @@ p{
 }
 
 @media only screen and (max-width: 1000px) {
+    #myVideo{
+        display: none;
+    }
+
     .animalBtn{
         left: 50%;
         margin-left: -90px;
@@ -637,6 +640,14 @@ p{
 
     .animalContainer{
         flex-direction: column;
+        .appearedTextLeft{
+            order: 1;
+        }
+        .animalImg{
+            order: 0;
+            margin-top: 0 !important;
+            margin-bottom: 60px !important;
+        }
     }
     
     .animal-text-container, .appearedTextLeft, .right{
@@ -754,7 +765,7 @@ p{
     }
 
     #tortugaText{
-        margin-top: 50px;
+        margin-top: 0;
     }
 
     #explainDiv{
@@ -764,7 +775,7 @@ p{
 
     #infoSection{
         height: max-content;
-        margin: 50px 0;
+        margin: 70px 0;
     }
 
     .explainContainer{
